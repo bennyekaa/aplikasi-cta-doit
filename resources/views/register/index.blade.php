@@ -27,9 +27,10 @@
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Pendaftaran Anggota Baru</p>
 
-                <form action="../../index.html" method="post">
+                <form action="{{url('actionregister')}}" method="post">
+                @csrf
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Nama Lengkap">
+                        <input type="text" class="form-control" name="username" placeholder="Username">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -37,7 +38,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Telepon">
+                        <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -45,7 +46,15 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="text" class="form-control" name="telepon" placeholder="Telepon">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -53,25 +62,17 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <select class="custom-select rounded-0" id="exampleSelectRounded0">
+                        <select class="custom-select rounded-0" id="exampleSelectRounded0" name="jk">
                             <option>--Pilih Jenis Kelamin--</option>
                             <option value="L">Laki - Laki</option>
                             <option value="P">Perempuan</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" rows="3" placeholder="Masukkan Alamat"></textarea>
+                        <textarea class="form-control" rows="3" name="alamat" placeholder="Masukkan Alamat"></textarea>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Ulangi password">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
