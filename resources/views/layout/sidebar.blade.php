@@ -63,7 +63,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="pages/layout/top-nav.html" class="nav-link">
+                        <a href="{{url('master/soal/index')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Soal</p>
                         </a>
@@ -75,9 +75,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/layout/boxed.html" class="nav-link">
+                        <a href="{{url('master/kategori/index')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Kategori</p>
+                            <p>Kategori Paket</p>
                         </a>
                     </li>
                     <li class="nav-item">

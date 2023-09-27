@@ -20,4 +20,23 @@ class Soal extends Model
         return $this->belongsTo(KategoriSoal::class, "id_kategori_soal", "id_kategori_soal");
     }
 
+    protected $fillable = [
+        'id_soal',
+        'id_kategori_soal',
+        'soal',
+        'pembahasan',
+        // 'file',
+        'jawaban_a',
+        'poin_a',
+        'jawaban_b',
+        'poin_b',
+        'jawaban_c',
+        'poin_c',
+        'jawaban_d',
+        'poin_d',
+        'jawaban_e',
+        'poin_e',
+        'created_at',
+        'created_by'
+    ];
 }

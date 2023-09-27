@@ -14,4 +14,12 @@ class KategoriSoal extends Model
     protected $primaryKey = 'id_kategori_soal';
 
     public $incrementing = false;
+
+    protected $fillable = [
+        'id_kategori_soal',
+        'nama_kategori_soal',
+        'aktif',
+        'created_at',
+        'created_by'
+    ];
 }

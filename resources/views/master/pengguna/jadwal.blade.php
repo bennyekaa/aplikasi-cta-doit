@@ -32,11 +32,14 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form>
+                                <form action="{{url('master/pengguna/proses')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="fungsi" value="Jadwal">
+                                    <input type="hidden" name="id_user" value="{{$id_user}}">
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Batas Tanggal</label>
-                                            <input type="text" class="form-control datepicker" placeholder="Batas Aktif">
+                                            <label>Batas Tanggal</label>
+                                            <input type="text" name="batas" class="form-control datepicker" placeholder="Batas Aktif">
                                         </div>
                                     </div>
                                     <!-- /.card-body -->

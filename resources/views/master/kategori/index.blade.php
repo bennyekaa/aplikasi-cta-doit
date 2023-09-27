@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Data Pengguna</h1>
+                        <h1>Data Kategori Soal</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Master</a></li>
-                            <li class="breadcrumb-item active">Pengguna</li>
+                            <li class="breadcrumb-item active">Kategori</li>
                         </ol>
                     </div>
                 </div>
@@ -26,41 +26,45 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Pengguna</h3>
+                                <h3 class="card-title">Kategori</h3>
                             </div>
                             <!-- /.card-header -->
+                            <div class="col-sm-6">
+                                <a class="btn btn-primary" href="{{url('master/kategori/tambah')}}">
+                                    <i></i>TAMBAH
+                                </a>
+                            </div>
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <th>#</th>
-                                        <th>USERNAME</th>
-                                        <th>EMAIL</th>
-                                        <th>NAMA LENGKAP</th>
-                                        <th>JENIS KELAMIN</th>
-                                        <th>TELEPON/HP</th>
-                                        <th>ALAMAT</th>
-                                        <th>BATAS BERLANGGANAN</th>
+                                        <th>KATEGORI</th>
+                                        <th>KETERANGAN</th>
+                                        <th>STATUS</th>
                                         <th></th>
                                     </thead>
                                     <tbody>
                                         @php
                                             $i = 1;
                                         @endphp
-                                        @foreach ($pengguna as $item)
+                                        @foreach ($kategori as $item)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td>{{ $item->username }}</td>
-                                                <td>{{ $item->email }}</td>
-                                                <td>{{ $item->nama_lengkap }}</td>
-                                                <td>{{ $item->jk }}</td>
-                                                <td>{{ $item->telepon }}</td>
-                                                <td>{{ $item->alamat }}</td>
-                                                <td>{{ $item->tanggal_aktif }}</td>
+                                                <td>{{ $item->nama_kategori_soal }}</td>
+                                                <td>{{ $item->keterangan }}</td>
+                                                <td>
+                                                    @if ($item->aktif == 0)
+                                                        <a class="btn btn-danger disabled">
+                                                            <i></i>Tidak Aktif
+                                                        </a>
+                                                    @else
+                                                        <a class="btn btn-success disabled">
+                                                            <i></i>Aktif
+                                                        </a>
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a class="btn btn-secondary" href="{{url('master/pengguna/jadwal')}}/{{encrypt($item->id_user)}}" title="Atur Jadwal">
-                                                            <i></i>JADWAL
-                                                        </a>
                                                         <a class="btn btn-warning" title="Edit">
                                                             <i></i>EDIT
                                                         </a>
