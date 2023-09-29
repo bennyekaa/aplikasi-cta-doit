@@ -6,6 +6,7 @@ use App\Http\Controllers\Master\Kategori\KategoriController;
 use App\Http\Controllers\Master\Pengguna\PenggunaController;
 use App\Http\Controllers\Master\Soal\SoalController;
 use App\Http\Controllers\Register\RegisterController;
+use App\Http\Controllers\Ujian\UjianController;
 use App\Models\Master\KategoriSoal;
 use Illuminate\Support\Facades\Route;
 
@@ -48,5 +49,9 @@ Route::middleware('checklogin')->group(function () {
             Route::get('add', [SoalController::class, 'add']);
             Route::post('import', [SoalController::class, 'import']);
         });
+    });
+
+    Route::prefix('ujian')->group(function () {
+        Route::get('index', [UjianController::class, 'index']);
     });
 });
