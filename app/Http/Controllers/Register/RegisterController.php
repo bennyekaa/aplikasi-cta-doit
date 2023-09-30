@@ -23,6 +23,7 @@ class RegisterController extends Controller
         $pengguna->email = $request->email;
         $pengguna->jk = $request->jk;
         $pengguna->alamat = $request->alamat;
+        $pengguna->role = 1;
         $pengguna->password = Hash::make($request->password);
         $pengguna->created_at = $this->waktu;
         $pengguna->created_by = $pengguna->id_user;

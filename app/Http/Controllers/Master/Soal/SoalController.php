@@ -24,6 +24,10 @@ class SoalController extends Controller
         return view('master.soal.add',$data);
     }
 
+    public function add_detail($id){
+        
+    }
+
     public function import(Request $request)
     {
         try{

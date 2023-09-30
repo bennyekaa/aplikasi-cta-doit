@@ -63,21 +63,21 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{url('master/soal/index')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Soal</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Jawaban</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{url('master/kategori/index')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Kategori Paket</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url('master/modul/index')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Modul</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url('master/soal/index')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Soal</p>
                         </a>
                     </li>
                     <li class="nav-item">

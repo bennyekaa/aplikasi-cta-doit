@@ -27,7 +27,7 @@ class LoginController extends Controller
                 if (!Hash::check($password, $user->password)) {
                     return redirect('/login')->with('error', 'Password salah!');
                 } else {
-                    if($user->username == 'admin'){
+                    if($user->role == 0){
                         session([
                             'id_user' => $user->id_user,
                             'role' => 'ADMIN',
@@ -46,7 +46,7 @@ class LoginController extends Controller
                                 'email' => $user->email,
                                 'login' => 1
                             ]);
-                            return redirect('/')->with('success', 'Selamat Datang');
+                            return redirect('ujian/list')->with('success', 'Selamat Datang');
                         }else{
                             return redirect('/login')->with('error', 'Anda Tidak Memiliki Langganan, Silahkan Hubungi WA 08563498050 untuk berlangganan!');
                         }
@@ -57,7 +57,7 @@ class LoginController extends Controller
                 if (!Hash::check($password, $user->password)) {
                     return redirect('/login')->with('error', 'Password salah!');
                 } else {
-                    if($user->email == 'admin'){
+                    if($user->role == 0){
                         session([
                             'id_user' => $user->id_user,
                             'role' => 'ADMIN',
@@ -76,7 +76,7 @@ class LoginController extends Controller
                                 'email' => $user->email,
                                 'login' => 1
                             ]);
-                            return redirect('/')->with('success', 'Selamat Datang');
+                            return redirect('ujian/list')->with('success', 'Selamat Datang');
                         } else {
                             return redirect('/login')->with('error', 'Anda Tidak Memiliki Langganan, Silahkan Hubungi WA 08563498050 untuk berlangganan!');
                         }

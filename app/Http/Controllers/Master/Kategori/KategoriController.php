@@ -21,6 +21,18 @@ class KategoriController extends Controller
         return view('master.kategori.add');
     }
 
+    public function edit($id){
+
+    }
+
+    public function hapus($id){
+
+    }
+
+    public function status($id, $set){
+
+    }
+
     public function proses(Request $request){
         try {
             if ($request->fungsi == 'Tambah') {

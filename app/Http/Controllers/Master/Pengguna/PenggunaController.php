@@ -11,9 +11,29 @@ use Illuminate\Support\Facades\Log;
 class PenggunaController extends Controller
 {
     public function index(){
-        $data['pengguna'] = Pengguna::where('username', '<>', 'admin')->get();
+        $data['pengguna'] = Pengguna::where('role', '<>', 0)->get();
         session()->put('pengguna', url()->full());
         return view('master.pengguna.index', $data);
+    }
+
+    public function tambah(){
+
+    }
+
+    public function edit($id){
+
+    }
+
+    public function hapus($id){
+
+    }
+
+    public function status($id, $set){
+
+    }
+
+    public function password($id){
+
     }
 
     public function jadwal($id){

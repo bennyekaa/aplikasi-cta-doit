@@ -50,7 +50,7 @@
                                         @foreach ($kategori as $item)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td>{{ $item->nama_kategori_soal }}</td>
+                                                <td>{{ $item->nama_kategori }}</td>
                                                 <td>{{ $item->keterangan }}</td>
                                                 <td>
                                                     @if ($item->aktif == 0)
@@ -65,6 +65,12 @@
                                                 </td>
                                                 <td>
                                                     <div class="btn-group">
+                                                        <a class="btn btn-success" title="Aktifkan">
+                                                            <i></i>AKTIF
+                                                        </a>
+                                                        <a class="btn btn-primary" title="Non-Aktif">
+                                                            <i></i>NON-AKTIF
+                                                        </a>
                                                         <a class="btn btn-warning" title="Edit">
                                                             <i></i>EDIT
                                                         </a>

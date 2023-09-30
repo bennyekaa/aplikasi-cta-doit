@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Soal</h1>
+                        <h1>Modul</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Master</a></li>
-                            <li class="breadcrumb-item active">Soal</li>
+                            <li class="breadcrumb-item active">Modul</li>
                         </ol>
                     </div>
                 </div>
@@ -28,27 +28,27 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Tambah Soal</h3>
+                                <h3 class="card-title">Tambah Modul</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="{{ url('master/soal/add/detail') }}" method="post">
+                            <form action="{{ url('master/modul/proses') }}" method="post">
                                 @csrf
-                                <input type="hidden" name="fungsi" value="Import">
+                                <input type="hidden" name="fungsi" value="Tambah">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <select class="custom-select rounded-0" name="kategor1.42i">
-                                            <option>--Pilih Kategori--</option>
-                                            @foreach ($kategori as $item)
-                                                <option value="{{$item->id_kategori_soal}}">{{$item->nama_kategori_soal}}</option>
-                                            @endforeach
-                                        </select>
+                                        <label>Nama Modul</label>
+                                        <input type="text" name="nama_modul" class="form-control"
+                                            placeholder="Nama Kategori">
                                     </div>
-
+                                    <div class="form-group">
+                                        <label>Keterangan</label>
+                                        <textarea class="form-control" rows="3" name="keterangan" placeholder="Masukkan Keterangan"></textarea>
+                                    </div>
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">LANJUT</button>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>
                             </form>
@@ -66,37 +66,4 @@
     <!-- /.content-wrapper -->
     </div>
     <!-- ./wrapper -->
-@endsection
-@section('tambahanjs')
-    <script type="text/javascript">
-        function fileValidation() {
-            var fileInput =
-                document.getElementById('data_file');
-
-            var filePath = fileInput.value;
-
-            // Allowing file type
-            var allowedExtensions =
-                /(\.xls|\.xlsx)$/i;
-
-            if (!allowedExtensions.exec(filePath)) {
-                alert('Type File tidak sesuai!!!');
-                fileInput.value = '';
-                return false;
-            } else {
-                // Image preview
-                if (fileInput.files && fileInput.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById(
-                                'imagePreview').innerHTML =
-                            '<img src="' + e.target.result +
-                            '"/>';
-                    };
-
-                    reader.readAsDataURL(fileInput.files[0]);
-                }
-            }
-        };
-    </script>
 @endsection

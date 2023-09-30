@@ -31,7 +31,7 @@
                             <!-- /.card-header -->
                             <div class="col-sm-6">
                                 <a class="btn btn-primary" href="{{url('master/soal/add')}}">
-                                    <i></i>IMPORT
+                                    <i></i>TAMBAH
                                 </a>
                             </div>
                             <div class="card-body">
@@ -40,6 +40,7 @@
                                         <th>#</th>
                                         <th>KATEGORI</th>
                                         <th>SOAL</th>
+                                        <th>PEMBAHASAN</th>
                                         <th></th>
                                     </thead>
                                     <tbody>
