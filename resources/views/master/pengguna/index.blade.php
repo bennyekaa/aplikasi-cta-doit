@@ -61,13 +61,13 @@
                                                         <a class="btn btn-primary" href="{{url('master/pengguna/jadwal')}}/{{encrypt($item->id_user)}}" title="Atur Jadwal">
                                                             <i></i>JADWAL
                                                         </a>
-                                                        <a class="btn btn-secondary" href="#" title="Reset Password">
+                                                        <a class="btn btn-secondary" href="{{url('master/pengguna/password')}}/{{encrypt($item->id_user)}}" title="Reset Password">
                                                             <i></i>RESET
                                                         </a>
                                                         <a class="btn btn-warning" title="Edit">
                                                             <i></i>EDIT
                                                         </a>
-                                                        <a class="btn btn-danger" title="Hapus">
+                                                        <a class="btn btn-danger" href="{{url('master/pengguna/hapus')}}/{{encrypt($item->id_user)}}" title="Hapus">
                                                             <i></i>HAPUS
                                                         </a>
                                                     </div>

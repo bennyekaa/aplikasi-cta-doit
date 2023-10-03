@@ -25,10 +25,20 @@
 
         <div class="card">
             <div class="card-body register-card-body">
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                @if (session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <p class="login-box-msg">Pendaftaran Anggota Baru</p>
 
-                <form action="{{url('actionregister')}}" method="post">
-                @csrf
+                <form action="{{ url('actionregister') }}" method="post">
+                    @csrf
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="username" placeholder="Username">
                         <div class="input-group-append">

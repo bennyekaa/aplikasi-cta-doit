@@ -58,7 +58,10 @@
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
+                        </div>
+                        <div class="col-8">
+                            <a href="{{url('register')}}" class="btn btn-warning btn-block pull-right">Belum Punya Akun ?<br>Klik Disini</a>
                         </div>
                         <!-- /.col -->
                     </div>

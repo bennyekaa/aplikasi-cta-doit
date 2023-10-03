@@ -45,12 +45,12 @@
                                         @foreach ($kategori as $item)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td>{{ $item->nama_kategori_soal }}</td>
+                                                <td>{{ $item->nama_kategori }}</td>
                                                 <td>{{ $item->keterangan }}</td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a class="btn btn-primary" title="Detail">
-                                                            <i></i>PILIH UJICOBA
+                                                        <a class="btn btn-primary" href="{{url('ujian/detail')}}/{{encrypt($item->id_kategori)}}" title="Detail">
+                                                            <i></i>PILIH
                                                         </a>
                                                     </div>
                                                 </td>

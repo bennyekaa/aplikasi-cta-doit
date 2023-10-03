@@ -63,15 +63,21 @@ Route::middleware('checklogin')->group(function () {
         });
         Route::prefix('soal')->group(function () {
             Route::get('index', [SoalController::class, 'index']);
-            Route::get('add', [SoalController::class, 'add']);
-            Route::get('add/detail/{id}', [SoalController::class, 'add_detail']);
+            Route::get('list', [SoalController::class, 'list']);
+            Route::get('detail/list/{id}', [SoalController::class, 'detail_list']);
+            Route::get('add/{id}', [SoalController::class, 'add']);
+            Route::post('proses', [SoalController::class, 'proses']);
             Route::post('import', [SoalController::class, 'import']);
         });
     });
 
     Route::prefix('ujian')->group(function () {
         Route::get('list', [UjianController::class, 'list']);
-        Route::get('detail', [UjianController::class, 'detail']);
+        Route::get('detail/{id}', [UjianController::class, 'detail']);
+        Route::get('input/{id}', [UjianController::class, 'input']);
+        Route::get('mulai/{id}/{id1}/{id2}', [UjianController::class, 'mulai'])->name('ujian.mulai');
+        Route::get('pembahasan/{id}/{id1}', [UjianController::class, 'pembahasan']);
+        Route::get('jawab/{id}/{id1}/{id2}/{id3}', [UjianController::class, 'jawab']);
         Route::get('index', [UjianController::class, 'index']);
     });
 });

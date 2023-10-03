@@ -20,6 +20,11 @@ class Soal extends Model
         return $this->belongsTo(KategoriSoal::class, "id_kategori_soal", "id_kategori_soal");
     }
 
+    public function modul()
+    {
+        return $this->belongsTo(Modul::class, "id_modul", "id_modul");
+    }
+
     protected $fillable = [
         'id_soal',
         'id_kategori_soal',
