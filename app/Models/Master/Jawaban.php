@@ -9,7 +9,7 @@ class Jawaban extends Model
 {
     use HasFactory;
     protected $connection = 'mysql';
-    protected $table = 'ref_jawaban';
+    protected $table = 'data_riwayat';
     //---Set Primary Key---
     protected $primaryKey = 'id_jawaban';
 

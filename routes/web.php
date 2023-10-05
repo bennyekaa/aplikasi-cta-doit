@@ -72,12 +72,21 @@ Route::middleware('checklogin')->group(function () {
     });
 
     Route::prefix('ujian')->group(function () {
-        Route::get('list', [UjianController::class, 'list']);
+        Route::get('list', [UjianController::class, 'list'])->name('ujian.list');
         Route::get('detail/{id}', [UjianController::class, 'detail']);
         Route::get('input/{id}', [UjianController::class, 'input']);
         Route::get('mulai/{id}/{id1}/{id2}', [UjianController::class, 'mulai'])->name('ujian.mulai');
         Route::get('pembahasan/{id}/{id1}', [UjianController::class, 'pembahasan']);
         Route::get('jawab/{id}/{id1}/{id2}/{id3}', [UjianController::class, 'jawab']);
+        // Route::post('jawab', [UjianController::class, 'jawab'])->name('ujian.jawab');;
         Route::get('index', [UjianController::class, 'index']);
     });
+
+    Route::get('/get-countdown-time/{id}', [UjianController::class, 'getCountdownTime']);
+    Route::post('/update-countdown-time', [UjianController::class, 'updateCountdownTime']);
+
+    Route::post('/simpan_waktu', [UjianController::class, 'simpanwaktu']);
+
+    Route::post('/simpan_ujian', [UjianController::class, 'simpanujian']);
+
 });
