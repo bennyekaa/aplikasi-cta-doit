@@ -84,31 +84,39 @@ class UjianController extends Controller
 
         $data['waktumulai'] = Ujian::where('id_ujian',$id_ujian)->first();
 
-        $waktumulai = $data['waktumulai'] ? $data['waktumulai']->created_at : null;
+        if ($data['waktumulai']) {
+            $waktumulai = $data['waktumulai'] ? $data['waktumulai']->created_at : null;
 
-        if ($waktumulai) {
-            $waktuObjekAwal = \DateTime::createFromFormat('Y-m-d H:i:s', $waktumulai);
-            $waktuObjekSelesai = clone $waktuObjekAwal;
-            $waktuObjekSelesai->add(new \DateInterval('PT110M')); // Tambahkan 110 menit
+            if ($waktumulai) {
+                $waktuObjekAwal = \DateTime::createFromFormat('Y-m-d H:i:s', $waktumulai);
+                $waktuObjekSelesai = clone $waktuObjekAwal;
+                $waktuObjekSelesai->add(new \DateInterval('PT110M')); // Tambahkan 110 menit
 
-            $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
-            $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
+                $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
+                $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
 
-            // Hitung selisih waktu antara waktu selesai dan waktu update saat ini
-            $waktuUpdateSaatIni = $data['waktumulai']->updated_at; // Waktu update saat ini
-            $selisih = $waktuUpdateSaatIni->diff($waktuObjekSelesai);
+                // Pemeriksaan apakah $waktuUpdateSaatIni adalah null
+                if ($data['waktumulai']->updated_at) {
+                    $waktuUpdateSaatIni = $data['waktumulai']->updated_at; // Waktu update saat ini
+                    $selisih = $waktuUpdateSaatIni->diff($waktuObjekSelesai);
 
-            // Ambil selisih dalam menit
-            $data['selisih_menit'] = $selisih->days * 24 * 60 + $selisih->h * 60 + $selisih->i;
+                    // Ambil selisih dalam menit
+                    $data['selisih_menit'] = $selisih->days * 24 * 60 + $selisih->h * 60 + $selisih->i;
 
-            // Ambil selisih dalam detik
-            $data['selisih_detik'] = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
-        } else {
-            // Handle jika $data['waktumulai'] adalah null
-            $data['mulai'] = null;
-            $data['selesai'] = null;
-            $data['selisih_menit'] = null;
-            $data['selisih_detik'] = null;
+                    // Ambil selisih dalam detik
+                    $data['selisih_detik'] = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
+                } else {
+                    // Handle jika $waktuUpdateSaatIni adalah null
+                    $data['selisih_menit'] = null;
+                    $data['selisih_detik'] = null;
+                }
+            } else {
+                // Handle jika $data['waktumulai'] adalah null
+                $data['mulai'] = null;
+                $data['selesai'] = null;
+                $data['selisih_menit'] = null;
+                $data['selisih_detik'] = null;
+            }
         }
 
 
