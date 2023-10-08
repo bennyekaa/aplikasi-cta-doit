@@ -122,7 +122,7 @@ class UjianController extends Controller
         $ujian = Ujian::find($id_ujian);
         $ujian->status = 1;
         $ujian->updated_by = session('id_user');
-        $ujian->updated_at = $this->waktu;
+        $ujian->updated_at = date('Y-m-d H:i:s.U');;
         $ujian->save();
         return view('ujian.mulai', $data);
     }
@@ -143,10 +143,10 @@ class UjianController extends Controller
         $ujian = Ujian::find(decrypt($id_ujian));
         $ujian->updated_by = session('id_user');
         $ujian->status = 1;
-        $ujian->updated_at = $this->waktu;
+        $ujian->updated_at = date('Y-m-d H:i:s.U');
         $jawab->jawaban = $huruf;
         $jawab->updated_by = session('id_user');
-        $jawab->updated_at = $this->waktu;
+        $jawab->updated_at = date('Y-m-d H:i:s.U');
         $jawab->save();
         $ujian->save();
 
@@ -159,16 +159,16 @@ class UjianController extends Controller
 
         // Simpan waktu yang tersisa ke dalam database, misalnya dalam kolom 'waktu_sisa' di tabel 'ujian'
         // Gantilah ini sesuai dengan nama tabel dan kolom yang Anda gunakan
-        DB::table('data_ujian')->where('id_ujian', $id_ujian)->update(['status' => 2]);
+        DB::table('data_ujian')->where('id_ujian', $id_ujian)->update(['status' => 2, 'updated_at' => date('Y-m-d H:i:s.U'), 'updated_by' => session('id_user')]);
 
         // Beri respons yang sesuai jika diperlukan
-        return response()->json(['status' => 'Berhasil menyimpan ujian']);
+        return response()->json(['hasil' => 'Berhasil menyimpan ujian']);
     }
 
     public function selesai($idUjian){
         $ujian = Ujian::find($idUjian);
         $ujian->status = 2;
-        $ujian->updated_at = $this->waktu;
+        $ujian->updated_at = date('Y-m-d H:i:s.U');
         $ujian->updated_by = session('id_user');
         $ujian->save();
         return redirect(url('ujian/list'));
@@ -177,10 +177,10 @@ class UjianController extends Controller
     public function updatewaktu(Request $request){
         $id_ujian = $request->input('id_ujian');
 
-        DB::table('data_ujian')->where('id_ujian', $id_ujian)->update(['updated_at' => $this->waktu,  'updated_by' => session('id_user')]);
+        DB::table('data_ujian')->where('id_ujian', $id_ujian)->update(['updated_at' => date('Y-m-d H:i:s.U'),  'updated_by' => session('id_user')]);
 
         // Beri respons yang sesuai jika diperlukan
-        return response()->json(['status' => 'Berhasil menyimpan ujian']);
+        return response()->json(['hasil' => 'Berhasil menyimpan ujian']);
     }
 
 }
