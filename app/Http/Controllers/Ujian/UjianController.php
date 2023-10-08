@@ -7,6 +7,9 @@ use App\Models\Data\Ujian;
 use App\Models\Master\Jawaban;
 use App\Models\Master\KategoriSoal;
 use App\Models\Master\Soal;
+use Carbon\Carbon;
+use DateInterval;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +24,7 @@ class UjianController extends Controller
     public function list()
     {
         $data['kategori'] = KategoriSoal::all()->sortByDesc('created_at');
+        $data['ujian_aktif'] = Ujian::join('data_riwayat', 'data_riwayat.id_ujian','=','data_ujian.id_ujian')->join('ref_soal', 'ref_soal.id_soal','=','data_riwayat.id_soal')->where('data_ujian.created_by', session('id_user'))->where('data_ujian.status', 1)->first();
         return view('ujian.list', $data);
     }
 
@@ -72,13 +76,35 @@ class UjianController extends Controller
     {
         session()->put('ujian', url()->full());
         session()->put('nomor', $nomor);
-        $data['id_kategori'] = $id;
-        $data['id_ujian'] = $id_ujian;
         $data['nomor'] = $nomor;
-        $data['waktuawal'] = KategoriSoal::where('id_kategori', decrypt($id))->first();
+        $data['id_kategori'] = $id;
         $data['total_nomor'] = Soal::select('id_soal')->where('id_kategori', decrypt($id))->count();
         $data['cari'] = Soal::select('soal')->where('id_kategori', decrypt($id))->where('nomor', $nomor)->first();
         $soal = Soal::join('data_riwayat', 'data_riwayat.id_soal', '=', 'ref_soal.id_soal')->where('id_kategori', decrypt($id))->where('id_ujian', $id_ujian)->orderBy('nomor')->get();
+
+        $data['waktumulai'] = Ujian::where('id_ujian',$id_ujian)->first();
+
+        if ($data['waktumulai']) {
+            $waktumulai = $data['waktumulai']->created_at;
+            $waktuObjekAwal = \DateTime::createFromFormat('Y-m-d H:i:s', $waktumulai);
+            $waktuObjekSelesai = clone $waktuObjekAwal;
+            $waktuObjekSelesai->add(new \DateInterval('PT110M')); // Tambahkan 110 menit
+
+            $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
+            $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
+
+            // Hitung selisih waktu antara waktu selesai dan waktu update saat ini
+            $waktuUpdateSaatIni = $data['waktumulai']->updated_at; // Waktu update saat ini
+            $selisih = $waktuUpdateSaatIni->diff($waktuObjekSelesai);
+
+            // Ambil selisih dalam menit
+            $data['selisih_menit'] = $selisih->days * 24 * 60 + $selisih->h * 60 + $selisih->i;
+
+            // Ambil selisih dalam detik
+            $data['selisih_detik'] = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
+        }
+
+        $data['id_ujian'] = $id_ujian;
         $data['daftarsoal'] = $soal->map(function ($item) {
             return [
                 'id_soal' => $item->id_soal,
@@ -92,19 +118,18 @@ class UjianController extends Controller
             ];
         })->toArray();
 
-        $ujian = Ujian::find($id_ujian);
-        $ujian->status = 1;
-        $ujian->updated_by = session('id_user');
-        $ujian->save();
-
         // dd($data);
+        $ujian = Ujian::find($id_ujian);
+        $ujian->updated_by = session('id_user');
+        $ujian->updated_at = $this->waktu;
+        $ujian->save();
         return view('ujian.mulai', $data);
     }
 
 
     // public function jawab(Request $request)
     // {
-    //     $jawab = Jawaban::where('id_soal', decrypt($request->idSekarang))->where('id_ujian', decrypt($request->id_ujian))->first();
+        //     $jawab = Jawaban::where('id_soal', decrypt($request->idSekarang))->where('id_ujian', decrypt($request->id_ujian))->first();
     //     $jawab->poin = decrypt($request->poin);
     //     $jawab->jawaban = $request->answer;
     //     $jawab->updated_by = session('id_user');
@@ -114,24 +139,16 @@ class UjianController extends Controller
     {
         $jawab = Jawaban::where('id_soal', decrypt($id_soal))->where('id_ujian', decrypt($id_ujian))->first();
         $jawab->poin = decrypt($poin);
+        $ujian = Ujian::find(decrypt($id_ujian));
+        $ujian->updated_by = session('id_user');
+        $ujian->updated_at = $this->waktu;
         $jawab->jawaban = $huruf;
         $jawab->updated_by = session('id_user');
+        $jawab->updated_at = $this->waktu;
         $jawab->save();
+        $ujian->save();
 
         return redirect(session('ujian'));
-    }
-
-    public function simpanwaktu(Request $request)
-    {
-        $waktuTersisa = $request->input('waktu_tersisa');
-        $id_ujian = $request->input('id_ujian');
-
-        // Simpan waktu yang tersisa ke dalam database, misalnya dalam kolom 'waktu_sisa' di tabel 'ujian'
-        // Gantilah ini sesuai dengan nama tabel dan kolom yang Anda gunakan
-        DB::table('data_ujian')->where('id_ujian', $id_ujian)->update(['waktu' => $waktuTersisa]);
-
-        // Beri respons yang sesuai jika diperlukan
-        return response()->json(['status' => 'Berhasil menyimpan waktu tersisa']);
     }
 
     public function simpanujian(Request $request)
@@ -146,26 +163,22 @@ class UjianController extends Controller
         return response()->json(['status' => 'Berhasil menyimpan ujian']);
     }
 
-    public function getCountdownTime($id_kategori)
-    {
-        $countdown = KategoriSoal::where('id_kategori', $id_kategori)->first();
-
-        return response()->json([
-            'minutes' => $countdown->menit,
-            'seconds' => $countdown->detik,
-        ]);
+    public function selesai($idUjian){
+        $ujian = Ujian::find($idUjian);
+        $ujian->status = 2;
+        $ujian->updated_at = $this->waktu;
+        $ujian->updated_by = session('id_user');
+        $ujian->save();
+        return redirect(url('ujian/list'));
     }
 
-    public function updateCountdownTime(Request $request)
-    {
-        $idUjian = $request->input('id_ujian');
-        $minutes = $request->input('minutes');
-        $seconds = $request->input('seconds');
+    public function updatewaktu(Request $request){
+        $id_ujian = $request->input('id_ujian');
 
-        // Perbarui kolom 'menit' dan 'detik' pada model Ujian berdasarkan id_ujian
-        Ujian::where('id_ujian', $idUjian)->update(['menit' => $minutes, 'detik' => $seconds]);
+        DB::table('data_ujian')->where('id_ujian', $id_ujian)->update(['updated_at' => $this->waktu,  'updated_by' => session('id_user')]);
 
-        return response()->json(['message' => 'Countdown time updated successfully']);
+        // Beri respons yang sesuai jika diperlukan
+        return response()->json(['status' => 'Berhasil menyimpan ujian']);
     }
 
 }

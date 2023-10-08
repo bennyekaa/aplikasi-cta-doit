@@ -20,6 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="hold-transition layout-top-nav">
@@ -39,8 +40,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <h5 class="m-0">SOAL</h5>
                                     </div> --}}
                                     <div id="countdown" style="font-size: 24px;">
-                                        <span id="label">WAKTU: </span><span id="minutes">00</span>:<span
-                                            id="seconds">00</span>
+                                        <span id="label">WAKTU: </span>
+                                        <span id="minutes"></span> menit
+                                        <span id="seconds"></span> detik
                                     </div>
 
 
@@ -60,7 +62,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             $soalSekarang = null;
                                             $idSekarang = null;
                                             $jawabanSekarang = null;
-                                            
+
                                             // Cari soal yang sesuai dengan nomor saat ini dalam array $daftarsoal
                                             foreach ($daftarsoal as $soal) {
                                                 if ($soal['nomor_soal'] == $nomorSoalSekarang) {
@@ -91,17 +93,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         @endif
                                     </div>
 
-
-
-
-
                                     <div
                                         style="display: flex; justify-content: space-between; width: 100%; margin-top: 10px;">
                                         @if (Request::segment(4) == 1)
                                             <a href="{{ url('ujian/mulai') }}/{{ $id_kategori }}/{{ $nomor + 1 }}/{{ $id_ujian }}"
                                                 class="btn btn-primary" style="width: 48%;">SELANJUTNYA</a>
                                         @elseif(Request::segment(4) == $total_nomor)
-                                            <a href="#" class="btn btn-primary" style="width: 48%;">SELESAI</a>
+                                            <a href="{{url('ujian/selesai')}}/{{$id_ujian}}" class="btn btn-primary" style="width: 48%;">SELESAI</a>
                                         @else
                                             <a href="{{ url('ujian/mulai') }}/{{ $id_kategori }}/{{ $nomor - 1 }}/{{ $id_ujian }}"
                                                 class="btn btn-primary" style="width: 48%;">SEBELUMNYA</a>
@@ -175,315 +173,86 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <script>
-        function startCountdown(duration) {
-            var timer = duration,
-                minutes, seconds;
-            var idUjian = "{{$id_ujian}}";
-            var countdownInterval = setInterval(function() {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
+        // Fungsi untuk menginisialisasi dan memulai timer mundur
+        function startCountdown(countdownId, initialSeconds) {
+            let remainingSeconds = initialSeconds;
+            const countdownElement = document.getElementById(countdownId);
+            const minutesElement = document.getElementById('minutes');
+            const secondsElement = document.getElementById('seconds');
 
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                document.getElementById("minutes").textContent = minutes;
-                document.getElementById("seconds").textContent = seconds;
-
-                // Simpan waktu yang berjalan di localStorage
-                localStorage.setItem('countdownMinutes', minutes);
-                localStorage.setItem('countdownSeconds', seconds);
-
-                if (--timer < 0) {
-                    clearInterval(countdownInterval); // Hentikan interval saat waktu habis
-                    timer = duration;
-                }
-            }, 1000);
-
-            // Menambahkan interval untuk mengupdate ke database setiap 2 menit
-            setInterval(function() {
-                saveCountdownToDatabase(idUjian, minutes, seconds);
-            }, 1000 * 120); // Setiap 2 menit (120 detik)
-        }
-
-        function saveCountdownTime(idUjian, minutes, seconds) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/update-countdown-time', true);
-            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-            xhr.send(JSON.stringify({
-                id_ujian: idUjian,
-                minutes: minutes,
-                seconds: seconds
-            }));
-        }
-
-        function saveCountdownToDatabase(idUjian, minutes, seconds) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/update-countdown-time', true);
-            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-            xhr.send(JSON.stringify({
-                _token: "{{ csrf_token() }}",
-                id_ujian: idUjian,
-                minutes: minutes,
-                seconds: seconds
-            }));
-        }
-
-        window.onload = function() {
-            var storedMinutes = localStorage.getItem('countdownMinutes');
-            var storedSeconds = localStorage.getItem('countdownSeconds');
-
-            if (storedMinutes !== null && storedSeconds !== null) {
-                var countdownSeconds = parseInt(storedMinutes) * 60 + parseInt(storedSeconds);
-                startCountdown(countdownSeconds);
-            } else {
-                var countdownMinutes = 110; // Ubah sesuai dengan jumlah menit yang Anda inginkan
-                var countdownSeconds = countdownMinutes * 60;
-                startCountdown(countdownSeconds);
+            // Fungsi untuk memperbarui tampilan timer mundur
+            function updateCountdownDisplay() {
+                const minutes = Math.floor(remainingSeconds / 60);
+                const seconds = remainingSeconds % 60;
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
             }
-        };
-    </script>
 
-    {{-- <script>
-        // Ambil waktu sisa dari sesi jika tersedia
-        var waktuSisa = parseInt("{{ session('waktu_sisa', 0) }}");
+            // Memulai timer mundur dan mengupdate tampilan tiap detik
+            const countdownInterval = setInterval(() => {
+                remainingSeconds--;
+                updateCountdownDisplay();
 
-
-        // Fungsi untuk mengonversi total detik menjadi format waktu HH:MM:SS
-        function formatWaktu(totalDetik) {
-            var jam = Math.floor(totalDetik / 3600);
-            var sisaDetik = totalDetik % 3600;
-            var menit = Math.floor(sisaDetik / 60);
-            var detik = sisaDetik % 60;
-            return jam.toString().padStart(2, '0') + ':' + menit.toString().padStart(2, '0') + ':' + detik.toString()
-                .padStart(2, '0');
-        }
-
-        // Fungsi untuk memperbarui waktu setiap detik
-        function perbaruiWaktu() {
-            document.getElementById('timer').textContent = formatWaktu(waktuSisa);
-            waktuSisa--;
-
-            // Saat waktu habis, tampilkan pesan "Waktu Habis"
-            if (waktuSisa < 0) {
-                document.getElementById('timer').textContent = "Waktu Habis";
-                // Tambahkan tindakan lain yang diperlukan saat waktu habis di sini
-            } else {
-                setTimeout(perbaruiWaktu, 1000); // Perbarui setiap 1 detik
-            }
-        }
-
-        // Panggil fungsi perbaruiWaktu saat halaman dimuat
-        perbaruiWaktu();
-    </script> --}}
-    {{-- <script>
-        // Fungsi untuk memulai waktu mundur
-        function startCountdown(seconds) {
-            var countdownInterval = setInterval(function() {
-                seconds--;
-
-                // Update tampilan waktu mundur
-                var timerElement = document.getElementById('timer');
-                if (timerElement) {
-                    timerElement.textContent = formatTime(seconds);
+                // Hentikan timer mundur jika waktu habis
+                if (remainingSeconds <= 0) {
+                    countdownElement.textContent = "WAKTU HABIS"; // Tampilkan waktu habis
+                    // Tambahkan logika untuk mengupdate status ujian ke 2 di sini
+                    const idUjian = '{{ $id_ujian }}'; // Ganti dengan cara Anda mendapatkan ID ujian
+                    updateStatusUjian(idUjian); // Panggil fungsi untuk mengupdate status ujian
+                    clearInterval(countdownInterval); // Hentikan timer mundur
                 }
+            }, 1000); // 1000 ms = 1 detik
 
-                // Cek jika waktu mundur sudah habis
-                if (seconds <= 0) {
-                    clearInterval(countdownInterval);
-                    timerElement.textContent = "Waktu Habis";
+            // Panggil fungsi updateCountdownDisplay untuk menampilkan waktu awal
+            updateCountdownDisplay();
 
-                    // Tindakan lain yang perlu dilakukan saat waktu habis
-                }
-            }, 1000);
+            // Panggil fungsi untuk memperbarui waktu setiap 3 menit
+            const idUjian = '{{ $id_ujian }}'; // Ganti dengan cara Anda mendapatkan ID ujian
+            updateWaktuEvery3Minutes(idUjian);
         }
 
-        // Fungsi untuk mengatur tampilan waktu dalam format hh:mm:ss
-        function formatTime(seconds) {
-            var hours = Math.floor(seconds / 3600);
-            var minutes = Math.floor((seconds % 3600) / 60);
-            var remainingSeconds = seconds % 60;
+        // Panggil fungsi startCountdown dengan id elemen dan waktu awal dalam detik
+        startCountdown('countdown', {{ $selisih_detik }});
 
-            return hours.toString().padStart(2, '0') + ':' +
-                minutes.toString().padStart(2, '0') + ':' +
-                remainingSeconds.toString().padStart(2, '0');
-        }
-
-        // Mulai waktu mundur dengan total waktu dalam detik dari basis data
-        startCountdown({{ $totalWaktuDetik }});
-    </script> --}}
-    {{-- <script>
-        // Fungsi untuk mengatur timer
-        // var idUjian = {{ $id_ujian }};
-        function startTimer(duration) {
-            var waktuUjian = "{{ $waktuawal->waktu }}";
-            // var idUjian = {{ $id_ujian }};
-            var timerElement = document.getElementById('timer');
-            var minutesDisplay = document.getElementById('minutes');
-            var secondsDisplay = document.getElementById('seconds');
-            var timer = duration,
-                minutes, seconds;
-
-            setInterval(function() {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-
-                minutes = minutes < 10 ? '0' + minutes : minutes;
-                seconds = seconds < 10 ? '0' + seconds : seconds;
-
-                minutesDisplay.textContent = minutes;
-                secondsDisplay.textContent = seconds;
-
-                if (--timer < 0) {
-                    // Timer berakhir, tambahkan tindakan di sini
-                    alert('Waktu ujian telah habis!');
-                    // Redirect atau lakukan tindakan lain setelah timer berakhir
-                    simpanUjian();
-                    window.location.href = '/ujian.list';
-                }
-
-                // Simpan timer ke penyimpanan lokal
-                localStorage.setItem('exam_timer', timer);
-            }, 1000);
-        }
-
-        // Periksa apakah ada timer sebelumnya yang disimpan di penyimpanan lokal
-        var storedTimer = localStorage.getItem('exam_timer');
-        if (storedTimer) {
-            startTimer(storedTimer);
-        } else {
-            // Jika tidak ada timer sebelumnya, mulai dengan durasi 2 jam (120 menit)
-            startTimer(60 * waktuUjian); // 2 jam x 60 menit
-            // startTimer(60 * waktuUjian); // 2 jam x 60 menit
-            // simpanWaktuSaatIni();
-            // Jika tidak ada timer sebelumnya, hitung durasi dari waktu awal hingga sekarang
-            // var waktuAwalDetik = new Date($waktuawal->waktu).getTime() / 1000; // Konversi waktu awal menjadi detik
-            // var sekarangDetik = Math.floor(Date.now() / 1000); // Waktu sekarang dalam detik
-            // var durasiDetik = sekarangDetik - waktuAwalDetik;
-
-            // // Hitung sisa waktu ujian (misalnya, 2 jam - waktu yang sudah berlalu)
-            // var sisaWaktuDetik = (2 * 60 * 60) - durasiDetik; // 2 jam x 60 menit x 60 detik
-            // startTimer(sisaWaktuDetik);
-        }
-
-        setInterval(simpanWaktuSaatIni, 180000);
-        function simpanWaktuSaatIni() {
-            var sekarang = Math.floor(Date.now() / 1000); // Waktu saat ini dalam detik
-            localStorage.setItem('current_time', sekarang);
-
+        function updateStatusUjian(idUjian) {
             $.ajax({
-                url: '/simpan_waktu',
-                type: 'POST',
+                type: "POST",
+                url: "{{ url('simpan_ujian') }}", // Ganti dengan URL Anda
                 data: {
                     _token: "{{ csrf_token() }}",
-                    waktu_tersisa: sekarang,
                     id_ujian: idUjian
                 },
                 success: function(response) {
-                    // Respons dari server (jika ada)
-                    console.log('Waktu tersisa berhasil disimpan ke database');
+                    // Tindakan yang perlu Anda lakukan setelah status ujian diperbarui
+                    console.log("Status ujian diperbarui menjadi 2.");
                 },
                 error: function(error) {
-                    // Tangani kesalahan jika terjadi
-                    console.error('Gagal menyimpan waktu tersisa ke database');
+                    console.error("Gagal mengupdate status ujian:", error);
                 }
             });
         }
 
-    </script>
-    <script>
-        function simpanWaktuTersisa(waktuTersisa, idUjian) {
-            // Kirim permintaan POST ke server dengan data waktu sisa
-            $.ajax({
-                url: '/simpan_waktu',
-                type: 'POST',
-                data: {
-                    waktu_tersisa: waktuTersisa,
-                    id_ujian: idUjian
-                },
-                success: function(response) {
-                    // Respons dari server (jika ada)
-                    console.log('Waktu tersisa berhasil disimpan ke database');
-                },
-                error: function(error) {
-                    // Tangani kesalahan jika terjadi
-                    console.error('Gagal menyimpan waktu tersisa ke database');
-                }
-            });
-        }
-    </script>
-    <script>
-        function simpanUjian() {
-            // Kirim permintaan POST ke server dengan data waktu sisa
-            $.ajax({
-                url: '/simpan_ujian',
-                type: 'POST',
-                data: {
-                    id_ujian: "{{$id_ujian}}"
-                },
-                success: function(response) {
-                    // Respons dari server (jika ada)
-                    console.log('simpan berhasil disimpan ke database');
-                },
-                error: function(error) {
-                    // Tangani kesalahan jika terjadi
-                    console.error('Gagal menyimpan waktu tersisa ke database');
-                }
-            });
-        }
-    </script> --}}
-    {{-- <script>
-        // Mengambil waktu awal dari data yang dikirimkan dari controller
-        var waktuAwal = "{{ $waktuawal }}"; // Format: "YYYY-MM-DD HH:MM:SS"
-        // Fungsi untuk mengatur timer
-        function startTimer(duration) {
-            var timerElement = document.getElementById('timer');
-            var minutesDisplay = document.getElementById('minutes');
-            var secondsDisplay = document.getElementById('seconds');
-            var timer = duration,
-                minutes, seconds;
-
+        function updateWaktuEvery3Minutes(idUjian) {
             setInterval(function() {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-
-                minutes = minutes < 10 ? '0' + minutes : minutes;
-                seconds = seconds < 10 ? '0' + seconds : seconds;
-
-                minutesDisplay.textContent = minutes;
-                secondsDisplay.textContent = seconds;
-
-                if (--timer < 0) {
-                    // Timer berakhir, tambahkan tindakan di sini
-                    alert('Waktu ujian telah habis!');
-                    // Redirect atau lakukan tindakan lain setelah timer berakhir
-                    simpanUjian({{ $id_ujian }}, {{session('id_user')}});
-                    window.location.href = '/ujian.list'; // Ganti dengan URL yang sesuai
-                }
-
-                // Simpan timer ke penyimpanan lokal
-                localStorage.setItem('exam_timer', timer);
-            }, 1000);
+                $.ajax({
+                    type: "POST",
+                    url: "{{ url('simpan_waktu') }}", // Ganti dengan URL Anda
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        id_ujian: idUjian
+                    },
+                    success: function(response) {
+                        // Tindakan yang perlu Anda lakukan setelah waktu diperbarui
+                        console.log("Waktu diperbarui setiap 3 menit.");
+                    },
+                    error: function(error) {
+                        console.error("Gagal memperbarui waktu:", error);
+                    }
+                });
+            }, 180000); // 3 menit (180000 ms)
         }
-
-        // Periksa apakah ada timer sebelumnya yang disimpan di penyimpanan lokal
-        var storedTimer = localStorage.getItem('exam_timer');
-        if (storedTimer) {
-            startTimer(storedTimer);
-        } else {
-            // Jika tidak ada timer sebelumnya, hitung durasi dari waktu awal hingga sekarang
-            var waktuAwalDetik = new Date(waktuAwal).getTime() / 1000; // Konversi waktu awal menjadi detik
-            var sekarangDetik = Math.floor(Date.now() / 1000); // Waktu sekarang dalam detik
-            var durasiDetik = sekarangDetik - waktuAwalDetik;
-
-            // Hitung sisa waktu ujian (misalnya, 2 jam - waktu yang sudah berlalu)
-            var sisaWaktuDetik = (2 * 60 * 60) - durasiDetik; // 2 jam x 60 menit x 60 detik
-            startTimer(sisaWaktuDetik);
-        }
-    </script> --}}
-
+    </script>
 
 </body>
 

@@ -25,43 +25,59 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">PAKET SOAL</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                        <th>#</th>
-                                        <th>PAKET</th>
-                                        <th>KETERANGAN</th>
-                                        <th></th>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $i = 1;
-                                        @endphp
-                                        @foreach ($kategori as $item)
-                                            <tr>
-                                                <td>{{ $i++ }}</td>
-                                                <td>{{ $item->nama_kategori }}</td>
-                                                <td>{{ $item->keterangan }}</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a class="btn btn-primary" href="{{url('ujian/detail')}}/{{encrypt($item->id_kategori)}}" title="Detail">
-                                                            <i></i>PILIH
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
+                        @if (!empty($ujian_aktif) || session('ujian') == 'ada')
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title m-0">TRYOUT AKTIF</h5>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title">Anda Masih Memiliki Ujian yang belum Berakhir</h6>
 
+                                    <p class="card-text"></p>
+                                    <a href="{{url('ujian/mulai')}}/{{encrypt($ujian_aktif->id_kategori)}}/1/{{$ujian_aktif->id_ujian}}" class="btn btn-primary">Klik Disini Lanjutkan</a>
+                                    <a href="#" class="btn btn-danger">Selesai</a>
+                                </div>
+                            </div>
+                        @else
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">PAKET SOAL</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <th>#</th>
+                                            <th>PAKET</th>
+                                            <th>KETERANGAN</th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $i = 1;
+                                            @endphp
+                                            @foreach ($kategori as $item)
+                                                <tr>
+                                                    <td>{{ $i++ }}</td>
+                                                    <td>{{ $item->nama_kategori }}</td>
+                                                    <td>{{ $item->keterangan }}</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-primary"
+                                                                href="{{ url('ujian/detail') }}/{{ encrypt($item->id_kategori) }}"
+                                                                title="Detail">
+                                                                <i></i>PILIH
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        @endif
                     </div>
                     <!-- /.col-md-6 -->
 
@@ -79,6 +95,7 @@
                         </div>
 
                     </div>
+
                     <!-- /.col-md-6 -->
                 </div>
                 <!-- /.row -->
