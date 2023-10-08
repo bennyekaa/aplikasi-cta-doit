@@ -41,7 +41,7 @@ class RegisterController extends Controller
             $pengguna->created_at = $this->waktu;
             $pengguna->created_by = $pengguna->id_user;
             $pengguna->save();
-            return redirect('login')->with('success', 'Silahkan Hubungi WA 08563498050 untuk verifikasi data');
+            return redirect('login')->with('success', 'Silahkan Hubungi WA 082137345435 untuk verifikasi data');
         }
     }
 }
