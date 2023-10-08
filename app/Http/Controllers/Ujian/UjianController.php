@@ -95,8 +95,8 @@ class UjianController extends Controller
                 $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
                 $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
 
-                // Pemeriksaan apakah $waktuUpdateSaatIni adalah null
-                if ($data['waktumulai']->updated_at) {
+                // Pemeriksaan apakah $waktuUpdateSaatIni adalah null atau string
+                if ($data['waktumulai']->updated_at instanceof \DateTime) {
                     $waktuUpdateSaatIni = $data['waktumulai']->updated_at; // Waktu update saat ini
                     $selisih = $waktuUpdateSaatIni->diff($waktuObjekSelesai);
 
@@ -106,18 +106,19 @@ class UjianController extends Controller
                     // Ambil selisih dalam detik
                     $data['selisih_detik'] = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
                 } else {
-                    // Handle jika $waktuUpdateSaatIni adalah null
-                    $data['selisih_menit'] = null;
-                    $data['selisih_detik'] = null;
+                    // Handle jika $waktuUpdateSaatIni adalah string atau null
+                    $data['selisih_menit'] = 110; // Set default ke 110 menit
+                    $data['selisih_detik'] = 110 * 60; // Set default ke 110 menit dalam detik
                 }
             } else {
                 // Handle jika $data['waktumulai'] adalah null
                 $data['mulai'] = null;
                 $data['selesai'] = null;
-                $data['selisih_menit'] = null;
-                $data['selisih_detik'] = null;
+                $data['selisih_menit'] = 110; // Set default ke 110 menit
+                $data['selisih_detik'] = 110 * 60; // Set default ke 110 menit dalam detik
             }
         }
+
 
 
         $data['id_ujian'] = $id_ujian;
