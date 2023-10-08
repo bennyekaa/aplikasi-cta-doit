@@ -45,7 +45,7 @@ class UjianController extends Controller
         $ujian = new Ujian();
         $ujian->id_ujian = $id_ujian;
         $ujian->status = 0;
-        $ujian->created_at = $this->waktu;
+        $ujian->created_at = date('Y-m-d H:i:s.U');
         $ujian->created_by = session('id_user');
         $ujian->save();
 
@@ -55,7 +55,7 @@ class UjianController extends Controller
                 'id_user' => session('id_user'),
                 'id_ujian' => $id_ujian,
                 'id_soal' => $s->id_soal, // Hubungkan id_soal dengan id soal yang sesuai
-                'created_at' => $this->waktu,
+                'created_at' => date('Y-m-d H:i:s.U'),
                 'created_by' => session('id_user'),
             ];
             array_push($datas, $item);
@@ -85,23 +85,33 @@ class UjianController extends Controller
         $data['waktumulai'] = Ujian::where('id_ujian',$id_ujian)->first();
 
         if ($data['waktumulai']) {
-            $waktumulai = $data['waktumulai']->created_at;
-            $waktuObjekAwal = \DateTime::createFromFormat('Y-m-d H:i:s', $waktumulai);
-            $waktuObjekSelesai = clone $waktuObjekAwal;
-            $waktuObjekSelesai->add(new \DateInterval('PT110M')); // Tambahkan 110 menit
+            $waktumulai = $data['waktumulai'] ? $data['waktumulai']->created_at : null;
 
-            $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
-            $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
+            if ($waktumulai) {
+                $waktuObjekAwal = \DateTime::createFromFormat('Y-m-d H:i:s', $waktumulai);
+                $waktuObjekSelesai = clone $waktuObjekAwal;
+                $waktuObjekSelesai->add(new \DateInterval('PT110M')); // Tambahkan 110 menit
 
-            // Hitung selisih waktu antara waktu selesai dan waktu update saat ini
-            $waktuUpdateSaatIni = $data['waktumulai']->updated_at; // Waktu update saat ini
-            $selisih = $waktuUpdateSaatIni->diff($waktuObjekSelesai);
+                $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
+                $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
 
-            // Ambil selisih dalam menit
-            $data['selisih_menit'] = $selisih->days * 24 * 60 + $selisih->h * 60 + $selisih->i;
+                // Hitung selisih waktu antara waktu selesai dan waktu update saat ini
+                $waktuUpdateSaatIni = $data['waktumulai']->updated_at; // Waktu update saat ini
+                $selisih = $waktuUpdateSaatIni->diff($waktuObjekSelesai);
 
-            // Ambil selisih dalam detik
-            $data['selisih_detik'] = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
+                // Ambil selisih dalam menit
+                $data['selisih_menit'] = $selisih->days * 24 * 60 + $selisih->h * 60 + $selisih->i;
+
+                // Ambil selisih dalam detik
+                $data['selisih_detik'] = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
+            } else {
+                // Handle jika $data['waktumulai'] adalah null
+                $data['mulai'] = null;
+                $data['selesai'] = null;
+                $data['selisih_menit'] = null;
+                $data['selisih_detik'] = null;
+            }
+
         }
 
         $data['id_ujian'] = $id_ujian;
