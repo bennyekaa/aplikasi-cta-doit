@@ -37,8 +37,8 @@ class KategoriController extends Controller
         try {
             if ($request->fungsi == 'Tambah') {
                 $kategori = new KategoriSoal();
-                $kategori->id_kategori_soal = Str::uuid();
-                $kategori->nama_kategori_soal = $request->nama_kategori_soal;
+                $kategori->id_kategori = Str::uuid();
+                $kategori->nama_kategori = $request->nama_kategori_soal;
                 $kategori->keterangan = $request->keterangan;
                 $kategori->aktif = 1;
                 $kategori->created_at = $this->waktu;
