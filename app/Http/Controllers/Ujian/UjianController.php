@@ -47,6 +47,8 @@ class UjianController extends Controller
         $ujian->status = 0;
         $ujian->created_at = date('Y-m-d H:i:s.U');
         $ujian->created_by = session('id_user');
+        $ujian->updated_at = date('Y-m-d H:i:s.U');
+        $ujian->updated_by = session('id_user');
         $ujian->save();
 
         foreach ($soal as $s) {
@@ -68,6 +70,7 @@ class UjianController extends Controller
         $data['id1'] = 1;
         $data['id2'] = $id_ujian;
 
+        // return view('ujian.mulai', $data);
         return redirect()->route('ujian.mulai', $data);
     }
 
@@ -85,41 +88,24 @@ class UjianController extends Controller
         $data['waktumulai'] = Ujian::where('id_ujian',$id_ujian)->first();
 
         if ($data['waktumulai']) {
-            $waktumulai = $data['waktumulai'] ? $data['waktumulai']->created_at : null;
+            $waktumulai = $data['waktumulai']->created_at;
+            $waktuObjekAwal = \DateTime::createFromFormat('Y-m-d H:i:s', $waktumulai);
+            $waktuObjekSelesai = clone $waktuObjekAwal;
+            $waktuObjekSelesai->add(new \DateInterval('PT110M')); // Tambahkan 110 menit
 
-            if ($waktumulai) {
-                $waktuObjekAwal = \DateTime::createFromFormat('Y-m-d H:i:s', $waktumulai);
-                $waktuObjekSelesai = clone $waktuObjekAwal;
-                $waktuObjekSelesai->add(new \DateInterval('PT110M')); // Tambahkan 110 menit
+            $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
+            $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
 
-                $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
-                $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
+            // Hitung selisih waktu antara waktu selesai dan waktu update saat ini
+            $waktuUpdateSaatIni = $data['waktumulai']->updated_at; // Waktu update saat ini
+            $selisih = $waktuUpdateSaatIni->diff($waktuObjekSelesai);
 
-                // Pemeriksaan apakah $waktuUpdateSaatIni adalah null atau string
-                if ($data['waktumulai']->updated_at instanceof \DateTime) {
-                    $waktuUpdateSaatIni = $data['waktumulai']->updated_at; // Waktu update saat ini
-                    $selisih = $waktuUpdateSaatIni->diff($waktuObjekSelesai);
+            // Ambil selisih dalam menit
+            $data['selisih_menit'] = $selisih->days * 24 * 60 + $selisih->h * 60 + $selisih->i;
 
-                    // Ambil selisih dalam menit
-                    $data['selisih_menit'] = $selisih->days * 24 * 60 + $selisih->h * 60 + $selisih->i;
-
-                    // Ambil selisih dalam detik
-                    $data['selisih_detik'] = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
-                } else {
-                    // Handle jika $waktuUpdateSaatIni adalah string atau null
-                    $data['selisih_menit'] = 110; // Set default ke 110 menit
-                    $data['selisih_detik'] = 110 * 60; // Set default ke 110 menit dalam detik
-                }
-            } else {
-                // Handle jika $data['waktumulai'] adalah null
-                $data['mulai'] = null;
-                $data['selesai'] = null;
-                $data['selisih_menit'] = 110; // Set default ke 110 menit
-                $data['selisih_detik'] = 110 * 60; // Set default ke 110 menit dalam detik
-            }
+            // Ambil selisih dalam detik
+            $data['selisih_detik'] = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
         }
-
-
 
         $data['id_ujian'] = $id_ujian;
         $data['daftarsoal'] = $soal->map(function ($item) {
@@ -139,7 +125,7 @@ class UjianController extends Controller
         $ujian = Ujian::find($id_ujian);
         $ujian->status = 1;
         $ujian->updated_by = session('id_user');
-        $ujian->updated_at = date('Y-m-d H:i:s.U');;
+        $ujian->updated_at = date('Y-m-d H:i:s.U');
         $ujian->save();
         return view('ujian.mulai', $data);
     }
@@ -159,7 +145,6 @@ class UjianController extends Controller
         $jawab->poin = decrypt($poin);
         $ujian = Ujian::find(decrypt($id_ujian));
         $ujian->updated_by = session('id_user');
-        $ujian->status = 1;
         $ujian->updated_at = date('Y-m-d H:i:s.U');
         $jawab->jawaban = $huruf;
         $jawab->updated_by = session('id_user');
@@ -176,10 +161,10 @@ class UjianController extends Controller
 
         // Simpan waktu yang tersisa ke dalam database, misalnya dalam kolom 'waktu_sisa' di tabel 'ujian'
         // Gantilah ini sesuai dengan nama tabel dan kolom yang Anda gunakan
-        DB::table('data_ujian')->where('id_ujian', $id_ujian)->update(['status' => 2, 'updated_at' => date('Y-m-d H:i:s.U'), 'updated_by' => session('id_user')]);
+        DB::table('data_ujian')->where('id_ujian', $id_ujian)->update(['status' => 2]);
 
         // Beri respons yang sesuai jika diperlukan
-        return response()->json(['hasil' => 'Berhasil menyimpan ujian']);
+        return response()->json(['status' => 'Berhasil menyimpan ujian']);
     }
 
     public function selesai($idUjian){
@@ -197,7 +182,7 @@ class UjianController extends Controller
         DB::table('data_ujian')->where('id_ujian', $id_ujian)->update(['updated_at' => date('Y-m-d H:i:s.U'),  'updated_by' => session('id_user')]);
 
         // Beri respons yang sesuai jika diperlukan
-        return response()->json(['hasil' => 'Berhasil menyimpan ujian']);
+        return response()->json(['status' => 'Berhasil menyimpan ujian']);
     }
 
 }

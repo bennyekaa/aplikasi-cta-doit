@@ -7,6 +7,7 @@ use App\Http\Controllers\Master\Modul\ModulController;
 use App\Http\Controllers\Master\Pengguna\PenggunaController;
 use App\Http\Controllers\Master\Soal\SoalController;
 use App\Http\Controllers\Register\RegisterController;
+use App\Http\Controllers\Ujian\RiwayatController;
 use App\Http\Controllers\Ujian\UjianController;
 use App\Models\Master\KategoriSoal;
 use Illuminate\Support\Facades\Route;
@@ -81,6 +82,7 @@ Route::middleware('checklogin')->group(function () {
         Route::get('jawab/{id}/{id1}/{id2}/{id3}', [UjianController::class, 'jawab']);
         // Route::post('jawab', [UjianController::class, 'jawab'])->name('ujian.jawab');;
         Route::get('index', [UjianController::class, 'index']);
+        Route::get('riwayat', [RiwayatController::class, 'index']);
     });
 
     Route::get('/get-countdown-time/{id}', [UjianController::class, 'getCountdownTime']);

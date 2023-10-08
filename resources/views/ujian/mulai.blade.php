@@ -175,6 +175,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="dist/js/adminlte.min.js"></script>
     <script>
         // Fungsi untuk menginisialisasi dan memulai timer mundur
+        const idUjian = '{{ $id_ujian }}'; // Ganti dengan cara Anda mendapatkan ID ujian
+        updateWaktuEvery3Minutes(idUjian);
+
         function startCountdown(countdownId, initialSeconds) {
             let remainingSeconds = initialSeconds;
             const countdownElement = document.getElementById(countdownId);
@@ -207,9 +210,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             // Panggil fungsi updateCountdownDisplay untuk menampilkan waktu awal
             updateCountdownDisplay();
 
-            // Panggil fungsi untuk memperbarui waktu setiap 3 menit
-            const idUjian = '{{ $id_ujian }}'; // Ganti dengan cara Anda mendapatkan ID ujian
-            updateWaktuEvery3Minutes(idUjian);
         }
 
         // Panggil fungsi startCountdown dengan id elemen dan waktu awal dalam detik
