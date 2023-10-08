@@ -83,6 +83,8 @@ Route::middleware('checklogin')->group(function () {
         // Route::post('jawab', [UjianController::class, 'jawab'])->name('ujian.jawab');;
         Route::get('index', [UjianController::class, 'index']);
         Route::get('riwayat', [RiwayatController::class, 'index']);
+        Route::get('detail/riwayat/{id}/{id1}', [RiwayatController::class, 'detail']);
+        Route::get('pembahasan/{id}/{id1}/{id2}', [RiwayatController::class, 'pembahasan']);
     });
 
     Route::get('/get-countdown-time/{id}', [UjianController::class, 'getCountdownTime']);

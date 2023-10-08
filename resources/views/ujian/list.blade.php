@@ -35,7 +35,7 @@
 
                                     <p class="card-text"></p>
                                     <a href="{{url('ujian/mulai')}}/{{encrypt($ujian_aktif->id_kategori)}}/1/{{$ujian_aktif->id_ujian}}" class="btn btn-primary">Klik Disini Lanjutkan</a>
-                                    <a href="#" class="btn btn-danger">Selesai</a>
+                                    <a href="{{url('ujian/selesai')}}/{{$ujian_aktif->id_ujian}}" class="btn btn-danger">Selesai</a>
                                 </div>
                             </div>
                         @else

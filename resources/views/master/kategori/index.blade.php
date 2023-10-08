@@ -39,6 +39,7 @@
                                     <thead>
                                         <th>#</th>
                                         <th>KATEGORI</th>
+                                        <th>WAKTU</th>
                                         <th>KETERANGAN</th>
                                         <th>STATUS</th>
                                         <th></th>
@@ -51,6 +52,7 @@
                                             <tr>
                                                 <td>{{ $i++ }}</td>
                                                 <td>{{ $item->nama_kategori }}</td>
+                                                <td>{{ $item->menit }}</td>
                                                 <td>{{ $item->keterangan }}</td>
                                                 <td>
                                                     @if ($item->aktif == 0)

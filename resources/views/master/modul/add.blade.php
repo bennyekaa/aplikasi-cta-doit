@@ -42,6 +42,11 @@
                                             placeholder="Nama Kategori">
                                     </div>
                                     <div class="form-group">
+                                        <label>Passing Grade</label>
+                                        <input type="text" name="passing_grade" class="form-control"
+                                            placeholder="Passing Grade">
+                                    </div>
+                                    <div class="form-group">
                                         <label>Keterangan</label>
                                         <textarea class="form-control" rows="3" name="keterangan" placeholder="Masukkan Keterangan"></textarea>
                                     </div>

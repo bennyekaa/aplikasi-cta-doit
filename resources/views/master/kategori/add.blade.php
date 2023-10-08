@@ -42,6 +42,11 @@
                                             placeholder="Nama Kategori">
                                     </div>
                                     <div class="form-group">
+                                        <label>Total Waktu Ujian (Dalam Menit)</label>
+                                        <input type="text" name="menit" class="form-control"
+                                            placeholder="Waktu">
+                                    </div>
+                                    <div class="form-group">
                                         <label>Keterangan</label>
                                         <textarea class="form-control" rows="3" name="keterangan" placeholder="Masukkan Keterangan"></textarea>
                                     </div>

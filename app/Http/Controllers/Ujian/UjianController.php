@@ -23,6 +23,7 @@ class UjianController extends Controller
 
     public function list()
     {
+        session()->put('list', url()->full());
         $data['kategori'] = KategoriSoal::all()->sortByDesc('created_at');
         $data['ujian_aktif'] = Ujian::join('data_riwayat', 'data_riwayat.id_ujian','=','data_ujian.id_ujian')->join('ref_soal', 'ref_soal.id_soal','=','data_riwayat.id_soal')->where('data_ujian.created_by', session('id_user'))->where('data_ujian.status', 1)->first();
         return view('ujian.list', $data);

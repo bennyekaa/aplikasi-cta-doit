@@ -39,6 +39,7 @@
                                     <thead>
                                         <th>#</th>
                                         <th>MODUL</th>
+                                        <th>PASSING GRADE</th>
                                         <th>KETERANGAN</th>
                                         <th>STATUS</th>
                                         <th></th>
@@ -51,6 +52,7 @@
                                             <tr>
                                                 <td>{{ $i++ }}</td>
                                                 <td>{{ $item->nama_modul }}</td>
+                                                <td>{{ $item->passing_grade }}</td>
                                                 <td>{{ $item->keterangan }}</td>
                                                 <td>
                                                     @if ($item->aktif == 0)
