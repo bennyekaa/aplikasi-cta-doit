@@ -17,6 +17,8 @@ class Ujian extends Model
 
     public $incrementing = false;
 
+    public $timestamps = false;
+
     public function kategori()
     {
         return $this->belongsTo(KategoriSoal::class, "id_kategori_soal", "id_kategori_soal");
