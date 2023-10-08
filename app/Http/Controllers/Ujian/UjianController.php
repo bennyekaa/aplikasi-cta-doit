@@ -120,6 +120,7 @@ class UjianController extends Controller
 
         // dd($data);
         $ujian = Ujian::find($id_ujian);
+        $ujian->status = 1;
         $ujian->updated_by = session('id_user');
         $ujian->updated_at = $this->waktu;
         $ujian->save();
@@ -141,6 +142,7 @@ class UjianController extends Controller
         $jawab->poin = decrypt($poin);
         $ujian = Ujian::find(decrypt($id_ujian));
         $ujian->updated_by = session('id_user');
+        $ujian->status = 1;
         $ujian->updated_at = $this->waktu;
         $jawab->jawaban = $huruf;
         $jawab->updated_by = session('id_user');

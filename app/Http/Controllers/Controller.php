@@ -27,6 +27,6 @@ class Controller extends BaseController
             return $next($request);
         });
 
-        $this->waktu = \Carbon\Carbon::now();
+        $this->waktu = \Carbon\Carbon::now()->format("Y-m-d H:i:s.u");
     }
 }
