@@ -46,9 +46,10 @@ class UjianController extends Controller
         $ujian = new Ujian();
         $ujian->id_ujian = $id_ujian;
         $ujian->status = 0;
-        $ujian->created_at = date('Y-m-d H:i:s.U');
+        $ujian->created_at = now()->format('Y-m-d H:i:s.u');
+        // $ujian->created_at = date('Y-m-d H:i:s.U');
         $ujian->created_by = session('id_user');
-        $ujian->updated_at = date('Y-m-d H:i:s.U');
+        $ujian->updated_at = now()->format('Y-m-d H:i:s.u');
         $ujian->updated_by = session('id_user');
         $ujian->save();
 
@@ -97,9 +98,9 @@ class UjianController extends Controller
             $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
             $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
 
-            // Hitung selisih waktu antara waktu selesai dan waktu update saat ini
-            $waktuUpdateSaatIni = $data['waktumulai']->updated_at; // Waktu update saat ini
-            $selisih = $waktuUpdateSaatIni->diff($waktuObjekSelesai);
+            // Hitung selisih waktu antara waktu selesai dan waktu saat ini
+            $waktuSaatIni = now();
+            $selisih = $waktuSaatIni->diff($waktuObjekSelesai);
 
             // Ambil selisih dalam menit
             $data['selisih_menit'] = $selisih->days * 24 * 60 + $selisih->h * 60 + $selisih->i;
@@ -107,6 +108,7 @@ class UjianController extends Controller
             // Ambil selisih dalam detik
             $data['selisih_detik'] = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
         }
+
 
         $data['id_ujian'] = $id_ujian;
         $data['daftarsoal'] = $soal->map(function ($item) {
@@ -126,7 +128,8 @@ class UjianController extends Controller
         $ujian = Ujian::find($id_ujian);
         $ujian->status = 1;
         $ujian->updated_by = session('id_user');
-        $ujian->updated_at = date('Y-m-d H:i:s.U');
+        $ujian->updated_at = $this->waktu;
+        // $ujian->updated_at = date('Y-m-d H:i:s.U');
         $ujian->save();
         return view('ujian.mulai', $data);
     }
