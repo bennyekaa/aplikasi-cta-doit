@@ -35,7 +35,7 @@
                                             <td>{{ $item->jumlah }}</td>
                                             <td>{{ $item->passing_grade }}</td>
                                             <td>
-                                                @if ($item->passing_grade >= $item->jumlah)
+                                                @if ($item->jumlah >= $item->passing_grade)
                                                     <button class="btn btn-success disabled">LULUS</button>
                                                 @else
                                                     <button class="btn btn-danger disabled">TIDAK LULUS</button>
