@@ -99,7 +99,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <a href="{{ url('ujian/mulai') }}/{{ $id_kategori }}/{{ $nomor + 1 }}/{{ $id_ujian }}"
                                                 class="btn btn-primary" style="width: 48%;">SELANJUTNYA</a>
                                         @elseif(Request::segment(4) == $total_nomor)
-                                            <a href="{{url('ujian/selesai')}}/{{$id_ujian}}" class="btn btn-primary" style="width: 48%;">SELESAI</a>
+                                            <a href="{{ url('ujian/selesai') }}/{{ $id_ujian }}"
+                                                class="btn btn-primary" style="width: 48%;">SELESAI</a>
                                         @else
                                             <a href="{{ url('ujian/mulai') }}/{{ $id_kategori }}/{{ $nomor - 1 }}/{{ $id_ujian }}"
                                                 class="btn btn-primary" style="width: 48%;">SEBELUMNYA</a>
@@ -175,8 +176,46 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="dist/js/adminlte.min.js"></script>
     <script>
         // Fungsi untuk menginisialisasi dan memulai timer mundur
-        const idUjian = '{{ $id_ujian }}'; // Ganti dengan cara Anda mendapatkan ID ujian
-        updateWaktuEvery3Minutes(idUjian);
+        // const idUjian = '{{ $id_ujian }}'; // Ganti dengan cara Anda mendapatkan ID ujian
+        // updateWaktuEvery3Minutes(idUjian);
+
+        // var selesai = parseFloat("{{ $selesai }}");
+        // var waktu_skarang = Date.now();
+
+        // var waktuSaatIni = new Date();
+        // var jam = waktuSaatIni.getHours();
+        // var menit = waktuSaatIni.getMinutes();
+        // var detik = waktuSaatIni.getSeconds();
+
+        // // Format jam, menit, dan detik ke dalam string jika perlu
+        // var waktuFormat = jam + ":" + menit + ":" + detik;
+
+        // console.log(selesai +" " +parseFloat(waktuFormat));
+
+        // var remaining = selesai - parseFloat(waktuFormat);
+        // var remainingDetik = Math.floor(remaining / 1000);
+
+        // var asiaJakartaTimeZone = 'Asia/Jakarta';
+        // var options = {
+        //     timeZone: asiaJakartaTimeZone
+        // };
+        // var formatter = new Intl.DateTimeFormat('en-US', options);
+
+        // var waktuSekarang = new Date.now();
+        // var waktuSekarangAsiaJakarta = formatter.format(waktuSekarang);
+
+        var selesai = parseFloat("{{ $selesai }}"); // Waktu selesai dalam milisekon
+        var waktuSekarang = Date.now(); // Waktu sekarang dalam milisekon
+
+        // Menghitung waktu yang tersisa dalam milisekon
+        var remaining = selesai - waktuSekarang;
+
+        // Mengkonversi remaining menjadi detik
+        var remainingDetik = Math.floor(remaining / 1000);
+
+        // remainingDetik = 6600;
+
+
 
         function startCountdown(countdownId, initialSeconds) {
             let remainingSeconds = initialSeconds;
@@ -213,7 +252,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
         // Panggil fungsi startCountdown dengan id elemen dan waktu awal dalam detik
-        startCountdown('countdown', {{ $selisih_detik }});
+        startCountdown('countdown', remainingDetik);
+        // startCountdown('countdown', {{ $selisih_detik }});
 
         function updateStatusUjian(idUjian) {
             $.ajax({
@@ -226,6 +266,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 success: function(response) {
                     // Tindakan yang perlu Anda lakukan setelah status ujian diperbarui
                     console.log("Status ujian diperbarui menjadi 2.");
+                    window.location.href = '/ujian/list';
                 },
                 error: function(error) {
                     console.error("Gagal mengupdate status ujian:", error);
@@ -233,25 +274,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
             });
         }
 
-        function updateWaktuEvery3Minutes(idUjian) {
-            setInterval(function() {
-                $.ajax({
-                    type: "POST",
-                    url: "{{ url('simpan_waktu') }}", // Ganti dengan URL Anda
-                    data: {
-                        _token: "{{ csrf_token() }}",
-                        id_ujian: idUjian
-                    },
-                    success: function(response) {
-                        // Tindakan yang perlu Anda lakukan setelah waktu diperbarui
-                        console.log("Waktu diperbarui setiap 3 menit.");
-                    },
-                    error: function(error) {
-                        console.error("Gagal memperbarui waktu:", error);
-                    }
-                });
-            }, 180000); // 3 menit (180000 ms)
-        }
+        // function updateWaktuEvery3Minutes(idUjian) {
+        //     setInterval(function() {
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "{{ url('simpan_waktu') }}", // Ganti dengan URL Anda
+        //             data: {
+        //                 _token: "{{ csrf_token() }}",
+        //                 id_ujian: idUjian
+        //             },
+        //             success: function(response) {
+        //                 // Tindakan yang perlu Anda lakukan setelah waktu diperbarui
+        //                 console.log("Waktu diperbarui setiap 3 menit.");
+        //             },
+        //             error: function(error) {
+        //                 console.error("Gagal memperbarui waktu:", error);
+        //             }
+        //         });
+        //     }, 180000); // 3 menit (180000 ms)
+        // }
     </script>
 
 </body>

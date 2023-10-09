@@ -174,6 +174,8 @@ class UjianController extends Controller
         $ujian->updated_at = date('Y-m-d H:i:s.U');
         $ujian->updated_by = session('id_user');
         $ujian->save();
+        session()->put('ujian' , 'kosong');
+
         return redirect(url('ujian/list'));
     }
 
