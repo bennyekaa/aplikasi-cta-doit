@@ -175,9 +175,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="dist/js/adminlte.min.js"></script>
     <script>
         // Fungsi untuk menginisialisasi dan memulai timer mundur
-        // const idUjian = '{{ $id_ujian }}'; // Ganti dengan cara Anda mendapatkan ID ujian
-        // updateWaktuEvery3Minutes(idUjian);
-
         function startCountdown(countdownId, initialSeconds) {
             let remainingSeconds = initialSeconds;
             const countdownElement = document.getElementById(countdownId);
@@ -202,7 +199,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     countdownElement.textContent = "WAKTU HABIS"; // Tampilkan waktu habis
                     // Tambahkan logika untuk mengupdate status ujian ke 2 di sini
                     const idUjian = '{{ $id_ujian }}'; // Ganti dengan cara Anda mendapatkan ID ujian
-                    // updateStatusUjian(idUjian); // Panggil fungsi untuk mengupdate status ujian
+                    updateStatusUjian(idUjian); // Panggil fungsi untuk mengupdate status ujian
                     clearInterval(countdownInterval); // Hentikan timer mundur
                 }
             }, 1000); // 1000 ms = 1 detik
@@ -233,25 +230,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             });
         }
 
-        function updateWaktuEvery3Minutes(idUjian) {
-            setInterval(function() {
-                $.ajax({
-                    type: "POST",
-                    url: "{{ url('simpan_waktu') }}", // Ganti dengan URL Anda
-                    data: {
-                        _token: "{{ csrf_token() }}",
-                        id_ujian: idUjian
-                    },
-                    success: function(response) {
-                        // Tindakan yang perlu Anda lakukan setelah waktu diperbarui
-                        console.log("Waktu diperbarui setiap 3 menit.");
-                    },
-                    error: function(error) {
-                        console.error("Gagal memperbarui waktu:", error);
-                    }
-                });
-            }, 180000); // 3 menit (180000 ms)
-        }
     </script>
 
 </body>
