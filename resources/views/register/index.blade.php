@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TRYOUT</title>
+    <title>ORION SCHOOL</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -20,7 +20,7 @@
 <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
+            <a href="#"><b>ORION</b>SCHOOL</a>
         </div>
 
         <div class="card">
@@ -98,7 +98,7 @@
                     </div>
                 </form>
 
-                <a href="login.html" class="text-center">Sudah Punya Akun, Klik Disini</a>
+                <a href="{{url('login')}}" class="text-center">Sudah Punya Akun, Klik Disini</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->

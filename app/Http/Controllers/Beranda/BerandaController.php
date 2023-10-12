@@ -9,6 +9,10 @@ class BerandaController extends Controller
 {
     public function index()
     {
-        return view('beranda.index');
+        if(session('role') == 'ADMIN'){
+            return view('beranda.index');
+        }else{
+            return redirect()->back();
+        }
     }
 }
