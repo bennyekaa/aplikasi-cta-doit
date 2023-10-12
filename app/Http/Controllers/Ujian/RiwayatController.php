@@ -14,7 +14,7 @@ class RiwayatController extends Controller
     public function index()
     {
         session()->put('riwayat', url()->full());
-        $data['riwayat'] = Ujian::select('data_ujian.id_ujian AS id_ujian', 'ref_kategori.id_kategori', 'ref_kategori.nama_kategori', 'data_ujian.created_at AS ujian_mulai', 'data_ujian.updated_at AS ujian_selesai')->join('data_riwayat', 'data_riwayat.id_ujian', '=', 'data_ujian.id_ujian')->join('ref_soal', 'ref_soal.id_soal', '=', 'data_riwayat.id_soal')->join('ref_kategori', 'ref_kategori.id_kategori', '=', 'ref_soal.id_kategori')->where('data_ujian.status', 2)->where('data_ujian.created_by', session('id_user'))->groupBy('data_ujian.id_ujian')->groupBy('ref_kategori.id_kategori')->get();
+        $data['riwayat'] = Ujian::select('data_ujian.id_ujian AS id_ujian', 'ref_kategori.id_kategori', 'ref_kategori.nama_kategori', 'data_ujian.created_at AS ujian_mulai', 'data_ujian.updated_at AS ujian_selesai')->join('data_riwayat', 'data_riwayat.id_ujian', '=', 'data_ujian.id_ujian')->join('ref_soal', 'ref_soal.id_soal', '=', 'data_riwayat.id_soal')->join('ref_kategori', 'ref_kategori.id_kategori', '=', 'ref_soal.id_kategori')->where('data_ujian.status', 2)->where('data_ujian.created_by', session('id_user'))->groupBy('data_ujian.id_ujian')->groupBy('ref_kategori.id_kategori')->groupBy('ref_kategori.nama_kategori')->groupBy('data_ujian.created_at')->groupBy('data_ujian.updated_at')->get();
         // dd($data);
         return view('ujian.riwayat', $data);
     }
