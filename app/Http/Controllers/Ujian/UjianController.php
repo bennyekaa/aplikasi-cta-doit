@@ -130,7 +130,8 @@ class UjianController extends Controller
                 $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
                 $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
 
-                // Hitung selisih waktu antara waktu selesai dan waktu saat ini
+            // Hitung selisih waktu antara waktu selesai dan waktu saat ini
+                date_default_timezone_set('Asia/Jakarta');
                 $waktuSaatIni = now();
                 $selisih = $waktuSaatIni->diff($waktuObjekSelesai);
 
