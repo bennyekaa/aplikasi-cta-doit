@@ -89,20 +89,30 @@ class UjianController extends Controller
 
         $data['waktumulai'] = Ujian::where('id_ujian', $id_ujian)->first();
 
+
+        // dd($data);
+
         // if (session('ujian') == 'ada') {
         //     $waktumulai = $data['waktumulai']->created_at;
         //     $waktuupdate = $data['waktumulai']->updated_at;
 
         //     $waktuObjekAwal = \DateTime::createFromFormat('Y-m-d H:i:s', $waktumulai);
+        //     $waktuObjekUpdate = \DateTime::createFromFormat('Y-m-d H:i:s', $waktuupdate);
+        //     $waktuObjekUpdate = clone $waktuObjekUpdate;
         //     $waktuObjekSelesai = clone $waktuObjekAwal;
         //     $waktuObjekSelesai->add(new \DateInterval('PT110M')); // Tambahkan 110 menit
+
+        //     $skrg = DB::select("SELECT NOW()");
 
         //     $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
         //     $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
 
         //     // Hitung selisih waktu antara waktu selesai dan waktu saat ini
-        //     $waktuSaatIni = now();
-        //     $selisih = $waktuSaatIni->diff($waktuObjekSelesai);
+        //     // $waktuSaatIni = now();
+        //     // $selisih = $waktuSaatIni->diff($waktuObjekSelesai);
+        //     $selisih = $skrg[0]->diff($waktuObjekSelesai);
+
+        //     // dd($selisih);
 
         //     // Ambil selisih dalam menit
         //     $data['selisih_menit_1'] = $selisih->days * 24 * 60 + $selisih->h * 60 + $selisih->i;
@@ -130,9 +140,11 @@ class UjianController extends Controller
                 $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
                 $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
 
-            // Hitung selisih waktu antara waktu selesai dan waktu saat ini
-                date_default_timezone_set('Asia/Jakarta');
-                $waktuSaatIni = now();
+                // Hitung selisih waktu antara waktu selesai dan waktu saat ini
+                $skrg = DB::select("SELECT NOW()");
+                $waktuSaatIni = \DateTime::createFromFormat('Y-m-d H:i:s', $skrg[0]->{'NOW()'});
+                // $waktuSaatIni = now();
+                // $selisih = $waktuSaatIni->diff($waktuObjekSelesai);
                 $selisih = $waktuSaatIni->diff($waktuObjekSelesai);
 
                 // Ambil selisih dalam menit
