@@ -75,7 +75,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{url('master/soal/index')}}" class="nav-link">
+                        <a href="{{url('master/soal/list')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Soal</p>
                         </a>
@@ -87,6 +87,15 @@
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li class="nav-item">
+                <a href="{{url('logout')}}" class="nav-link">
+                    <i class="nav-icon fas fa-arrow-alt-circle-left"></i>
+                    <p>
+                        Log Out
+                        <span class="badge badge-info right"></span>
+                    </p>
+                </a>
             </li>
     </nav>
     <!-- /.sidebar-menu -->

@@ -67,16 +67,16 @@
                                                 </td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a class="btn btn-success" title="Aktifkan">
+                                                        <a class="btn btn-success" title="Aktifkan" href="{{url('master/modul/status')}}/{{encrypt($item->id_modul)}}/1">
                                                             <i></i>AKTIF
                                                         </a>
-                                                        <a class="btn btn-primary" title="NOn-Aktif">
+                                                        <a class="btn btn-primary" title="NOn-Aktif" href="{{url('master/modul/status')}}/{{encrypt($item->id_modul)}}/0">
                                                             <i></i>NON-AKTIF
                                                         </a>
-                                                        <a class="btn btn-warning" title="Edit">
+                                                        <a class="btn btn-warning" title="Edit" href="{{url('master/modul/edit')}}/{{encrypt($item->id_modul)}}">
                                                             <i></i>EDIT
                                                         </a>
-                                                        <a class="btn btn-danger" title="Hapus">
+                                                        <a class="btn btn-danger" title="Hapus" href="{{url('master/modul/hapus')}}/{{encrypt($item->id_modul)}}">
                                                             <i></i>HAPUS
                                                         </a>
                                                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Ujian;
 
 use App\Http\Controllers\Controller;
 use App\Models\Data\Ujian;
+use App\Models\Master\KategoriSoal;
 use App\Models\Master\Modul;
 use App\Models\Master\Soal;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class RiwayatController extends Controller
         $data['id_ujian'] = $id_ujian;
         $data['id_kategori'] = $id_kategori;
         $data['total'] = DB::select("select SUM(poin) as jumlah FROM data_riwayat WHERE id_ujian = '" . decrypt($id_ujian) . "' AND id_user = '" . session('id_user') . "'");
-        $data['nilai_max'] =  550;
+        $data['kategori'] =  KategoriSoal::where('id_kategori', decrypt($id_kategori))->first();
         $data['kelompok_nilai'] = DB::select("SELECT
                                                 ref_modul.nama_modul,
                                                 ref_modul.passing_grade,

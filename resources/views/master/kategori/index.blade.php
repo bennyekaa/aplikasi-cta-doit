@@ -40,6 +40,7 @@
                                         <th>#</th>
                                         <th>KATEGORI</th>
                                         <th>WAKTU</th>
+                                        <th>NILAI TOTAL</th>
                                         <th>KETERANGAN</th>
                                         <th>STATUS</th>
                                         <th></th>
@@ -53,6 +54,7 @@
                                                 <td>{{ $i++ }}</td>
                                                 <td>{{ $item->nama_kategori }}</td>
                                                 <td>{{ $item->menit }}</td>
+                                                <td>{{ $item->nilai_total }}</td>
                                                 <td>{{ $item->keterangan }}</td>
                                                 <td>
                                                     @if ($item->aktif == 0)
@@ -67,16 +69,16 @@
                                                 </td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a class="btn btn-success" title="Aktifkan">
+                                                        <a class="btn btn-success" title="Aktifkan" href="{{url('master/kategori/status')}}/{{encrypt($item->id_kategori)}}/1">
                                                             <i></i>AKTIF
                                                         </a>
-                                                        <a class="btn btn-primary" title="Non-Aktif">
+                                                        <a class="btn btn-primary" title="Non-Aktif" href="{{url('master/kategori/status')}}/{{encrypt($item->id_kategori)}}/0">
                                                             <i></i>NON-AKTIF
                                                         </a>
-                                                        <a class="btn btn-warning" title="Edit">
+                                                        <a class="btn btn-warning" title="Edit" href="{{url('master/kategori/edit')}}/{{encrypt($item->id_kategori)}}">
                                                             <i></i>EDIT
                                                         </a>
-                                                        <a class="btn btn-danger" title="Hapus">
+                                                        <a class="btn btn-danger" title="Hapus" href="{{url('master/kategori/hapus')}}/{{encrypt($item->id_kategori)}}">
                                                             <i></i>HAPUS
                                                         </a>
                                                     </div>

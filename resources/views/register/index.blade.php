@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <select class="custom-select rounded-0" id="exampleSelectRounded0" name="jk">
+                        <select class="custom-select rounded-0" id="exampleSelectRounded0" name="jk" required>
                             <option>--Pilih Jenis Kelamin--</option>
                             <option value="L">Laki - Laki</option>
                             <option value="P">Perempuan</option>

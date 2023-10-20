@@ -37,12 +37,26 @@ class SoalController extends Controller
 
     public function add($id){
         $data['id_kategori'] = $id;
-        $data['modul'] = Modul::all();
+        $data['modul'] = Modul::where('aktif', 1)->get();
         return view('master.soal.add',$data);
     }
 
     public function add_detail($id){
 
+    }
+
+    public function hapus($id){
+        try {
+            $berkas = Soal::find(decrypt($id));
+            Storage::delete($berkas->soal);
+            Storage::delete($berkas->pembahasan);
+            $berkas->delete();
+            return redirect(session('detail_soal'))->with('success', 'Data Terhapus');
+            // dd($data);
+        } catch (Exception $e) {
+            Log::info('Error ' . $e->getMessage());
+            return redirect(session('detail_soal'));
+        }
     }
 
     public function proses(Request $request){

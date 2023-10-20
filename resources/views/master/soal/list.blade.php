@@ -23,11 +23,11 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-6">
+                    {{-- <div class="col-sm-6">
                             <a class="btn btn-warning" href="{{session('soal')}}">
                                 <i></i>KEMBALI
                             </a>
-                        </div>
+                        </div> --}}
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
@@ -53,7 +53,7 @@
                                                 <td>
                                                     <div class="btn-group">
                                                         <a class="btn btn-primary" href="{{url('master/soal/detail/list')}}/{{encrypt($item->id_kategori)}}" title="Pilih">
-                                                            <i></i>PILIH 
+                                                            <i></i>PILIH
                                                         </a>
                                                     </div>
                                                 </td>

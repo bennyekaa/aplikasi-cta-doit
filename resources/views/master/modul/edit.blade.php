@@ -28,27 +28,28 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Tambah Modul</h3>
+                                <h3 class="card-title">Edit Modul</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form action="{{ url('master/modul/proses') }}" method="post">
                                 @csrf
-                                <input type="hidden" name="fungsi" value="Tambah">
+                                <input type="hidden" name="id_modul" value="{{$id_modul}}">
+                                <input type="hidden" name="fungsi" value="Edit">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>Nama Modul</label>
                                         <input type="text" name="nama_modul" class="form-control"
-                                            placeholder="Nama Modul">
+                                            placeholder="Nama Modul" value="{{$modul->nama_modul}}">
                                     </div>
                                     <div class="form-group">
                                         <label>Passing Grade</label>
                                         <input type="text" name="passing_grade" class="form-control"
-                                            placeholder="Passing Grade">
+                                            placeholder="Passing Grade" value="{{$modul->passing_grade}}">
                                     </div>
                                     <div class="form-group">
                                         <label>Keterangan</label>
-                                        <textarea class="form-control" rows="3" name="keterangan" placeholder="Masukkan Keterangan"></textarea>
+                                        <textarea class="form-control" rows="3" name="keterangan" placeholder="Masukkan Keterangan">{{$modul->keterangan}}</textarea>
                                     </div>
                                     <!-- /.card-body -->
 

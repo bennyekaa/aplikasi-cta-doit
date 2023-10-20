@@ -25,7 +25,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        @if (!empty($ujian_aktif) || session('ujian') == 'ada')
+                        @if (!empty($ujian_aktif) || session('list_ujian') == 'ada')
                             <div class="card">
                                 <div class="card-header">
                                     <h5 class="card-title m-0">TRYOUT AKTIF</h5>

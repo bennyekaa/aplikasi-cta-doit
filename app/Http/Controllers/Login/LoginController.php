@@ -29,7 +29,7 @@ class LoginController extends Controller
                 if (!Hash::check($password, $user->password)) {
                     return redirect('/login')->with('error', 'Password salah!');
                 } else {
-                    if($user->role == 0){
+                    if($user->role == 0 || $user->role == 99){
                         session([
                             'id_user' => $user->id_user,
                             'role' => 'ADMIN',
@@ -48,7 +48,7 @@ class LoginController extends Controller
                                     'role' => 'PENGGUNA',
                                     'username' => $user->username,
                                     'email' => $user->email,
-                                    'ujian' => 'ada',
+                                    'list_ujian' => 'ada',
                                     'id_ujian' => $ujian->id_ujian,
                                     'login' => 1
                                 ]);
@@ -58,7 +58,7 @@ class LoginController extends Controller
                                     'role' => 'PENGGUNA',
                                     'username' => $user->username,
                                     'email' => $user->email,
-                                    'ujian' => 'kosong',
+                                    'list_ujian' => 'kosong',
                                     'login' => 1
                                 ]);
                             }

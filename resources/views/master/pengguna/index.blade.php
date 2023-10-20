@@ -34,6 +34,7 @@
                                     <thead>
                                         <th>#</th>
                                         <th>USERNAME</th>
+                                        <th>JABATAN</th>
                                         <th>EMAIL</th>
                                         <th>NAMA LENGKAP</th>
                                         <th>JENIS KELAMIN</th>
@@ -50,6 +51,13 @@
                                             <tr>
                                                 <td>{{ $i++ }}</td>
                                                 <td>{{ $item->username }}</td>
+                                                <td>
+                                                    @if ($item->role == 0)
+                                                        {{ 'ADMIN' }}
+                                                    @else
+                                                        {{ 'PENGGUNA' }}
+                                                    @endif
+                                                </td>
                                                 <td>{{ $item->email }}</td>
                                                 <td>{{ $item->nama_lengkap }}</td>
                                                 <td>{{ $item->jk }}</td>
@@ -58,16 +66,24 @@
                                                 <td>{{ $item->tanggal_aktif }}</td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a class="btn btn-primary" href="{{url('master/pengguna/jadwal')}}/{{encrypt($item->id_user)}}" title="Atur Jadwal">
+                                                        <a class="btn btn-primary"
+                                                            href="{{ url('master/pengguna/jadwal') }}/{{ encrypt($item->id_user) }}"
+                                                            title="Atur Jadwal">
                                                             <i></i>JADWAL
                                                         </a>
-                                                        <a class="btn btn-secondary" href="{{url('master/pengguna/password')}}/{{encrypt($item->id_user)}}" title="Reset Password">
+                                                        <a class="btn btn-secondary"
+                                                            href="{{ url('master/pengguna/password') }}/{{ encrypt($item->id_user) }}"
+                                                            title="Reset Password">
                                                             <i></i>RESET
                                                         </a>
-                                                        <a class="btn btn-warning" title="Edit">
+                                                        <a class="btn btn-warning"
+                                                            href="{{ url('master/pengguna/edit') }}/{{ encrypt($item->id_user) }}"
+                                                            title="Edit">
                                                             <i></i>EDIT
                                                         </a>
-                                                        <a class="btn btn-danger" href="{{url('master/pengguna/hapus')}}/{{encrypt($item->id_user)}}" title="Hapus">
+                                                        <a class="btn btn-danger alert_notif"
+                                                            href="{{ url('master/pengguna/hapus') }}/{{ encrypt($item->id_user) }}"
+                                                            title="Hapus">
                                                             <i></i>HAPUS
                                                         </a>
                                                     </div>

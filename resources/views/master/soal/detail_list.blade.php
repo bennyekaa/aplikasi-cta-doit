@@ -72,10 +72,10 @@
                                                 <td>{{ $item->poin_e }}</td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a class="btn btn-warning" title="Edit">
+                                                        {{-- <a class="btn btn-warning" title="Edit">
                                                             <i></i>EDIT
-                                                        </a>
-                                                        <a class="btn btn-danger" title="Hapus">
+                                                        </a> --}}
+                                                        <a class="btn btn-danger alert_notif" title="Hapus" href="{{url('master/soal/hapus')}}/{{encrypt($item->id_soal)}}">
                                                             <i></i>HAPUS
                                                         </a>
                                                     </div>

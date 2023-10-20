@@ -60,7 +60,7 @@
                             <a href="{{ url('ujian/pembahasan') }}/{{decrypt($id_ujian)}}/1/{{ $id_kategori }}"
                                 class="btn btn-primary">PEMBAHASAN</a>
                             <h6 class="card-title"><button
-                                    class="btn btn-warning disabled">{{ $total[0]->jumlah }}/{{ $nilai_max }}</button>
+                                    class="btn btn-warning disabled">{{ $total[0]->jumlah }}/{{ $kategori->nilai_total }}</button>
                             </h6>
 
                         </div>

@@ -67,6 +67,7 @@ Route::middleware('checklogin')->group(function () {
             Route::get('list', [SoalController::class, 'list']);
             Route::get('detail/list/{id}', [SoalController::class, 'detail_list']);
             Route::get('add/{id}', [SoalController::class, 'add']);
+            Route::get('hapus/{id}', [SoalController::class, 'hapus']);
             Route::post('proses', [SoalController::class, 'proses']);
             Route::post('import', [SoalController::class, 'import']);
         });

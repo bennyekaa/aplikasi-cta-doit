@@ -39,18 +39,29 @@ class UjianController extends Controller
 
     public function input($id)
     {
+        $datas = [];
         $id_ujian = Str::uuid();
         $soal = Soal::where('id_kategori', decrypt($id))->get();
-        $datas = [];
-        // dd($hitung-$old_device);
+        $kategori = KategoriSoal::where('id_kategori', decrypt($id))->first();
+
         $ujian = new Ujian();
         $ujian->id_ujian = $id_ujian;
         $ujian->status = 0;
-        $ujian->created_at = now()->format('Y-m-d H:i:s.u');
-        // $ujian->created_at = date('Y-m-d H:i:s.U');
+        // $ujian->created_at = now();
         $ujian->created_by = session('id_user');
-        // $ujian->updated_at = now()->format('Y-m-d H:i:s.u');
-        // $ujian->updated_by = session('id_user');
+        // $ujian->updated_at = now();
+        $ujian->updated_by = session('id_user');
+
+        $skrg = DB::select("SELECT NOW() AS waktu");
+
+        $mulai = $skrg[0]->waktu;
+        $update = $skrg[0]->waktu;
+        $selesai = DB::select("SELECT ADDTIME('" . $skrg[0]->waktu . "',SEC_TO_TIME(" . $kategori->menit . " * 60 )) AS waktu_selesai");
+
+        $ujian->waktu_mulai = $mulai; // Format waktu mulai
+        $ujian->waktu_selesai = $selesai[0]->waktu_selesai; // Format waktu selesai
+        $ujian->waktu_update = $update; // Waktu saat ini
+
         $ujian->save();
 
         foreach ($soal as $s) {
@@ -86,74 +97,47 @@ class UjianController extends Controller
         $data['total_nomor'] = Soal::select('id_soal')->where('id_kategori', decrypt($id))->count();
         $data['cari'] = Soal::select('soal')->where('id_kategori', decrypt($id))->where('nomor', $nomor)->first();
         $soal = Soal::join('data_riwayat', 'data_riwayat.id_soal', '=', 'ref_soal.id_soal')->where('id_kategori', decrypt($id))->where('id_ujian', $id_ujian)->orderBy('nomor')->get();
-
+        $lama = KategoriSoal::where('id_kategori', decrypt($id))->first();
         $data['waktumulai'] = Ujian::where('id_ujian', $id_ujian)->first();
+        if ($data['waktumulai']) {
+            // dd(session()->all());
+            if (session('list_ujian') == 'ada') {
+                $skrg = DB::select("SELECT NOW() AS waktu");
+                $data['skrg'] = $skrg[0]->waktu;
+                $ujian = Ujian::find(session('id_ujian'));
+                $selisih_detik =  $ujian->menit; // Konversi menit ke detik
+                // Tambahkan selisih detik ke waktu selesai
+                $waktuObjekSelesai = \DateTime::createFromFormat('Y-m-d H:i:s', $data['waktumulai']->waktu_update);
+                $waktuObjekSelesai->add(new \DateInterval("PT" . $selisih_detik . "S"));
+                $ujian->waktu_update = $skrg[0]->waktu;
+                $ujian->waktu_selesai = $waktuObjekSelesai->format('Y-m-d H:i:s');
+                $ujian->menit = $selisih_detik;
+                $ujian->status = 1;
+                $ujian->save();
+                session()->put('list_ujian', 'kosong');
+                $data['selisih_detik'] = $selisih_detik;
+            } else {
+                $skrg = DB::select("SELECT NOW() AS waktu");
+                $data['skrg'] = $skrg[0]->waktu;
+                $data['mulai'] = $data['waktumulai']->waktu_mulai;
+                $data['selesai'] = $data['waktumulai']->waktu_selesai;
 
-
-        // dd($data);
-
-        // if (session('ujian') == 'ada') {
-        //     $waktumulai = $data['waktumulai']->created_at;
-        //     $waktuupdate = $data['waktumulai']->updated_at;
-
-        //     $waktuObjekAwal = \DateTime::createFromFormat('Y-m-d H:i:s', $waktumulai);
-        //     $waktuObjekUpdate = \DateTime::createFromFormat('Y-m-d H:i:s', $waktuupdate);
-        //     $waktuObjekUpdate = clone $waktuObjekUpdate;
-        //     $waktuObjekSelesai = clone $waktuObjekAwal;
-        //     $waktuObjekSelesai->add(new \DateInterval('PT110M')); // Tambahkan 110 menit
-
-        //     $skrg = DB::select("SELECT NOW()");
-
-        //     $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
-        //     $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
-
-        //     // Hitung selisih waktu antara waktu selesai dan waktu saat ini
-        //     // $waktuSaatIni = now();
-        //     // $selisih = $waktuSaatIni->diff($waktuObjekSelesai);
-        //     $selisih = $skrg[0]->diff($waktuObjekSelesai);
-
-        //     // dd($selisih);
-
-        //     // Ambil selisih dalam menit
-        //     $data['selisih_menit_1'] = $selisih->days * 24 * 60 + $selisih->h * 60 + $selisih->i;
-
-        //     // Ambil selisih dalam detik
-        //     $data['selisih_detik_1'] = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
-
-        //     // Hitung sisa waktu terakhir dengan mempertimbangkan updated_at
-        //     $waktuObjekUpdate = \DateTime::createFromFormat('Y-m-d H:i:s', $waktuupdate);
-        //     $selisihTerakhir = $waktuObjekSelesai->getTimestamp() - $waktuObjekUpdate->getTimestamp();
-        //     $data['sisa_waktu_terakhir'] = 110 * 60 - $selisihTerakhir;
-
-        //     // Hitung sisa waktu terakhir dalam menit
-        //     $data['selisih_menit'] = floor($data['sisa_waktu_terakhir'] / 60);
-
-        //     // Hitung sisa waktu terakhir dalam detik
-        //     $data['selisih_detik'] = $data['sisa_waktu_terakhir'] % 60;
-        // } else {
-            if ($data['waktumulai']) {
-                $waktumulai = $data['waktumulai']->created_at;
-                $waktuObjekAwal = \DateTime::createFromFormat('Y-m-d H:i:s', $waktumulai);
-                $waktuObjekSelesai = clone $waktuObjekAwal;
-                $waktuObjekSelesai->add(new \DateInterval('PT110M')); // Tambahkan 110 menit
-
-                $data['mulai'] = $waktuObjekAwal->format('H:i:s'); // Format waktu mulai
-                $data['selesai'] = $waktuObjekSelesai->format('H:i:s'); // Format waktu selesai
-
-                // Hitung selisih waktu antara waktu selesai dan waktu saat ini
-                $skrg = DB::select("SELECT NOW()");
-                $waktuSaatIni = \DateTime::createFromFormat('Y-m-d H:i:s', $skrg[0]->{'NOW()'});
-                // $waktuSaatIni = now();
-                // $selisih = $waktuSaatIni->diff($waktuObjekSelesai);
+                $waktuObjekSelesai = \DateTime::createFromFormat('Y-m-d H:i:s', $data['waktumulai']->waktu_selesai);
+                $waktuSaatIni = \DateTime::createFromFormat('Y-m-d H:i:s', $skrg[0]->waktu);
                 $selisih = $waktuSaatIni->diff($waktuObjekSelesai);
 
-                // Ambil selisih dalam menit
-                $data['selisih_menit'] = $selisih->days * 24 * 60 + $selisih->h * 60 + $selisih->i;
-
-                // Ambil selisih dalam detik
-                $data['selisih_detik'] = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
+                $selisih_detik = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
+                $ujian = Ujian::find($id_ujian);
+                $ujian->status = 1;
+                $ujian->waktu_update = $skrg[0]->waktu;
+                $ujian->menit = $selisih_detik;
+                $ujian->updated_by = session('id_user');
+                $ujian->updated_at = $this->waktu;
+                // $ujian->updated_at = date('Y-m-d H:i:s.U');
+                $ujian->save();
+                $data['selisih_detik'] = $selisih_detik;
             }
-        // }
+        }
 
         $data['id_ujian'] = $id_ujian;
         $data['daftarsoal'] = $soal->map(function ($item) {
@@ -169,13 +153,6 @@ class UjianController extends Controller
             ];
         })->toArray();
 
-        // dd($data);
-        $ujian = Ujian::find($id_ujian);
-        $ujian->status = 1;
-        $ujian->updated_by = session('id_user');
-        $ujian->updated_at = $this->waktu;
-        // $ujian->updated_at = date('Y-m-d H:i:s.U');
-        $ujian->save();
         return view('ujian.mulai', $data);
     }
 

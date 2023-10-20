@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 class PenggunaController extends Controller
 {
     public function index(){
-        $data['pengguna'] = Pengguna::where('role', '<>', 0)->get();
+        $data['pengguna'] = Pengguna::where('role', '<>', 99)->get();
         session()->put('pengguna', url()->full());
         return view('master.pengguna.index', $data);
     }
@@ -22,6 +22,7 @@ class PenggunaController extends Controller
     }
 
     public function edit($id){
+        $data['id_user'] = $id;
         $data['pengguna'] = Pengguna::find(decrypt($id));
         return view('master.pengguna.edit', $data);
     }
@@ -58,12 +59,28 @@ class PenggunaController extends Controller
                 $pengguna->updated_by = session('id_user');
                 $pengguna->save();
                 return redirect(session('pengguna'))->with('success', 'Atur Jadwal Sukses');
-            }
+            }else
             if($request->fungsi == 'Password'){
                 try {
                     Pengguna::where('id_user', '=', $request->id_user)->update(['password' => Hash::make($request->password)]);
 
                     return redirect(session('pengguna'))->with('success', 'Berhasil Reset Password');
+                } catch (Exception $e) {
+                    Log::info('Error ' . $e->getMessage());
+                    return redirect(session('pengguna'));
+                }
+            }else
+            if($request->fungsi == 'Edit'){
+                try {
+                    $pengguna = Pengguna::find(decrypt($request->id_user));
+                    $pengguna->username = $request->username;
+                    $pengguna->nama_lengkap = $request->nama_lengkap;
+                    $pengguna->telepon = $request->telepon;
+                    $pengguna->email = $request->email;
+                    $pengguna->jk = $request->jk;
+                    $pengguna->alamat = $request->alamat;
+                    $pengguna->save();
+                    return redirect(session('pengguna'))->with('success', 'Edit Data Berhasil');
                 } catch (Exception $e) {
                     Log::info('Error ' . $e->getMessage());
                     return redirect(session('pengguna'));

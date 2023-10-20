@@ -43,8 +43,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Total Waktu Ujian (Dalam Menit)</label>
-                                        <input type="text" name="menit" class="form-control"
+                                        <input type="number" name="menit" class="form-control"
                                             placeholder="Waktu">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nilai Total</label>
+                                        <input type="number" name="nilai_total" class="form-control"
+                                            placeholder="Nilai Total">
                                     </div>
                                     <div class="form-group">
                                         <label>Keterangan</label>

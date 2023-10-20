@@ -99,7 +99,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <a href="{{ url('ujian/mulai') }}/{{ $id_kategori }}/{{ $nomor + 1 }}/{{ $id_ujian }}"
                                                 class="btn btn-primary" style="width: 48%;">SELANJUTNYA</a>
                                         @elseif(Request::segment(4) == $total_nomor)
-                                            <a href="{{url('ujian/selesai')}}/{{$id_ujian}}" class="btn btn-primary" style="width: 48%;">SELESAI</a>
+                                            <a href="{{ url('ujian/selesai') }}/{{ $id_ujian }}"
+                                                class="btn btn-primary" style="width: 48%;">SELESAI</a>
                                         @else
                                             <a href="{{ url('ujian/mulai') }}/{{ $id_kategori }}/{{ $nomor - 1 }}/{{ $id_ujian }}"
                                                 class="btn btn-primary" style="width: 48%;">SEBELUMNYA</a>
@@ -168,15 +169,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{asset('assets/dist/js/adminlte.min.js')}}"></script>
+    <script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
     <script>
-        // Fungsi untuk menginisialisasi dan memulai timer mundur
+        var initialSeconds = {{ $selisih_detik }}; // Sisa waktu dalam detik
+
         function startCountdown(countdownId, initialSeconds) {
-            let remainingSeconds = initialSeconds;
+            let remainingSeconds = initialSeconds; // Inisialisasi nilai remainingSeconds di dalam fungsi countdown
             const countdownElement = document.getElementById(countdownId);
             const minutesElement = document.getElementById('minutes');
             const secondsElement = document.getElementById('seconds');
@@ -210,7 +212,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
         // Panggil fungsi startCountdown dengan id elemen dan waktu awal dalam detik
-        startCountdown('countdown', {{ $selisih_detik }});
+        startCountdown('countdown', initialSeconds);
 
         function updateStatusUjian(idUjian) {
             $.ajax({
@@ -229,8 +231,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 }
             });
         }
-
     </script>
+
 
 </body>
 
