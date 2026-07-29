@@ -136,7 +136,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         if ($j == $nomorSoalSekarang) {
                                                             $buttonClass = 'btn btn-primary'; // Nomor saat ini tetap aktif
                                                         } elseif ($jawaban !== null) {
-                                                            $buttonClass = 'btn btn-warning'; // Nomor yang sudah terjawab berwarna kuning
+                                                            $buttonClass = 'btn btn-success'; // Nomor yang sudah terjawab berwarna kuning
                                                         }
                                                     @endphp
                                                     <a href="{{ url('ujian/mulai') }}/{{ $id_kategori }}/{{ $soal['nomor_soal'] }}/{{ $id_ujian }}"

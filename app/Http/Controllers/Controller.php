@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengaturan;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -12,6 +13,8 @@ class Controller extends BaseController
     use AuthorizesRequests, ValidatesRequests;
 
     public $waktu;
+
+    public $pengaturan;
 
     public function __construct()
     {
@@ -28,5 +31,7 @@ class Controller extends BaseController
         });
 
         $this->waktu = \Carbon\Carbon::now()->format("Y-m-d H:i:s.u");
+
+        $this->pengaturan = Pengaturan::first();
     }
 }

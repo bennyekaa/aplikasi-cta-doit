@@ -66,6 +66,7 @@ class RiwayatController extends Controller
                 'poin_d' => $item->poin_d,
                 'poin_e' => $item->poin_e,
                 'jawaban' => $item->jawaban,
+                'poin' => $item->poin,
             ];
         })->toArray();
         // dd($data);

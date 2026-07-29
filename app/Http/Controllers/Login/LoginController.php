@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Log;
 class LoginController extends Controller
 {
     public function index(){
-        return view('login.index');
+        $data['instansi'] = $this->pengaturan->instansi;
+        return view('login.index', $data);
     }
 
     public function actionlogin(Request $request){
@@ -35,6 +36,7 @@ class LoginController extends Controller
                             'role' => 'ADMIN',
                             'username' => $user->username,
                             'email' => $user->email,
+                            'instansi' => $this->pengaturan->instansi,
                             'login' => 1
                         ]);
                         return redirect('/')->with('success', 'Selamat Datang');
@@ -48,6 +50,7 @@ class LoginController extends Controller
                                     'role' => 'PENGGUNA',
                                     'username' => $user->username,
                                     'email' => $user->email,
+                                    'instansi' => $this->pengaturan->instansi,
                                     'list_ujian' => 'ada',
                                     'id_ujian' => $ujian->id_ujian,
                                     'login' => 1
@@ -58,13 +61,14 @@ class LoginController extends Controller
                                     'role' => 'PENGGUNA',
                                     'username' => $user->username,
                                     'email' => $user->email,
+                                    'instansi' => $this->pengaturan->instansi,
                                     'list_ujian' => 'kosong',
                                     'login' => 1
                                 ]);
                             }
                             return redirect('ujian/list')->with('success', 'Selamat Datang');
                         }else{
-                            return redirect('/login')->with('error', 'Anda Tidak Memiliki Langganan, Silahkan Hubungi WA 082137345435 untuk berlangganan!');
+                            return redirect('/login')->with('error', 'Anda Tidak Memiliki Langganan, Silahkan Hubungi WA '.$this->pengaturan->nomor.' untuk berlangganan!');
                         }
                     }
                 }
@@ -80,6 +84,7 @@ class LoginController extends Controller
                             'role' => 'ADMIN',
                             'username' => $user->username,
                             'email' => $user->email,
+                            'instansi' => $this->pengaturan->instansi,
                             'login' => 1
                         ]);
                         return redirect('/')->with('success', 'Selamat Datang');
@@ -93,6 +98,7 @@ class LoginController extends Controller
                                     'role' => 'PENGGUNA',
                                     'username' => $user->username,
                                     'email' => $user->email,
+                                    'instansi' => $this->pengaturan->instansi,
                                     'ujian' => 'ada',
                                     'id_ujian' => $ujian->id_ujian,
                                     'login' => 1
@@ -103,18 +109,19 @@ class LoginController extends Controller
                                     'role' => 'PENGGUNA',
                                     'username' => $user->username,
                                     'email' => $user->email,
+                                    'instansi' => $this->pengaturan->instansi,
                                     'ujian' => 'kosong',
                                     'login' => 1
                                 ]);
                             }
                             return redirect('ujian/list')->with('success', 'Selamat Datang');
                         } else {
-                            return redirect('/login')->with('error', 'Anda Tidak Memiliki Langganan, Silahkan Hubungi WA 082137345435 untuk berlangganan!');
+                            return redirect('/login')->with('error', 'Anda Tidak Memiliki Langganan, Silahkan Hubungi WA '.$this->pengaturan->nomor.' untuk berlangganan!');
                         }
                     }
                 }
             }else{
-                return redirect('/login')->with('error', 'Anda Tidak Memiliki Langganan, Silahkan Hubungi WA 082137345435 untuk berlangganan!');
+                return redirect('/login')->with('error', 'Anda Tidak Memiliki Langganan, Silahkan Hubungi WA '.$this->pengaturan->nomor.' untuk berlangganan!');
             }
         } catch (Exception $e) {
             Log::info('Error ' . $e->getMessage());

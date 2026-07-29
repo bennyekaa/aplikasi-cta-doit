@@ -12,7 +12,7 @@ class BerandaController extends Controller
         if(session('role') == 'ADMIN'){
             return view('beranda.index');
         }else{
-            return redirect()->back();
+            return redirect('ujian/list');
         }
     }
 }

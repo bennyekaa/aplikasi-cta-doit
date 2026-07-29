@@ -4,7 +4,7 @@
         <a href="#" class="navbar-brand">
             {{-- <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                 class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
-            <span class="brand-text font-weight-light">ORION SCHOOL</span>
+            <span class="brand-text font-weight-light">{{session('instansi')}}</span>
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"

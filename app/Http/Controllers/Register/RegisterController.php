@@ -12,8 +12,9 @@ class RegisterController extends Controller
 {
     public function index()
     {
+        $data['instansi'] = $this->pengaturan->instansi;
         session()->put('register', url()->full());
-        return view('register.index');
+        return view('register.index', $data);
     }
 
     public function actionregister(Request $request)
@@ -41,7 +42,7 @@ class RegisterController extends Controller
             $pengguna->created_at = $this->waktu;
             $pengguna->created_by = $pengguna->id_user;
             $pengguna->save();
-            return redirect('login')->with('success', 'Silahkan Hubungi WA 082137345435 untuk verifikasi data');
+            return redirect('login')->with('success', 'Silahkan Hubungi WA '.$this->pengaturan->nomor.' untuk verifikasi data');
         }
     }
 }

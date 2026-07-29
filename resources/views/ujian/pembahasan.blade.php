@@ -131,11 +131,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     @php
                                                         $soal = $daftarsoal[$j - 1];
                                                         $jawaban = $soal['jawaban'];
+                                                        $poin = $soal['poin'];
                                                         $buttonClass = 'btn btn-light';
                                                         if ($j == $nomorSoalSekarang) {
                                                             $buttonClass = 'btn btn-primary'; // Nomor saat ini tetap aktif
                                                         } elseif ($jawaban !== null) {
-                                                            $buttonClass = 'btn btn-warning'; // Nomor yang sudah terjawab berwarna kuning
+                                                            $buttonClass = 'btn btn-success'; // Nomor yang sudah terjawab berwarna kuning
+                                                        }elseif($poin == 5){
+                                                            $buttonClass = 'btn btn-danger'; // Nomor yang sudah terjawab berwarna kuning
                                                         }
                                                     @endphp
                                                     <a href="{{ url('ujian/pembahasan') }}/{{ $id_ujian }}/{{ $soal['nomor_soal'] }}/{{ $id_kategori }}"
