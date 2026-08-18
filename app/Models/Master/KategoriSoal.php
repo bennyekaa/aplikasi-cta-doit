@@ -14,4 +14,10 @@ class KategoriSoal extends Model
     protected $primaryKey = 'id_kategori';
 
     public $incrementing = false;
+    protected $guarded = [];
+
+    public function modul()
+    {
+        return $this->belongsTo(Modul::class, 'id_modul', 'id_modul');
+    }
 }

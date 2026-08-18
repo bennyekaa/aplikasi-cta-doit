@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Ujian;
 
 use App\Http\Controllers\Controller;
-use App\Models\Data\Ujian;
-use App\Models\Master\Jawaban;
+use App\Models\Data\UserExam;
+use App\Models\Data\UserExamAnswer;
 use App\Models\Master\KategoriSoal;
-use App\Models\Master\Soal;
+use App\Models\Master\Modul;
+use App\Models\Master\BankSoal;
+use App\Models\Master\Pengguna;
+use App\Models\Pengaturan;
 use Carbon\Carbon;
-use DateInterval;
-use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -24,194 +25,231 @@ class UjianController extends Controller
     public function list()
     {
         session()->put('list', url()->full());
-        $data['kategori'] = KategoriSoal::all()->sortByDesc('created_at');
-        $data['ujian_aktif'] = Ujian::join('data_riwayat', 'data_riwayat.id_ujian', '=', 'data_ujian.id_ujian')->join('ref_soal', 'ref_soal.id_soal', '=', 'data_riwayat.id_soal')->join('ref_kategori', 'ref_kategori.id_kategori', '=', 'ref_soal.id_kategori')->where('data_ujian.created_by', session('id_user'))->where('data_ujian.status', 1)->first();
+        
+        // Find active exam for the user (status 0)
+        $ujian_aktif = UserExam::where('id_user', session('id_user'))->where('status', 0)->first();
+        if ($ujian_aktif) {
+            $data['ujian_aktif'] = $ujian_aktif;
+            $data['modul_aktif'] = Modul::find($ujian_aktif->id_modul);
+        }
+        
+        $data['ujian_selesai'] = UserExam::where('id_user', session('id_user'))->where('status', 1)->pluck('id_modul')->toArray();
+        
+        // Show modul based on user's jabatan
+        $user = Pengguna::with('jabatan')->find(session('id_user'));
+        if ($user && $user->jabatan && $user->jabatan->id_modul) {
+            $data['moduls'] = Modul::where('id_modul', $user->jabatan->id_modul)->where('aktif', 1)->get();
+        } else {
+            // Default to empty or all depending on logic. I'll make it empty if no modul plotted to their jabatan.
+            $data['moduls'] = collect();
+        }
+        
+        $data['pengaturan'] = Pengaturan::first();
+        
         return view('ujian.list', $data);
     }
 
-    public function detail($id)
+    public function input($id_modul)
     {
-        $data['id_kategori'] = $id;
-        $data['kategori'] = KategoriSoal::find(decrypt($id));
-        // $data['soal'] = Soal::join('ref_kategori', 'ref_kategori.id_kategori', '=', 'ref_soal.id_kategori')->join('ref_modul', 'ref_modul.id_modul','=','ref_soal.id_modul')->where('ref_soal.id_kategori', decrypt($id))->get();
-        return view('ujian.detail', $data);
-    }
-
-    public function input($id)
-    {
-        $datas = [];
-        $id_ujian = Str::uuid();
-        $soal = Soal::where('id_kategori', decrypt($id))->get();
-        $kategori = KategoriSoal::where('id_kategori', decrypt($id))->first();
-
-        $ujian = new Ujian();
-        $ujian->id_ujian = $id_ujian;
-        $ujian->status = 0;
-        // $ujian->created_at = now();
-        $ujian->created_by = session('id_user');
-        // $ujian->updated_at = now();
-        $ujian->updated_by = session('id_user');
-
-        $skrg = DB::select("SELECT NOW() AS waktu");
-
-        $mulai = $skrg[0]->waktu;
-        $update = $skrg[0]->waktu;
-        $selesai = DB::select("SELECT ADDTIME('" . $skrg[0]->waktu . "',SEC_TO_TIME(" . $kategori->menit . " * 60 )) AS waktu_selesai");
-
-        $ujian->waktu_mulai = $mulai; // Format waktu mulai
-        $ujian->waktu_selesai = $selesai[0]->waktu_selesai; // Format waktu selesai
-        $ujian->waktu_update = $update; // Waktu saat ini
-
-        $ujian->save();
-
-        foreach ($soal as $s) {
-            $item = [
-                'id_jawaban' => (string)Str::uuid(),
-                'id_user' => session('id_user'),
-                'id_ujian' => $id_ujian,
-                'id_soal' => $s->id_soal, // Hubungkan id_soal dengan id soal yang sesuai
-                'created_at' => date('Y-m-d H:i:s.U'),
-                'created_by' => session('id_user'),
-            ];
-            array_push($datas, $item);
+        try {
+            DB::statement('ALTER TABLE user_exams MODIFY id_user VARCHAR(255)');
+        } catch (\Exception $e) {}
+        
+        $id_modul = decrypt($id_modul);
+        $modul = Modul::find($id_modul);
+        
+        if (!$modul) {
+            return redirect()->back()->with('error', 'Modul tidak ditemukan.');
         }
-        // dd($datas);
-        DB::table('data_riwayat')->insert($datas);
 
-        $data['id'] = $id;
-        session()->put('kategori', $id);
-        $data['id1'] = 1;
-        $data['id2'] = $id_ujian;
+        if (strtotime($modul->waktu_mulai) > time()) {
+            return redirect()->back()->with('error', 'Ujian belum bisa dimulai. Jadwal ujian untuk modul ' . $modul->nama_modul . ' adalah ' . $modul->waktu_mulai);
+        }
+        
+        // Cek apakah user sudah punya ujian berjalan untuk modul ini
+        $ujian_berjalan = UserExam::where('id_user', session('id_user'))->where('id_modul', $id_modul)->where('status', 0)->first();
+        
+        if ($ujian_berjalan) {
+            return redirect('ujian/mulai/' . encrypt($ujian_berjalan->id) . '/1');
+        }
 
-        // return view('ujian.mulai', $data);
-        return redirect()->route('ujian.mulai', $data);
+        // Generate Soal
+        $jumlah_soal = $modul->jumlah_soal;
+        if (!$jumlah_soal || $jumlah_soal == 0) {
+            return redirect()->back()->with('error', 'Modul tidak memiliki pengaturan jumlah soal.');
+        }
+        
+        $kategori_aktif_ids = KategoriSoal::where('id_modul', $id_modul)->where('aktif', 1)->pluck('id_kategori')->toArray();
+        
+        $soal_terpilih = BankSoal::where('id_modul', $id_modul)
+                            ->whereIn('id_tematik', $kategori_aktif_ids)
+                            ->inRandomOrder()
+                            ->limit($jumlah_soal)
+                            ->get();
+        
+        // Jika soal tidak sesuai jumlah, sesuaikan dari soal lain di modul yang sama
+        if ($soal_terpilih->count() < $jumlah_soal) {
+            $sisa = $jumlah_soal - $soal_terpilih->count();
+            $exclude_ids = $soal_terpilih->pluck('id')->toArray();
+            $tambahan = BankSoal::where('id_modul', $id_modul)
+                            ->whereNotIn('id', $exclude_ids)
+                            ->inRandomOrder()
+                            ->limit($sisa)
+                            ->get();
+            $soal_terpilih = $soal_terpilih->merge($tambahan);
+        }
+        
+        // Acak urutan keseluruhan soal
+        $soal_terpilih = $soal_terpilih->shuffle();
+        
+        if ($soal_terpilih->isEmpty()) {
+            return redirect('ujian/list')->with('error', 'Belum ada soal untuk ujian ini.');
+        }
+
+        $id_ujian = (string) Str::uuid();
+        $waktu_mulai = date('Y-m-d H:i:s');
+        $waktu_selesai = date('Y-m-d H:i:s', strtotime("+$modul->waktu minutes"));
+
+        UserExam::create([
+            'id' => $id_ujian,
+            'id_user' => session('id_user'),
+            'id_modul' => $id_modul,
+            'waktu_mulai' => $waktu_mulai,
+            'waktu_selesai' => $waktu_selesai,
+            'status' => 0,
+            'nilai' => 0
+        ]);
+
+        $nomor = 1;
+        $pilihan = ['A', 'B', 'C', 'D', 'E'];
+        
+        foreach ($soal_terpilih as $s) {
+            // Acak pilihan A-E
+            shuffle($pilihan);
+            
+            UserExamAnswer::create([
+                'id' => (string) Str::uuid(),
+                'user_exam_id' => $id_ujian,
+                'id_soal' => $s->id,
+                'nomor_soal' => $nomor++,
+                'pilihan_acak' => $pilihan,
+                'jawaban_user' => null,
+                'poin' => 0
+            ]);
+        }
+        
+        return redirect('ujian/mulai/' . encrypt($id_ujian) . '/1');
     }
 
-
-    public function mulai($id, $nomor, $id_ujian)
+    public function mulai($id_ujian, $nomor)
     {
-        session()->put('ujian', url()->full());
-        session()->put('nomor', $nomor);
+        $id_ujian = decrypt($id_ujian);
+        $ujian = UserExam::find($id_ujian);
+        
+        if (!$ujian) {
+            return redirect('ujian/list')->with('error', 'Ujian tidak ditemukan.');
+        }
+        
+        if ($ujian->status == 1) {
+            return redirect('ujian/list')->with('success', 'Ujian sudah selesai.');
+        }
+        
+        // Hitung sisa waktu
+        $sekarang = time();
+        $selesai = strtotime($ujian->waktu_selesai);
+        $sisa_detik = $selesai - $sekarang;
+        
+        if ($sisa_detik <= 0) {
+            // Waktu habis
+            return redirect('ujian/selesai/' . encrypt($id_ujian));
+        }
+
+        $modul = Modul::find($ujian->id_modul);
+        
+        $answers = UserExamAnswer::where('user_exam_id', $id_ujian)->orderBy('nomor_soal')->get();
+        
+        if ($answers->isEmpty()) {
+            // Bad state, clean up and return
+            $ujian->delete();
+            return redirect('ujian/list')->with('error', 'Terjadi kesalahan: ujian tidak memiliki soal. Silakan mulai ulang.');
+        }
+
+        $current_answer = $answers->where('nomor_soal', $nomor)->first();
+        
+        if (!$current_answer) {
+            return redirect('ujian/mulai/' . encrypt($id_ujian) . '/1');
+        }
+        
+        $soal_list = BankSoal::whereIn('id', $answers->pluck('id_soal'))->get()->keyBy('id');
+        
+        $data['ujian'] = $ujian;
+        $data['modul'] = $modul;
+        $data['answers'] = $answers;
+        $data['soal_list'] = $soal_list;
         $data['nomor'] = $nomor;
-        $data['id_kategori'] = $id;
-        $data['total_nomor'] = Soal::select('id_soal')->where('id_kategori', decrypt($id))->count();
-        $data['cari'] = Soal::select('soal')->where('id_kategori', decrypt($id))->where('nomor', $nomor)->first();
-        $soal = Soal::join('data_riwayat', 'data_riwayat.id_soal', '=', 'ref_soal.id_soal')->where('id_kategori', decrypt($id))->where('id_ujian', $id_ujian)->orderBy('nomor')->get();
-        $lama = KategoriSoal::where('id_kategori', decrypt($id))->first();
-        $data['waktumulai'] = Ujian::where('id_ujian', $id_ujian)->first();
-        if ($data['waktumulai']) {
-            // dd(session()->all());
-            if (session('list_ujian') == 'ada') {
-                $skrg = DB::select("SELECT NOW() AS waktu");
-                $data['skrg'] = $skrg[0]->waktu;
-                $ujian = Ujian::find(session('id_ujian'));
-                $selisih_detik =  $ujian->menit; // Konversi menit ke detik
-                // Tambahkan selisih detik ke waktu selesai
-                $waktuObjekSelesai = \DateTime::createFromFormat('Y-m-d H:i:s', $data['waktumulai']->waktu_update);
-                $waktuObjekSelesai->add(new \DateInterval("PT" . $selisih_detik . "S"));
-                $ujian->waktu_update = $skrg[0]->waktu;
-                $ujian->waktu_selesai = $waktuObjekSelesai->format('Y-m-d H:i:s');
-                $ujian->menit = $selisih_detik;
-                $ujian->status = 1;
-                $ujian->save();
-                session()->put('list_ujian', 'kosong');
-                $data['selisih_detik'] = $selisih_detik;
-            } else {
-                $skrg = DB::select("SELECT NOW() AS waktu");
-                $data['skrg'] = $skrg[0]->waktu;
-                $data['mulai'] = $data['waktumulai']->waktu_mulai;
-                $data['selesai'] = $data['waktumulai']->waktu_selesai;
-
-                $waktuObjekSelesai = \DateTime::createFromFormat('Y-m-d H:i:s', $data['waktumulai']->waktu_selesai);
-                $waktuSaatIni = \DateTime::createFromFormat('Y-m-d H:i:s', $skrg[0]->waktu);
-                $selisih = $waktuSaatIni->diff($waktuObjekSelesai);
-
-                $selisih_detik = $selisih->days * 24 * 60 * 60 + $selisih->h * 60 * 60 + $selisih->i * 60 + $selisih->s;
-                $ujian = Ujian::find($id_ujian);
-                $ujian->status = 1;
-                $ujian->waktu_update = $skrg[0]->waktu;
-                $ujian->menit = $selisih_detik;
-                $ujian->updated_by = session('id_user');
-                $ujian->updated_at = $this->waktu;
-                // $ujian->updated_at = date('Y-m-d H:i:s.U');
-                $ujian->save();
-                $data['selisih_detik'] = $selisih_detik;
-            }
-        }
-
-        $data['id_ujian'] = $id_ujian;
-        $data['daftarsoal'] = $soal->map(function ($item) {
-            return [
-                'id_soal' => $item->id_soal,
-                'nomor_soal' => $item->nomor,
-                'poin_a' => $item->poin_a,
-                'poin_b' => $item->poin_b,
-                'poin_c' => $item->poin_c,
-                'poin_d' => $item->poin_d,
-                'poin_e' => $item->poin_e,
-                'jawaban' => $item->jawaban,
-            ];
-        })->toArray();
-
+        $data['total_nomor'] = $answers->count();
+        $data['sisa_detik'] = $sisa_detik;
+        $data['pengaturan'] = Pengaturan::first();
+        
         return view('ujian.mulai', $data);
     }
 
-
-    // public function jawab(Request $request)
-    // {
-    //     $jawab = Jawaban::where('id_soal', decrypt($request->idSekarang))->where('id_ujian', decrypt($request->id_ujian))->first();
-    //     $jawab->poin = decrypt($request->poin);
-    //     $jawab->jawaban = $request->answer;
-    //     $jawab->updated_by = session('id_user');
-    //     $jawab->save();
-    // }
-    public function jawab($id_ujian, $id_soal, $poin, $huruf)
+    public function jawab($id_answer, $jawaban)
     {
-        $jawab = Jawaban::where('id_soal', decrypt($id_soal))->where('id_ujian', decrypt($id_ujian))->first();
-        $jawab->poin = decrypt($poin);
-        $ujian = Ujian::find(decrypt($id_ujian));
-        $ujian->updated_by = session('id_user');
-        $ujian->updated_at = date('Y-m-d H:i:s.U');
-        $jawab->jawaban = $huruf;
-        $jawab->updated_by = session('id_user');
-        $jawab->updated_at = date('Y-m-d H:i:s.U');
-        $jawab->save();
-        $ujian->save();
-
-        return redirect(session('ujian'));
+        $id_answer = decrypt($id_answer);
+        
+        $answer = UserExamAnswer::find($id_answer);
+        $ujian = UserExam::find($answer->user_exam_id);
+        
+        if ($ujian->status == 1) {
+            if (request()->ajax()) {
+                return response()->json(['success' => false, 'message' => 'Ujian sudah selesai.']);
+            }
+            return redirect()->back(); // Ujian sudah selesai
+        }
+        
+        $soal = BankSoal::find($answer->id_soal);
+        
+        // Hitung poin sesuai jawaban aslinya (BankSoal hanya menyimpan kunci jawaban yang benar)
+        // Nilai default: Benar = 1, Salah = 0
+        $poin = 0;
+        if (strtoupper($jawaban) == strtoupper($soal->kunci)) {
+            $poin = 1;
+        }
+        
+        $answer->jawaban_user = $jawaban;
+        $answer->poin = $poin;
+        $answer->save();
+        
+        // Cek total nomor
+        $total = UserExamAnswer::where('user_exam_id', $ujian->id)->count();
+        $next_nomor = $answer->nomor_soal + 1;
+        
+        if ($next_nomor > $total) {
+            $next_nomor = $answer->nomor_soal; // Stay on last page
+        }
+        
+        if (request()->ajax()) {
+            return response()->json(['success' => true, 'next_nomor' => $next_nomor]);
+        }
+        
+        return redirect('ujian/mulai/' . encrypt($ujian->id) . '/' . $next_nomor);
     }
 
-    public function simpanujian(Request $request)
+    public function selesai($id_ujian)
     {
-        $id_ujian = $request->input('id_ujian');
-
-        // Simpan waktu yang tersisa ke dalam database, misalnya dalam kolom 'waktu_sisa' di tabel 'ujian'
-        // Gantilah ini sesuai dengan nama tabel dan kolom yang Anda gunakan
-        DB::table('data_ujian')->where('id_ujian', $id_ujian)->update(['status' => 2]);
-
-        // Beri respons yang sesuai jika diperlukan
-        return response()->json(['status' => 'Berhasil menyimpan ujian']);
-    }
-
-    public function selesai($idUjian)
-    {
-        $ujian = Ujian::find($idUjian);
-        $ujian->status = 2;
-        $ujian->updated_at = date('Y-m-d H:i:s.U');
-        $ujian->updated_by = session('id_user');
-        $ujian->save();
-        session()->put('ujian', 'kosong');
-
-        return redirect(url('ujian/list'));
-    }
-
-    public function updatewaktu(Request $request)
-    {
-        $id_ujian = $request->input('id_ujian');
-
-        DB::table('data_ujian')->where('id_ujian', $id_ujian)->update(['updated_at' => date('Y-m-d H:i:s.U'),  'updated_by' => session('id_user')]);
-
-        // Beri respons yang sesuai jika diperlukan
-        return response()->json(['status' => 'Berhasil menyimpan ujian']);
+        $id_ujian = decrypt($id_ujian);
+        $ujian = UserExam::find($id_ujian);
+        
+        if ($ujian && $ujian->status == 0) {
+            // Hitung total nilai
+            $total_poin = UserExamAnswer::where('user_exam_id', $id_ujian)->sum('poin');
+            
+            $ujian->status = 1;
+            $ujian->nilai = $total_poin;
+            $ujian->save();
+        }
+        
+        return redirect('ujian/list')->with('success', 'Ujian berhasil diselesaikan.');
     }
 }

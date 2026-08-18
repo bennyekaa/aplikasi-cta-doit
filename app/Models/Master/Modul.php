@@ -14,4 +14,6 @@ class Modul extends Model
     protected $primaryKey = 'id_modul';
 
     public $incrementing = false;
+
+    protected $guarded = [];
 }

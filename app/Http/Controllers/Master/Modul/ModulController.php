@@ -65,8 +65,9 @@ class ModulController extends Controller
             if ($request->fungsi == 'Tambah') {
                 $modul = new Modul();
                 $modul->nama_modul = $request->nama_modul;
-                $modul->passing_grade = $request->passing_grade;
-                $modul->keterangan = $request->keterangan;
+                $modul->waktu = $request->waktu;
+                $modul->waktu_mulai = $request->waktu_mulai;
+                $modul->jumlah_soal = $request->jumlah_soal;
                 $modul->aktif = 1;
                 $modul->created_at = $this->waktu;
                 $modul->created_by = session('id_user');
@@ -76,8 +77,9 @@ class ModulController extends Controller
             if ($request->fungsi == 'Edit') {
                 $modul = Modul::find(decrypt($request->id_modul));
                 $modul->nama_modul = $request->nama_modul;
-                $modul->passing_grade = $request->passing_grade;
-                $modul->keterangan = $request->keterangan;
+                $modul->waktu = $request->waktu;
+                $modul->waktu_mulai = $request->waktu_mulai;
+                $modul->jumlah_soal = $request->jumlah_soal;
                 $modul->aktif = 1;
                 $modul->updated_by = session('id_user');
                 $modul->save();

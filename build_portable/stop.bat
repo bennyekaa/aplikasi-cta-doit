@@ -1,0 +1,8 @@
+@echo off
+TITLE Mematikan Server Ujian CAT
+echo Mematikan MySQL...
+"%~dp0mysql\bin\mysqladmin.exe" -h 127.0.0.1 --port=33066 -u root shutdown
+echo Mematikan PHP Server...
+taskkill /F /IM php.exe /T
+echo Selesai!
+pause

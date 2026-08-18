@@ -14,4 +14,11 @@ class Pengaturan extends Model
     protected $primaryKey = 'id_pengaturan';
 
     public $incrementing = false;
+
+    protected $fillable = [
+        'instansi',
+        'logo',
+        'font_type',
+        'font_size',
+    ];
 }
