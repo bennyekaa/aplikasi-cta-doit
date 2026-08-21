@@ -1,2 +1,37 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEV4cG9ydHM7Cgp1c2UgTWFhdHdlYnNpdGVcRXhjZWxcQ29uY2VybnNcRnJvbUFycmF5Owp1c2UgTWFhdHdlYnNpdGVcRXhjZWxcQ29uY2VybnNcV2l0aEhlYWRpbmdzOwoKY2xhc3MgQmFua1NvYWxUZW1wbGF0ZUV4cG9ydCBpbXBsZW1lbnRzIEZyb21BcnJheSwgV2l0aEhlYWRpbmdzCnsKICAgIHB1YmxpYyBmdW5jdGlvbiBoZWFkaW5ncygpOiBhcnJheQogICAgewogICAgICAgIHJldHVybiBbCiAgICAgICAgICAgICdzb2FsJywKICAgICAgICAgICAgJ2EnLAogICAgICAgICAgICAnYicsCiAgICAgICAgICAgICdjJywKICAgICAgICAgICAgJ2QnLAogICAgICAgICAgICAnZScsCiAgICAgICAgICAgICdrdW5jaScKICAgICAgICBdOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBhcnJheSgpOiBhcnJheQogICAgewogICAgICAgIHJldHVybiBbCiAgICAgICAgICAgIFsKICAgICAgICAgICAgICAgICdBcGEgaWJ1a290YSBJbmRvbmVzaWE/JywKICAgICAgICAgICAgICAgICdKYWthcnRhJywKICAgICAgICAgICAgICAgICdCYW5kdW5nJywKICAgICAgICAgICAgICAgICdTdXJhYmF5YScsCiAgICAgICAgICAgICAgICAnTWVkYW4nLAogICAgICAgICAgICAgICAgJ1NlbWFyYW5nJywKICAgICAgICAgICAgICAgICdhJwogICAgICAgICAgICBdCiAgICAgICAgXTsKICAgIH0KfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Exports;
+
+use Maatwebsite\Excel\Concerns\FromArray;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+
+class BankSoalTemplateExport implements FromArray, WithHeadings
+{
+    public function headings(): array
+    {
+        return [
+            'soal',
+            'a',
+            'b',
+            'c',
+            'd',
+            'e',
+            'kunci'
+        ];
+    }
+
+    public function array(): array
+    {
+        return [
+            [
+                'Apa ibukota Indonesia?',
+                'Jakarta',
+                'Bandung',
+                'Surabaya',
+                'Medan',
+                'Semarang',
+                'a'
+            ]
+        ];
+    }
+}

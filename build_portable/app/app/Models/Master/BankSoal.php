@@ -1,2 +1,37 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXE1vZGVsc1xNYXN0ZXI7Cgp1c2UgSWxsdW1pbmF0ZVxEYXRhYmFzZVxFbG9xdWVudFxGYWN0b3JpZXNcSGFzRmFjdG9yeTsKdXNlIElsbHVtaW5hdGVcRGF0YWJhc2VcRWxvcXVlbnRcTW9kZWw7CgpjbGFzcyBCYW5rU29hbCBleHRlbmRzIE1vZGVsCnsKICAgIHVzZSBIYXNGYWN0b3J5OwogICAgcHJvdGVjdGVkICR0YWJsZSA9ICdiYW5rX3NvYWwnOwogICAgcHJvdGVjdGVkICRwcmltYXJ5S2V5ID0gJ2lkJzsKICAgIAogICAgcHJvdGVjdGVkICRmaWxsYWJsZSA9IFsKICAgICAgICAnaWRfbW9kdWwnLAogICAgICAgICdpZF90ZW1hdGlrJywKICAgICAgICAnc29hbCcsCiAgICAgICAgJ29wc2lfYScsCiAgICAgICAgJ29wc2lfYicsCiAgICAgICAgJ29wc2lfYycsCiAgICAgICAgJ29wc2lfZCcsCiAgICAgICAgJ29wc2lfZScsCiAgICAgICAgJ2t1bmNpJywKICAgICAgICAnY3JlYXRlZF9ieScsCiAgICAgICAgJ3VwZGF0ZWRfYnknCiAgICBdOwoKICAgIHB1YmxpYyBmdW5jdGlvbiBtb2R1bCgpCiAgICB7CiAgICAgICAgcmV0dXJuICR0aGlzLT5iZWxvbmdzVG8oTW9kdWw6OmNsYXNzLCAnaWRfbW9kdWwnLCAnaWRfbW9kdWwnKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gdGVtYXRpaygpCiAgICB7CiAgICAgICAgcmV0dXJuICR0aGlzLT5iZWxvbmdzVG8oS2F0ZWdvcmlTb2FsOjpjbGFzcywgJ2lkX3RlbWF0aWsnLCAnaWRfa2F0ZWdvcmknKTsKICAgIH0KfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Models\Master;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class BankSoal extends Model
+{
+    use HasFactory;
+    protected $table = 'bank_soal';
+    protected $primaryKey = 'id';
+    
+    protected $fillable = [
+        'id_modul',
+        'id_tematik',
+        'soal',
+        'opsi_a',
+        'opsi_b',
+        'opsi_c',
+        'opsi_d',
+        'opsi_e',
+        'kunci',
+        'created_by',
+        'updated_by'
+    ];
+
+    public function modul()
+    {
+        return $this->belongsTo(Modul::class, 'id_modul', 'id_modul');
+    }
+
+    public function tematik()
+    {
+        return $this->belongsTo(KategoriSoal::class, 'id_tematik', 'id_kategori');
+    }
+}

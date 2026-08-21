@@ -1,2 +1,42 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnM7Cgp1c2UgSWxsdW1pbmF0ZVxIdHRwXFJlcXVlc3Q7CgpjbGFzcyBTZWJDb250cm9sbGVyIGV4dGVuZHMgQ29udHJvbGxlcgp7CiAgICBwdWJsaWMgZnVuY3Rpb24gZG93bmxvYWRDb25maWcoUmVxdWVzdCAkcmVxdWVzdCkKICAgIHsKICAgICAgICAkaG9zdCA9ICRyZXF1ZXN0LT5nZXRIdHRwSG9zdCgpOwogICAgICAgICRzdGFydFVybCA9ICJodHRwOi8vIiAuICRob3N0IC4gIi9sb2dpbiI7CiAgICAgICAgCiAgICAgICAgJHhtbCA9ICc8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJ1dGYtOCI/Pgo8IURPQ1RZUEUgcGxpc3QgUFVCTElDICItLy9BcHBsZSBDb21wdXRlci8vRFREIFBMSVNUIDEuMC8vRU4iICJodHRwOi8vd3d3LmFwcGxlLmNvbS9EVERzL1Byb3BlcnR5TGlzdC0xLjAuZHRkIj4KPHBsaXN0IHZlcnNpb249IjEuMCI+CiAgPGRpY3Q+CiAgICA8a2V5Pm9yaWdpbmF0b3JWZXJzaW9uPC9rZXk+CiAgICA8c3RyaW5nPlNFQl9XaW5fMi40LjE8L3N0cmluZz4KICAgIDxrZXk+c3RhcnRVUkw8L2tleT4KICAgIDxzdHJpbmc+Jy4kc3RhcnRVcmwuJzwvc3RyaW5nPgogICAgPGtleT5zZW5kQnJvd3NlckV4YW1LZXk8L2tleT4KICAgIDx0cnVlLz4KICAgIDxrZXk+YnJvd3NlcldpbmRvd0FsbG93UmVsb2FkPC9rZXk+CiAgICA8dHJ1ZS8+CiAgICA8a2V5PnNob3dUYXNrQmFyPC9rZXk+CiAgICA8dHJ1ZS8+CiAgICA8a2V5PmFsbG93UXVpdDwva2V5PgogICAgPHRydWUvPgogICAgPGtleT5xdWl0UGFzc3dvcmQ8L2tleT4KICAgIDxzdHJpbmc+MTIzNDU8L3N0cmluZz4KICAgIDxrZXk+aGFzaGVkUXVpdFBhc3N3b3JkPC9rZXk+CiAgICA8c3RyaW5nPjU5OTQ0NzFhYmIwMTExMmFmY2MxODE1OWY2Y2M3NGI0ZjUxMWI5OTgwNmRhNTliM2NhZjVhOWMxNzNjYWNmYzU8L3N0cmluZz4KICA8L2RpY3Q+CjwvcGxpc3Q+JzsKCiAgICAgICAgcmV0dXJuIHJlc3BvbnNlKCR4bWwsIDIwMCwgWwogICAgICAgICAgICAnQ29udGVudC1UeXBlJyA9PiAnYXBwbGljYXRpb24vc2ViJywKICAgICAgICAgICAgJ0NvbnRlbnQtRGlzcG9zaXRpb24nID0+ICdhdHRhY2htZW50OyBmaWxlbmFtZT0iVWppYW5fQ0FULnNlYiInCiAgICAgICAgXSk7CiAgICB9Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class SebController extends Controller
+{
+    public function downloadConfig(Request $request)
+    {
+        $host = $request->getHttpHost();
+        $startUrl = "http://" . $host . "/login";
+        
+        $xml = '<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>originatorVersion</key>
+    <string>SEB_Win_2.4.1</string>
+    <key>startURL</key>
+    <string>'.$startUrl.'</string>
+    <key>sendBrowserExamKey</key>
+    <true/>
+    <key>browserWindowAllowReload</key>
+    <true/>
+    <key>showTaskBar</key>
+    <true/>
+    <key>allowQuit</key>
+    <true/>
+    <key>quitPassword</key>
+    <string>12345</string>
+    <key>hashedQuitPassword</key>
+    <string>5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5</string>
+  </dict>
+</plist>';
+
+        return response($xml, 200, [
+            'Content-Type' => 'application/seb',
+            'Content-Disposition' => 'attachment; filename="Ujian_CAT.seb"'
+        ]);
+    }
+}

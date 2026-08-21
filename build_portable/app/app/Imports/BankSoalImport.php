@@ -1,2 +1,35 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEltcG9ydHM7Cgp1c2UgQXBwXE1vZGVsc1xNYXN0ZXJcQmFua1NvYWw7CnVzZSBNYWF0d2Vic2l0ZVxFeGNlbFxDb25jZXJuc1xUb01vZGVsOwp1c2UgTWFhdHdlYnNpdGVcRXhjZWxcQ29uY2VybnNcV2l0aEhlYWRpbmdSb3c7CgpjbGFzcyBCYW5rU29hbEltcG9ydCBpbXBsZW1lbnRzIFRvTW9kZWwsIFdpdGhIZWFkaW5nUm93CnsKICAgIHByb3RlY3RlZCAkaWRfbW9kdWw7CiAgICBwcm90ZWN0ZWQgJGlkX3RlbWF0aWs7CgogICAgcHVibGljIGZ1bmN0aW9uIF9fY29uc3RydWN0KCRpZF9tb2R1bCwgJGlkX3RlbWF0aWspCiAgICB7CiAgICAgICAgJHRoaXMtPmlkX21vZHVsID0gJGlkX21vZHVsOwogICAgICAgICR0aGlzLT5pZF90ZW1hdGlrID0gJGlkX3RlbWF0aWs7CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIG1vZGVsKGFycmF5ICRyb3cpCiAgICB7CiAgICAgICAgcmV0dXJuIG5ldyBCYW5rU29hbChbCiAgICAgICAgICAgICdpZF9tb2R1bCcgICA9PiAkdGhpcy0+aWRfbW9kdWwsCiAgICAgICAgICAgICdpZF90ZW1hdGlrJyA9PiAkdGhpcy0+aWRfdGVtYXRpaywKICAgICAgICAgICAgJ3NvYWwnICAgICAgID0+ICRyb3dbJ3NvYWwnXSwKICAgICAgICAgICAgJ29wc2lfYScgICAgID0+ICRyb3dbJ2EnXSA/PyBudWxsLAogICAgICAgICAgICAnb3BzaV9iJyAgICAgPT4gJHJvd1snYiddID8/IG51bGwsCiAgICAgICAgICAgICdvcHNpX2MnICAgICA9PiAkcm93WydjJ10gPz8gbnVsbCwKICAgICAgICAgICAgJ29wc2lfZCcgICAgID0+ICRyb3dbJ2QnXSA/PyBudWxsLAogICAgICAgICAgICAnb3BzaV9lJyAgICAgPT4gJHJvd1snZSddID8/IG51bGwsCiAgICAgICAgICAgICdrdW5jaScgICAgICA9PiAkcm93WydrdW5jaSddID8/IG51bGwsCiAgICAgICAgICAgICdjcmVhdGVkX2J5JyA9PiBzZXNzaW9uKCdpZF91c2VyJykgPz8gJ3N5c3RlbScsCiAgICAgICAgXSk7CiAgICB9Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Imports;
+
+use App\Models\Master\BankSoal;
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+
+class BankSoalImport implements ToModel, WithHeadingRow
+{
+    protected $id_modul;
+    protected $id_tematik;
+
+    public function __construct($id_modul, $id_tematik)
+    {
+        $this->id_modul = $id_modul;
+        $this->id_tematik = $id_tematik;
+    }
+
+    public function model(array $row)
+    {
+        return new BankSoal([
+            'id_modul'   => $this->id_modul,
+            'id_tematik' => $this->id_tematik,
+            'soal'       => $row['soal'],
+            'opsi_a'     => $row['a'] ?? null,
+            'opsi_b'     => $row['b'] ?? null,
+            'opsi_c'     => $row['c'] ?? null,
+            'opsi_d'     => $row['d'] ?? null,
+            'opsi_e'     => $row['e'] ?? null,
+            'kunci'      => $row['kunci'] ?? null,
+            'created_by' => session('id_user') ?? 'system',
+        ]);
+    }
+}

@@ -1,2 +1,30 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcTWlkZGxld2FyZTsKCnVzZSBBcHBcUHJvdmlkZXJzXFJvdXRlU2VydmljZVByb3ZpZGVyOwp1c2UgQ2xvc3VyZTsKdXNlIElsbHVtaW5hdGVcSHR0cFxSZXF1ZXN0Owp1c2UgSWxsdW1pbmF0ZVxTdXBwb3J0XEZhY2FkZXNcQXV0aDsKdXNlIFN5bWZvbnlcQ29tcG9uZW50XEh0dHBGb3VuZGF0aW9uXFJlc3BvbnNlOwoKY2xhc3MgUmVkaXJlY3RJZkF1dGhlbnRpY2F0ZWQKewogICAgLyoqCiAgICAgKiBIYW5kbGUgYW4gaW5jb21pbmcgcmVxdWVzdC4KICAgICAqCiAgICAgKiBAcGFyYW0gIFxDbG9zdXJlKFxJbGx1bWluYXRlXEh0dHBcUmVxdWVzdCk6IChcU3ltZm9ueVxDb21wb25lbnRcSHR0cEZvdW5kYXRpb25cUmVzcG9uc2UpICAkbmV4dAogICAgICovCiAgICBwdWJsaWMgZnVuY3Rpb24gaGFuZGxlKFJlcXVlc3QgJHJlcXVlc3QsIENsb3N1cmUgJG5leHQsIHN0cmluZyAuLi4kZ3VhcmRzKTogUmVzcG9uc2UKICAgIHsKICAgICAgICAkZ3VhcmRzID0gZW1wdHkoJGd1YXJkcykgPyBbbnVsbF0gOiAkZ3VhcmRzOwoKICAgICAgICBmb3JlYWNoICgkZ3VhcmRzIGFzICRndWFyZCkgewogICAgICAgICAgICBpZiAoQXV0aDo6Z3VhcmQoJGd1YXJkKS0+Y2hlY2soKSkgewogICAgICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KFJvdXRlU2VydmljZVByb3ZpZGVyOjpIT01FKTsKICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICAgICAgcmV0dXJuICRuZXh0KCRyZXF1ZXN0KTsKICAgIH0KfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Middleware;
+
+use App\Providers\RouteServiceProvider;
+use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
+
+class RedirectIfAuthenticated
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next, string ...$guards): Response
+    {
+        $guards = empty($guards) ? [null] : $guards;
+
+        foreach ($guards as $guard) {
+            if (Auth::guard($guard)->check()) {
+                return redirect(RouteServiceProvider::HOME);
+            }
+        }
+
+        return $next($request);
+    }
+}

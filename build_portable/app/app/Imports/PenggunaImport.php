@@ -1,2 +1,48 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEltcG9ydHM7Cgp1c2UgTWFhdHdlYnNpdGVcRXhjZWxcQ29uY2VybnNcVG9Nb2RlbDsKdXNlIE1hYXR3ZWJzaXRlXEV4Y2VsXENvbmNlcm5zXFdpdGhIZWFkaW5nUm93Owp1c2UgQXBwXE1vZGVsc1xNYXN0ZXJcUGVuZ2d1bmE7CnVzZSBBcHBcTW9kZWxzXE1hc3RlclxKYWJhdGFuOwp1c2UgQXBwXE1vZGVsc1xNYXN0ZXJcRGVzYTsKdXNlIElsbHVtaW5hdGVcU3VwcG9ydFxTdHI7CnVzZSBJbGx1bWluYXRlXFN1cHBvcnRcRmFjYWRlc1xIYXNoOwoKY2xhc3MgUGVuZ2d1bmFJbXBvcnQgaW1wbGVtZW50cyBUb01vZGVsLCBXaXRoSGVhZGluZ1Jvdwp7CiAgICBwdWJsaWMgZnVuY3Rpb24gbW9kZWwoYXJyYXkgJHJvdykKICAgIHsKICAgICAgICBcSWxsdW1pbmF0ZVxTdXBwb3J0XEZhY2FkZXNcTG9nOjppbmZvKCdSb3cgZXhjZWw6ICcsICRyb3cpOwoKICAgICAgICBpZiAoIWlzc2V0KCRyb3dbJ3VzZXJuYW1lJ10pIHx8ICFpc3NldCgkcm93WydwYXNzd29yZCddKSB8fCAhaXNzZXQoJHJvd1snbmFtYV9sZW5na2FwJ10pKSB7CiAgICAgICAgICAgIFxJbGx1bWluYXRlXFN1cHBvcnRcRmFjYWRlc1xMb2c6OmluZm8oJ1NraXBwZWQgZHVlIHRvIG1pc3NpbmcgdXNlcm5hbWUvcGFzc3dvcmQvbmFtYV9sZW5na2FwJyk7CiAgICAgICAgICAgIHJldHVybiBudWxsOyAvLyBTa2lwIGludmFsaWQgcm93cwogICAgICAgIH0KCiAgICAgICAgLy8gQ2FyaSBJRCBKYWJhdGFuIGJlcmRhc2Fya2FuIG5hbWEKICAgICAgICAkbmFtYV9qYWJhdGFuID0gdHJpbSgkcm93WyduYW1hX2phYmF0YW4nXSA/PyAnJyk7CiAgICAgICAgJGphYmF0YW4gPSAkbmFtYV9qYWJhdGFuID8gSmFiYXRhbjo6d2hlcmUoJ25hbWFfamFiYXRhbicsICdMSUtFJywgJyUnIC4gJG5hbWFfamFiYXRhbiAuICclJyktPmZpcnN0KCkgOiBudWxsOwogICAgICAgICRpZF9qYWJhdGFuID0gJGphYmF0YW4gPyAkamFiYXRhbi0+aWRfamFiYXRhbiA6IG51bGw7CgogICAgICAgIC8vIENhcmkgSUQgRGVzYSBiZXJkYXNhcmthbiBuYW1hCiAgICAgICAgJG5hbWFfZGVzYSA9IHRyaW0oJHJvd1snbmFtYV9kZXNhJ10gPz8gJycpOwogICAgICAgICRkZXNhID0gJG5hbWFfZGVzYSA/IERlc2E6OndoZXJlKCduYW1hX2Rlc2EnLCAnTElLRScsICclJyAuICRuYW1hX2Rlc2EgLiAnJScpLT5maXJzdCgpIDogbnVsbDsKICAgICAgICAkaWRfZGVzYSA9ICRkZXNhID8gJGRlc2EtPmlkX2Rlc2EgOiBudWxsOwoKICAgICAgICAkcGVuZ2d1bmEgPSBuZXcgUGVuZ2d1bmEoKTsKICAgICAgICAkcGVuZ2d1bmEtPmlkX3VzZXIgPSBTdHI6OnV1aWQoKTsKICAgICAgICAkcGVuZ2d1bmEtPnVzZXJuYW1lID0gJHJvd1sndXNlcm5hbWUnXTsKICAgICAgICAkcGVuZ2d1bmEtPnBhc3N3b3JkID0gSGFzaDo6bWFrZSgkcm93WydwYXNzd29yZCddKTsKICAgICAgICAkcGVuZ2d1bmEtPm5hbWFfbGVuZ2thcCA9ICRyb3dbJ25hbWFfbGVuZ2thcCddOwogICAgICAgICRwZW5nZ3VuYS0+cm9sZSA9IDE7CiAgICAgICAgJHBlbmdndW5hLT5ha3RpZiA9IDE7CiAgICAgICAgJHBlbmdndW5hLT5pZF9qYWJhdGFuID0gJGlkX2phYmF0YW47CiAgICAgICAgJHBlbmdndW5hLT5pZF9kZXNhID0gJGlkX2Rlc2E7CiAgICAgICAgJHBlbmdndW5hLT5jcmVhdGVkX2J5ID0gc2Vzc2lvbignaWRfdXNlcicpID8/ICdzeXN0ZW0nOwogICAgICAgICRwZW5nZ3VuYS0+dXBkYXRlZF9ieSA9IHNlc3Npb24oJ2lkX3VzZXInKSA/PyAnc3lzdGVtJzsKCiAgICAgICAgcmV0dXJuICRwZW5nZ3VuYTsKICAgIH0KfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Imports;
+
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use App\Models\Master\Pengguna;
+use App\Models\Master\Jabatan;
+use App\Models\Master\Desa;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+
+class PenggunaImport implements ToModel, WithHeadingRow
+{
+    public function model(array $row)
+    {
+        \Illuminate\Support\Facades\Log::info('Row excel: ', $row);
+
+        if (!isset($row['username']) || !isset($row['password']) || !isset($row['nama_lengkap'])) {
+            \Illuminate\Support\Facades\Log::info('Skipped due to missing username/password/nama_lengkap');
+            return null; // Skip invalid rows
+        }
+
+        // Cari ID Jabatan berdasarkan nama
+        $nama_jabatan = trim($row['nama_jabatan'] ?? '');
+        $jabatan = $nama_jabatan ? Jabatan::where('nama_jabatan', 'LIKE', '%' . $nama_jabatan . '%')->first() : null;
+        $id_jabatan = $jabatan ? $jabatan->id_jabatan : null;
+
+        // Cari ID Desa berdasarkan nama
+        $nama_desa = trim($row['nama_desa'] ?? '');
+        $desa = $nama_desa ? Desa::where('nama_desa', 'LIKE', '%' . $nama_desa . '%')->first() : null;
+        $id_desa = $desa ? $desa->id_desa : null;
+
+        $pengguna = new Pengguna();
+        $pengguna->id_user = Str::uuid();
+        $pengguna->username = $row['username'];
+        $pengguna->password = Hash::make($row['password']);
+        $pengguna->nama_lengkap = $row['nama_lengkap'];
+        $pengguna->role = 1;
+        $pengguna->aktif = 1;
+        $pengguna->id_jabatan = $id_jabatan;
+        $pengguna->id_desa = $id_desa;
+        $pengguna->created_by = session('id_user') ?? 'system';
+        $pengguna->updated_by = session('id_user') ?? 'system';
+
+        return $pengguna;
+    }
+}

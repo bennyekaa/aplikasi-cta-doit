@@ -88,6 +88,13 @@ if not exist "%~dp0mysql\data\tryout" (
 
 echo.
 echo ===================================================
+echo MENGAMBIL DATA KELULUSAN DARI WEB SERVICE...
+echo ===================================================
+cd /d "%~dp0app"
+"%~dp0php\php.exe" artisan sync:target-kelulusan
+
+echo.
+echo ===================================================
 echo INFORMASI UNTUK SISWA (TULIS DI PAPAN TULIS):
 echo ===================================================
 echo 1. Sambungkan laptop/HP siswa ke WiFi Ruangan.
@@ -115,6 +122,10 @@ Write-Host "Membuat stop.bat..."
 $StopBat = @"
 @echo off
 TITLE Mematikan Server Ujian CAT
+
+echo Menghapus tabel target kelulusan...
+"%~dp0mysql\bin\mysql.exe" -h 127.0.0.1 --port=33066 -u root tryout -e "DROP TABLE IF EXISTS temp_target_kelulusan;"
+
 echo Mematikan MySQL...
 "%~dp0mysql\bin\mysqladmin.exe" -h 127.0.0.1 --port=33066 -u root shutdown
 echo Mematikan PHP Server...

@@ -1,2 +1,17 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcTWlkZGxld2FyZTsKCnVzZSBJbGx1bWluYXRlXEZvdW5kYXRpb25cSHR0cFxNaWRkbGV3YXJlXFZlcmlmeUNzcmZUb2tlbiBhcyBNaWRkbGV3YXJlOwoKY2xhc3MgVmVyaWZ5Q3NyZlRva2VuIGV4dGVuZHMgTWlkZGxld2FyZQp7CiAgICAvKioKICAgICAqIFRoZSBVUklzIHRoYXQgc2hvdWxkIGJlIGV4Y2x1ZGVkIGZyb20gQ1NSRiB2ZXJpZmljYXRpb24uCiAgICAgKgogICAgICogQHZhciBhcnJheTxpbnQsIHN0cmluZz4KICAgICAqLwogICAgcHJvdGVjdGVkICRleGNlcHQgPSBbCiAgICAgICAgLy8KICAgIF07Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Middleware;
+
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
+
+class VerifyCsrfToken extends Middleware
+{
+    /**
+     * The URIs that should be excluded from CSRF verification.
+     *
+     * @var array<int, string>
+     */
+    protected $except = [
+        //
+    ];
+}

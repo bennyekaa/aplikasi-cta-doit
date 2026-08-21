@@ -1,2 +1,22 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcTWlkZGxld2FyZTsKCnVzZSBJbGx1bWluYXRlXFJvdXRpbmdcTWlkZGxld2FyZVxWYWxpZGF0ZVNpZ25hdHVyZSBhcyBNaWRkbGV3YXJlOwoKY2xhc3MgVmFsaWRhdGVTaWduYXR1cmUgZXh0ZW5kcyBNaWRkbGV3YXJlCnsKICAgIC8qKgogICAgICogVGhlIG5hbWVzIG9mIHRoZSBxdWVyeSBzdHJpbmcgcGFyYW1ldGVycyB0aGF0IHNob3VsZCBiZSBpZ25vcmVkLgogICAgICoKICAgICAqIEB2YXIgYXJyYXk8aW50LCBzdHJpbmc+CiAgICAgKi8KICAgIHByb3RlY3RlZCAkZXhjZXB0ID0gWwogICAgICAgIC8vICdmYmNsaWQnLAogICAgICAgIC8vICd1dG1fY2FtcGFpZ24nLAogICAgICAgIC8vICd1dG1fY29udGVudCcsCiAgICAgICAgLy8gJ3V0bV9tZWRpdW0nLAogICAgICAgIC8vICd1dG1fc291cmNlJywKICAgICAgICAvLyAndXRtX3Rlcm0nLAogICAgXTsKfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Middleware;
+
+use Illuminate\Routing\Middleware\ValidateSignature as Middleware;
+
+class ValidateSignature extends Middleware
+{
+    /**
+     * The names of the query string parameters that should be ignored.
+     *
+     * @var array<int, string>
+     */
+    protected $except = [
+        // 'fbclid',
+        // 'utm_campaign',
+        // 'utm_content',
+        // 'utm_medium',
+        // 'utm_source',
+        // 'utm_term',
+    ];
+}

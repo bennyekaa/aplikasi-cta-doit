@@ -1,2 +1,28 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcTWlkZGxld2FyZTsKCnVzZSBJbGx1bWluYXRlXEh0dHBcTWlkZGxld2FyZVxUcnVzdFByb3hpZXMgYXMgTWlkZGxld2FyZTsKdXNlIElsbHVtaW5hdGVcSHR0cFxSZXF1ZXN0OwoKY2xhc3MgVHJ1c3RQcm94aWVzIGV4dGVuZHMgTWlkZGxld2FyZQp7CiAgICAvKioKICAgICAqIFRoZSB0cnVzdGVkIHByb3hpZXMgZm9yIHRoaXMgYXBwbGljYXRpb24uCiAgICAgKgogICAgICogQHZhciBhcnJheTxpbnQsIHN0cmluZz58c3RyaW5nfG51bGwKICAgICAqLwogICAgcHJvdGVjdGVkICRwcm94aWVzOwoKICAgIC8qKgogICAgICogVGhlIGhlYWRlcnMgdGhhdCBzaG91bGQgYmUgdXNlZCB0byBkZXRlY3QgcHJveGllcy4KICAgICAqCiAgICAgKiBAdmFyIGludAogICAgICovCiAgICBwcm90ZWN0ZWQgJGhlYWRlcnMgPQogICAgICAgIFJlcXVlc3Q6OkhFQURFUl9YX0ZPUldBUkRFRF9GT1IgfAogICAgICAgIFJlcXVlc3Q6OkhFQURFUl9YX0ZPUldBUkRFRF9IT1NUIHwKICAgICAgICBSZXF1ZXN0OjpIRUFERVJfWF9GT1JXQVJERURfUE9SVCB8CiAgICAgICAgUmVxdWVzdDo6SEVBREVSX1hfRk9SV0FSREVEX1BST1RPIHwKICAgICAgICBSZXF1ZXN0OjpIRUFERVJfWF9GT1JXQVJERURfQVdTX0VMQjsKfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Middleware;
+
+use Illuminate\Http\Middleware\TrustProxies as Middleware;
+use Illuminate\Http\Request;
+
+class TrustProxies extends Middleware
+{
+    /**
+     * The trusted proxies for this application.
+     *
+     * @var array<int, string>|string|null
+     */
+    protected $proxies;
+
+    /**
+     * The headers that should be used to detect proxies.
+     *
+     * @var int
+     */
+    protected $headers =
+        Request::HEADER_X_FORWARDED_FOR |
+        Request::HEADER_X_FORWARDED_HOST |
+        Request::HEADER_X_FORWARDED_PORT |
+        Request::HEADER_X_FORWARDED_PROTO |
+        Request::HEADER_X_FORWARDED_AWS_ELB;
+}

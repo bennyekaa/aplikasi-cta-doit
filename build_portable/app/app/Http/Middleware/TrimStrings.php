@@ -1,2 +1,19 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcTWlkZGxld2FyZTsKCnVzZSBJbGx1bWluYXRlXEZvdW5kYXRpb25cSHR0cFxNaWRkbGV3YXJlXFRyaW1TdHJpbmdzIGFzIE1pZGRsZXdhcmU7CgpjbGFzcyBUcmltU3RyaW5ncyBleHRlbmRzIE1pZGRsZXdhcmUKewogICAgLyoqCiAgICAgKiBUaGUgbmFtZXMgb2YgdGhlIGF0dHJpYnV0ZXMgdGhhdCBzaG91bGQgbm90IGJlIHRyaW1tZWQuCiAgICAgKgogICAgICogQHZhciBhcnJheTxpbnQsIHN0cmluZz4KICAgICAqLwogICAgcHJvdGVjdGVkICRleGNlcHQgPSBbCiAgICAgICAgJ2N1cnJlbnRfcGFzc3dvcmQnLAogICAgICAgICdwYXNzd29yZCcsCiAgICAgICAgJ3Bhc3N3b3JkX2NvbmZpcm1hdGlvbicsCiAgICBdOwp9RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Middleware;
+
+use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
+
+class TrimStrings extends Middleware
+{
+    /**
+     * The names of the attributes that should not be trimmed.
+     *
+     * @var array<int, string>
+     */
+    protected $except = [
+        'current_password',
+        'password',
+        'password_confirmation',
+    ];
+}

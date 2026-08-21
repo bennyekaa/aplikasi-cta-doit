@@ -1,2 +1,17 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcTWlkZGxld2FyZTsKCnVzZSBJbGx1bWluYXRlXENvb2tpZVxNaWRkbGV3YXJlXEVuY3J5cHRDb29raWVzIGFzIE1pZGRsZXdhcmU7CgpjbGFzcyBFbmNyeXB0Q29va2llcyBleHRlbmRzIE1pZGRsZXdhcmUKewogICAgLyoqCiAgICAgKiBUaGUgbmFtZXMgb2YgdGhlIGNvb2tpZXMgdGhhdCBzaG91bGQgbm90IGJlIGVuY3J5cHRlZC4KICAgICAqCiAgICAgKiBAdmFyIGFycmF5PGludCwgc3RyaW5nPgogICAgICovCiAgICBwcm90ZWN0ZWQgJGV4Y2VwdCA9IFsKICAgICAgICAvLwogICAgXTsKfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Middleware;
+
+use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
+
+class EncryptCookies extends Middleware
+{
+    /**
+     * The names of the cookies that should not be encrypted.
+     *
+     * @var array<int, string>
+     */
+    protected $except = [
+        //
+    ];
+}

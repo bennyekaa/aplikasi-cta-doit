@@ -1,2 +1,20 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXE1vZGVsc1xEYXRhOwoKdXNlIElsbHVtaW5hdGVcRGF0YWJhc2VcRWxvcXVlbnRcRmFjdG9yaWVzXEhhc0ZhY3Rvcnk7CnVzZSBJbGx1bWluYXRlXERhdGFiYXNlXEVsb3F1ZW50XE1vZGVsOwoKY2xhc3MgVXNlckV4YW0gZXh0ZW5kcyBNb2RlbAp7CiAgICB1c2UgSGFzRmFjdG9yeTsKCiAgICBwcm90ZWN0ZWQgJHRhYmxlID0gJ3VzZXJfZXhhbXMnOwogICAgcHJvdGVjdGVkICRwcmltYXJ5S2V5ID0gJ2lkJzsKICAgIHB1YmxpYyAkaW5jcmVtZW50aW5nID0gZmFsc2U7CiAgICBwcm90ZWN0ZWQgJGtleVR5cGUgPSAnc3RyaW5nJzsKCiAgICBwcm90ZWN0ZWQgJGZpbGxhYmxlID0gWwogICAgICAgICdpZCcsICdpZF91c2VyJywgJ2lkX21vZHVsJywgJ3dha3R1X211bGFpJywgJ3dha3R1X3NlbGVzYWknLCAnc3RhdHVzJywgJ25pbGFpJwogICAgXTsKfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Models\Data;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class UserExam extends Model
+{
+    use HasFactory;
+
+    protected $table = 'user_exams';
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected $fillable = [
+        'id', 'id_user', 'id_modul', 'waktu_mulai', 'waktu_selesai', 'status', 'nilai'
+    ];
+}

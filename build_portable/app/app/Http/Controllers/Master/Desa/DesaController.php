@@ -1,2 +1,60 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcTWFzdGVyXERlc2E7Cgp1c2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcQ29udHJvbGxlcjsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXERlc2E7CnVzZSBBcHBcTW9kZWxzXE1hc3RlclxLZWNhbWF0YW47CnVzZSBJbGx1bWluYXRlXEh0dHBcUmVxdWVzdDsKdXNlIElsbHVtaW5hdGVcU3VwcG9ydFxTdHI7CgpjbGFzcyBEZXNhQ29udHJvbGxlciBleHRlbmRzIENvbnRyb2xsZXIKewogICAgcHVibGljIGZ1bmN0aW9uIGluZGV4KCkKICAgIHsKICAgICAgICAkZGF0YVsnZGVzYSddID0gRGVzYTo6d2l0aCgna2VjYW1hdGFuJyktPm9yZGVyQnkoJ2tvZGVfZGVzYScpLT5vcmRlckJ5KCduYW1hX2Rlc2EnKS0+Z2V0KCk7CiAgICAgICAgcmV0dXJuIHZpZXcoJ21hc3Rlci5kZXNhLmluZGV4JywgJGRhdGEpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiB0YW1iYWgoKQogICAgewogICAgICAgICRkYXRhWydrZWNhbWF0YW4nXSA9IEtlY2FtYXRhbjo6YWxsKCk7CiAgICAgICAgcmV0dXJuIHZpZXcoJ21hc3Rlci5kZXNhLnRhbWJhaCcsICRkYXRhKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gZWRpdCgkaWQpCiAgICB7CiAgICAgICAgJGRhdGFbJ2Rlc2EnXSA9IERlc2E6OndoZXJlKCdpZF9kZXNhJywgJGlkKS0+Zmlyc3QoKTsKICAgICAgICAkZGF0YVsna2VjYW1hdGFuJ10gPSBLZWNhbWF0YW46OmFsbCgpOwogICAgICAgIHJldHVybiB2aWV3KCdtYXN0ZXIuZGVzYS5lZGl0JywgJGRhdGEpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBoYXB1cygkaWQpCiAgICB7CiAgICAgICAgRGVzYTo6d2hlcmUoJ2lkX2Rlc2EnLCAkaWQpLT5kZWxldGUoKTsKICAgICAgICByZXR1cm4gcmVkaXJlY3QoJ21hc3Rlci9kZXNhL2luZGV4Jyk7CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIHByb3NlcyhSZXF1ZXN0ICRyZXF1ZXN0KQogICAgewogICAgICAgIGlmICgkcmVxdWVzdC0+ZnVuZ3NpID09ICdUYW1iYWgnKSB7CiAgICAgICAgICAgIERlc2E6OmNyZWF0ZShbCiAgICAgICAgICAgICAgICAnaWRfZGVzYScgPT4gU3RyOjp1dWlkKCksCiAgICAgICAgICAgICAgICAnaWRfa2VjYW1hdGFuJyA9PiAkcmVxdWVzdC0+aWRfa2VjYW1hdGFuLAogICAgICAgICAgICAgICAgJ2tvZGVfZGVzYScgPT4gJHJlcXVlc3QtPmtvZGVfZGVzYSwKICAgICAgICAgICAgICAgICduYW1hX2Rlc2EnID0+ICRyZXF1ZXN0LT5uYW1hX2Rlc2EsCiAgICAgICAgICAgICAgICAnbGF0aXR1ZGUnID0+ICRyZXF1ZXN0LT5sYXRpdHVkZSwKICAgICAgICAgICAgICAgICdsb25naXR1ZGUnID0+ICRyZXF1ZXN0LT5sb25naXR1ZGUsCiAgICAgICAgICAgIF0pOwogICAgICAgIH0gZWxzZWlmICgkcmVxdWVzdC0+ZnVuZ3NpID09ICdFZGl0JykgewogICAgICAgICAgICBEZXNhOjp3aGVyZSgnaWRfZGVzYScsICRyZXF1ZXN0LT5pZF9kZXNhKS0+dXBkYXRlKFsKICAgICAgICAgICAgICAgICdpZF9rZWNhbWF0YW4nID0+ICRyZXF1ZXN0LT5pZF9rZWNhbWF0YW4sCiAgICAgICAgICAgICAgICAna29kZV9kZXNhJyA9PiAkcmVxdWVzdC0+a29kZV9kZXNhLAogICAgICAgICAgICAgICAgJ25hbWFfZGVzYScgPT4gJHJlcXVlc3QtPm5hbWFfZGVzYSwKICAgICAgICAgICAgICAgICdsYXRpdHVkZScgPT4gJHJlcXVlc3QtPmxhdGl0dWRlLAogICAgICAgICAgICAgICAgJ2xvbmdpdHVkZScgPT4gJHJlcXVlc3QtPmxvbmdpdHVkZSwKICAgICAgICAgICAgXSk7CiAgICAgICAgfQogICAgICAgIHJldHVybiByZWRpcmVjdCgnbWFzdGVyL2Rlc2EvaW5kZXgnKTsKICAgIH0KfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers\Master\Desa;
+
+use App\Http\Controllers\Controller;
+use App\Models\Master\Desa;
+use App\Models\Master\Kecamatan;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+class DesaController extends Controller
+{
+    public function index()
+    {
+        $data['desa'] = Desa::with('kecamatan')->orderBy('kode_desa')->orderBy('nama_desa')->get();
+        return view('master.desa.index', $data);
+    }
+
+    public function tambah()
+    {
+        $data['kecamatan'] = Kecamatan::all();
+        return view('master.desa.tambah', $data);
+    }
+
+    public function edit($id)
+    {
+        $data['desa'] = Desa::where('id_desa', $id)->first();
+        $data['kecamatan'] = Kecamatan::all();
+        return view('master.desa.edit', $data);
+    }
+
+    public function hapus($id)
+    {
+        Desa::where('id_desa', $id)->delete();
+        return redirect('master/desa/index');
+    }
+
+    public function proses(Request $request)
+    {
+        if ($request->fungsi == 'Tambah') {
+            Desa::create([
+                'id_desa' => Str::uuid(),
+                'id_kecamatan' => $request->id_kecamatan,
+                'kode_desa' => $request->kode_desa,
+                'nama_desa' => $request->nama_desa,
+                'latitude' => $request->latitude,
+                'longitude' => $request->longitude,
+            ]);
+        } elseif ($request->fungsi == 'Edit') {
+            Desa::where('id_desa', $request->id_desa)->update([
+                'id_kecamatan' => $request->id_kecamatan,
+                'kode_desa' => $request->kode_desa,
+                'nama_desa' => $request->nama_desa,
+                'latitude' => $request->latitude,
+                'longitude' => $request->longitude,
+            ]);
+        }
+        return redirect('master/desa/index');
+    }
+}

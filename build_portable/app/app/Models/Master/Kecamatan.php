@@ -1,2 +1,21 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXE1vZGVsc1xNYXN0ZXI7Cgp1c2UgSWxsdW1pbmF0ZVxEYXRhYmFzZVxFbG9xdWVudFxGYWN0b3JpZXNcSGFzRmFjdG9yeTsKdXNlIElsbHVtaW5hdGVcRGF0YWJhc2VcRWxvcXVlbnRcTW9kZWw7CgpjbGFzcyBLZWNhbWF0YW4gZXh0ZW5kcyBNb2RlbAp7CiAgICB1c2UgSGFzRmFjdG9yeTsKICAgIHByb3RlY3RlZCAkdGFibGUgPSAncmVmX2tlY2FtYXRhbic7CiAgICBwcm90ZWN0ZWQgJHByaW1hcnlLZXkgPSAnaWRfa2VjYW1hdGFuJzsKICAgIHB1YmxpYyAkaW5jcmVtZW50aW5nID0gZmFsc2U7CiAgICBwcm90ZWN0ZWQgJGtleVR5cGUgPSAnc3RyaW5nJzsKICAgIHByb3RlY3RlZCAkZ3VhcmRlZCA9IFtdOwoKICAgIHB1YmxpYyBmdW5jdGlvbiBkZXNhKCkKICAgIHsKICAgICAgICByZXR1cm4gJHRoaXMtPmhhc01hbnkoRGVzYTo6Y2xhc3MsICdpZF9rZWNhbWF0YW4nLCAnaWRfa2VjYW1hdGFuJyk7CiAgICB9Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Models\Master;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Kecamatan extends Model
+{
+    use HasFactory;
+    protected $table = 'ref_kecamatan';
+    protected $primaryKey = 'id_kecamatan';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    protected $guarded = [];
+
+    public function desa()
+    {
+        return $this->hasMany(Desa::class, 'id_kecamatan', 'id_kecamatan');
+    }
+}

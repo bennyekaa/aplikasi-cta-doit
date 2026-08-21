@@ -1,2 +1,20 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcTWlkZGxld2FyZTsKCnVzZSBJbGx1bWluYXRlXEh0dHBcTWlkZGxld2FyZVxUcnVzdEhvc3RzIGFzIE1pZGRsZXdhcmU7CgpjbGFzcyBUcnVzdEhvc3RzIGV4dGVuZHMgTWlkZGxld2FyZQp7CiAgICAvKioKICAgICAqIEdldCB0aGUgaG9zdCBwYXR0ZXJucyB0aGF0IHNob3VsZCBiZSB0cnVzdGVkLgogICAgICoKICAgICAqIEByZXR1cm4gYXJyYXk8aW50LCBzdHJpbmd8bnVsbD4KICAgICAqLwogICAgcHVibGljIGZ1bmN0aW9uIGhvc3RzKCk6IGFycmF5CiAgICB7CiAgICAgICAgcmV0dXJuIFsKICAgICAgICAgICAgJHRoaXMtPmFsbFN1YmRvbWFpbnNPZkFwcGxpY2F0aW9uVXJsKCksCiAgICAgICAgXTsKICAgIH0KfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Middleware;
+
+use Illuminate\Http\Middleware\TrustHosts as Middleware;
+
+class TrustHosts extends Middleware
+{
+    /**
+     * Get the host patterns that should be trusted.
+     *
+     * @return array<int, string|null>
+     */
+    public function hosts(): array
+    {
+        return [
+            $this->allSubdomainsOfApplicationUrl(),
+        ];
+    }
+}

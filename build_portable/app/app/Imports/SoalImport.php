@@ -1,2 +1,77 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEltcG9ydHM7Cgp1c2UgQXBwXE1vZGVsc1xNYXN0ZXJcSmF3YWJhbjsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXEthdGVnb3JpU29hbDsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXFNvYWw7CnVzZSBJbGx1bWluYXRlXFN1cHBvcnRcQ29sbGVjdGlvbjsKdXNlIElsbHVtaW5hdGVcU3VwcG9ydFxGYWNhZGVzXFN0b3JhZ2U7CnVzZSBNYWF0d2Vic2l0ZVxFeGNlbFxDb25jZXJuc1xUb0NvbGxlY3Rpb247CnVzZSBNYWF0d2Vic2l0ZVxFeGNlbFxDb25jZXJuc1xUb01vZGVsOwp1c2UgTWFhdHdlYnNpdGVcRXhjZWxcQ29uY2VybnNcV2l0aFN0YXJ0Um93Owp1c2UgSWxsdW1pbmF0ZVxTdXBwb3J0XFN0cjsKdXNlIFNlc3Npb247CgpjbGFzcyBTb2FsSW1wb3J0IGltcGxlbWVudHMgVG9Nb2RlbAp7CgogICAgcHJpdmF0ZSAka2F0ZWdvcmk7IC8vIERla2xhcmFzaWthbiBwcm9wZXJ0aSAkaWRfa2F0ZWdvcmkKCiAgICBwdWJsaWMgZnVuY3Rpb24gX19jb25zdHJ1Y3QoJGthdGVnb3JpKQogICAgewogICAgICAgICR0aGlzLT5rYXRlZ29yaSA9ICRrYXRlZ29yaTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gbW9kZWwoYXJyYXkgJHJvdykKICAgIHsKCiAgICAgICAgLy8gJGlkX3NvYWwgPSBTdHI6OnV1aWQoKTsKICAgICAgICAkY3JlYXRlZF9ieSA9IHNlc3Npb24oJ2lkX3VzZXInKTsKICAgICAgICAvLyAkZ2FtYmFyUGF0aCA9ICR0aGlzLT51bmdnYWhHYW1iYXIoJHJvd1szXSk7CgogICAgICAgIAogICAgICAgIFNvYWw6OmNyZWF0ZShbCiAgICAgICAgICAgICdpZF9zb2FsJyA9PiBTdHI6OnV1aWQoKSwKICAgICAgICAgICAgJ2lkX2thdGVnb3JpX3NvYWwnID0+ICR0aGlzLT5rYXRlZ29yaSwKICAgICAgICAgICAgJ3NvYWwnID0+ICRyb3dbMF0sCiAgICAgICAgICAgICdwZW1iYWhhc2FuJyA9PiAkcm93WzFdLAogICAgICAgICAgICAnamF3YWJhbl9hJyA9PiAkcm93WzJdLAogICAgICAgICAgICAncG9pbl9hJyA9PiAkcm93WzNdLAogICAgICAgICAgICAnamF3YWJhbl9iJyA9PiAkcm93WzRdLAogICAgICAgICAgICAncG9pbl9iJyA9PiAkcm93WzVdLAogICAgICAgICAgICAnamF3YWJhbl9jJyA9PiAkcm93WzZdLAogICAgICAgICAgICAncG9pbl9jJyA9PiAkcm93WzddLAogICAgICAgICAgICAnamF3YWJhbl9kJyA9PiAkcm93WzhdLAogICAgICAgICAgICAncG9pbl9kJyA9PiAkcm93WzldLAogICAgICAgICAgICAnamF3YWJhbl9lJyA9PiAkcm93WzEwXSwKICAgICAgICAgICAgJ3BvaW5fZScgPT4gJHJvd1sxMV0sCiAgICAgICAgICAgICdjcmVhdGVkX2F0JyA9PiBub3coKSwKICAgICAgICAgICAgJ2NyZWF0ZWRfYnknID0+ICRjcmVhdGVkX2J5CiAgICAgICAgXSk7CgoKCiAgICB9CgogICAgLy8KCiAgICAvLyBwcml2YXRlIGZ1bmN0aW9uIHVuZ2dhaEdhbWJhcigkZ2FtYmFyKQogICAgLy8gewogICAgLy8gICAgIC8vIEFuZGEgcGVybHUgbWVuZ2ltcGxlbWVudGFzaWthbiBsb2dpa2EgdW5nZ2FoIGdhbWJhciBBbmRhIGRpIHNpbmksCiAgICAvLyAgICAgLy8gc2VwZXJ0aSBtZW55aW1wYW5ueWEga2UgZGlyZWt0b3JpIHRlcnRlbnR1IGRhbiBtZW5nZW1iYWxpa2FuIHBhdGhueWEuCgogICAgLy8gICAgIC8vIE1pc2FsbnlhLCBqaWthIEFuZGEgaW5naW4gbWVuZ3VuZ2dhaCBnYW1iYXIga2UgZGlyZWt0b3JpICdwdWJsaWMvYmVya2FzJzoKICAgIC8vICAgICAkZGlyZWt0b3JpID0gJ3B1YmxpYy9iZXJrYXMnOwoKICAgIC8vICAgICAvLyBHZW5lcmF0ZSBhIHVuaXF1ZSBmaWxlbmFtZSAob3B0aW9uYWwpCiAgICAvLyAgICAgJG5hbWFGaWxlID0gdW5pcWlkKCkgLiAnLicgLiAkZ2FtYmFyLT5nZXRDbGllbnRPcmlnaW5hbEV4dGVuc2lvbigpOwoKICAgIC8vICAgICAvLyBVcGxvYWQgdGhlIGltYWdlIHRvIHRoZSBzcGVjaWZpZWQgc3RvcmFnZSBkaXJlY3RvcnkKICAgIC8vICAgICAkcGF0aCA9IFN0b3JhZ2U6OnB1dEZpbGVBcygkZGlyZWt0b3JpLCAkZ2FtYmFyLCAkbmFtYUZpbGUpOwoKICAgIC8vICAgICAvLyBLZW1iYWxpa2FuIHBhdGggbGVuZ2thcCBrZSBnYW1iYXIgeWFuZyB0ZWxhaCBkaXVuZ2dhaAogICAgLy8gICAgIHJldHVybiAkcGF0aDsKICAgIC8vIH0KCn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Imports;
+
+use App\Models\Master\Jawaban;
+use App\Models\Master\KategoriSoal;
+use App\Models\Master\Soal;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithStartRow;
+use Illuminate\Support\Str;
+use Session;
+
+class SoalImport implements ToModel
+{
+
+    private $kategori; // Deklarasikan properti $id_kategori
+
+    public function __construct($kategori)
+    {
+        $this->kategori = $kategori;
+    }
+
+    public function model(array $row)
+    {
+
+        // $id_soal = Str::uuid();
+        $created_by = session('id_user');
+        // $gambarPath = $this->unggahGambar($row[3]);
+
+        
+        Soal::create([
+            'id_soal' => Str::uuid(),
+            'id_kategori_soal' => $this->kategori,
+            'soal' => $row[0],
+            'pembahasan' => $row[1],
+            'jawaban_a' => $row[2],
+            'poin_a' => $row[3],
+            'jawaban_b' => $row[4],
+            'poin_b' => $row[5],
+            'jawaban_c' => $row[6],
+            'poin_c' => $row[7],
+            'jawaban_d' => $row[8],
+            'poin_d' => $row[9],
+            'jawaban_e' => $row[10],
+            'poin_e' => $row[11],
+            'created_at' => now(),
+            'created_by' => $created_by
+        ]);
+
+
+
+    }
+
+    //
+
+    // private function unggahGambar($gambar)
+    // {
+    //     // Anda perlu mengimplementasikan logika unggah gambar Anda di sini,
+    //     // seperti menyimpannya ke direktori tertentu dan mengembalikan pathnya.
+
+    //     // Misalnya, jika Anda ingin mengunggah gambar ke direktori 'public/berkas':
+    //     $direktori = 'public/berkas';
+
+    //     // Generate a unique filename (optional)
+    //     $namaFile = uniqid() . '.' . $gambar->getClientOriginalExtension();
+
+    //     // Upload the image to the specified storage directory
+    //     $path = Storage::putFileAs($direktori, $gambar, $namaFile);
+
+    //     // Kembalikan path lengkap ke gambar yang telah diunggah
+    //     return $path;
+    // }
+
+}

@@ -1,2 +1,25 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcTWlkZGxld2FyZTsKCnVzZSBDbG9zdXJlOwp1c2UgSWxsdW1pbmF0ZVxIdHRwXFJlcXVlc3Q7CnVzZSBTeW1mb255XENvbXBvbmVudFxIdHRwRm91bmRhdGlvblxSZXNwb25zZTsKCmNsYXNzIENoZWNrTG9naW4KewogICAgLyoqCiAgICAgKiBIYW5kbGUgYW4gaW5jb21pbmcgcmVxdWVzdC4KICAgICAqCiAgICAgKiBAcGFyYW0gIFxDbG9zdXJlKFxJbGx1bWluYXRlXEh0dHBcUmVxdWVzdCk6IChcU3ltZm9ueVxDb21wb25lbnRcSHR0cEZvdW5kYXRpb25cUmVzcG9uc2UpICAkbmV4dAogICAgICovCiAgICBwdWJsaWMgZnVuY3Rpb24gaGFuZGxlKFJlcXVlc3QgJHJlcXVlc3QsIENsb3N1cmUgJG5leHQpOiBSZXNwb25zZQogICAgewogICAgICAgIGlmIChzZXNzaW9uKCdsb2dpbicpID09IDEpIHsKICAgICAgICAgICAgLy8gZGQoc2Vzc2lvbigpLT5hbGwoKSk7CiAgICAgICAgICAgIHJldHVybiAkbmV4dCgkcmVxdWVzdCk7CiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KCcvbG9naW4nKTsKICAgICAgICB9CiAgICB9Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class CheckLogin
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+        if (session('login') == 1) {
+            // dd(session()->all());
+            return $next($request);
+        } else {
+            return redirect('/login');
+        }
+    }
+}

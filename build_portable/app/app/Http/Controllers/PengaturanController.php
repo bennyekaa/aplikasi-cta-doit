@@ -1,2 +1,64 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnM7Cgp1c2UgSWxsdW1pbmF0ZVxIdHRwXFJlcXVlc3Q7CgpjbGFzcyBQZW5nYXR1cmFuQ29udHJvbGxlciBleHRlbmRzIENvbnRyb2xsZXIKewogICAgcHVibGljIGZ1bmN0aW9uIGluZGV4KCkKICAgIHsKICAgICAgICAkcGVuZ2F0dXJhbiA9IFxBcHBcTW9kZWxzXFBlbmdhdHVyYW46OmZpcnN0KCk7CiAgICAgICAgaWYgKCEkcGVuZ2F0dXJhbikgewogICAgICAgICAgICAkcGVuZ2F0dXJhbiA9IG5ldyBcQXBwXE1vZGVsc1xQZW5nYXR1cmFuKCk7CiAgICAgICAgfQogICAgICAgIHJldHVybiB2aWV3KCdwZW5nYXR1cmFuLmluZGV4JywgY29tcGFjdCgncGVuZ2F0dXJhbicpKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gcHJvc2VzKFJlcXVlc3QgJHJlcXVlc3QpCiAgICB7CiAgICAgICAgJHJlcXVlc3QtPnZhbGlkYXRlKFsKICAgICAgICAgICAgJ2luc3RhbnNpJyA9PiAncmVxdWlyZWR8c3RyaW5nfG1heDoyNTUnLAogICAgICAgICAgICAnbG9nbycgPT4gJ251bGxhYmxlfGltYWdlfG1pbWVzOmpwZWcscG5nLGpwZyxnaWZ8bWF4OjIwNDgnLAogICAgICAgICAgICAnZm9udF90eXBlJyA9PiAnbnVsbGFibGV8c3RyaW5nfG1heDoxMDAnLAogICAgICAgICAgICAnZm9udF9zaXplJyA9PiAnbnVsbGFibGV8c3RyaW5nfG1heDo1MCcsCiAgICAgICAgXSk7CgogICAgICAgICRwZW5nYXR1cmFuID0gXEFwcFxNb2RlbHNcUGVuZ2F0dXJhbjo6Zmlyc3QoKTsKICAgICAgICBpZiAoISRwZW5nYXR1cmFuKSB7CiAgICAgICAgICAgICRwZW5nYXR1cmFuID0gbmV3IFxBcHBcTW9kZWxzXFBlbmdhdHVyYW4oKTsKICAgICAgICAgICAgJHBlbmdhdHVyYW4tPmlkX3BlbmdhdHVyYW4gPSAxOwogICAgICAgIH0KCiAgICAgICAgJHBlbmdhdHVyYW4tPmluc3RhbnNpID0gJHJlcXVlc3QtPmluc3RhbnNpOwoKICAgICAgICBpZiAoJHJlcXVlc3QtPmhhc0ZpbGUoJ2xvZ28nKSkgewogICAgICAgICAgICAkZmlsZSA9ICRyZXF1ZXN0LT5maWxlKCdsb2dvJyk7CiAgICAgICAgICAgICRmaWxlbmFtZSA9IHRpbWUoKSAuICdfJyAuICRmaWxlLT5nZXRDbGllbnRPcmlnaW5hbE5hbWUoKTsKICAgICAgICAgICAgJGZpbGUtPm1vdmUocHVibGljX3BhdGgoJ3VwbG9hZHMvbG9nbycpLCAkZmlsZW5hbWUpOwogICAgICAgICAgICAKICAgICAgICAgICAgLy8gRGVsZXRlIG9sZCBsb2dvIGlmIGV4aXN0cwogICAgICAgICAgICBpZiAoJHBlbmdhdHVyYW4tPmxvZ28gJiYgZmlsZV9leGlzdHMocHVibGljX3BhdGgoJ3VwbG9hZHMvbG9nby8nIC4gJHBlbmdhdHVyYW4tPmxvZ28pKSkgewogICAgICAgICAgICAgICAgdW5saW5rKHB1YmxpY19wYXRoKCd1cGxvYWRzL2xvZ28vJyAuICRwZW5nYXR1cmFuLT5sb2dvKSk7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgCiAgICAgICAgICAgICRwZW5nYXR1cmFuLT5sb2dvID0gJGZpbGVuYW1lOwogICAgICAgIH0KCiAgICAgICAgJHBlbmdhdHVyYW4tPmZvbnRfdHlwZSA9ICRyZXF1ZXN0LT5mb250X3R5cGU7CiAgICAgICAgJHBlbmdhdHVyYW4tPmZvbnRfc2l6ZSA9ICRyZXF1ZXN0LT5mb250X3NpemU7CgogICAgICAgICRwZW5nYXR1cmFuLT5zYXZlKCk7CgogICAgICAgIGlmIChzZXNzaW9uKCktPmhhcygnbG9naW4nKSkgewogICAgICAgICAgICBzZXNzaW9uKFsKICAgICAgICAgICAgICAgICdpbnN0YW5zaScgPT4gJHBlbmdhdHVyYW4tPmluc3RhbnNpLAogICAgICAgICAgICAgICAgJ2xvZ28nID0+ICRwZW5nYXR1cmFuLT5sb2dvLAogICAgICAgICAgICAgICAgJ2ZvbnRfdHlwZScgPT4gJHBlbmdhdHVyYW4tPmZvbnRfdHlwZSwKICAgICAgICAgICAgICAgICdmb250X3NpemUnID0+ICRwZW5nYXR1cmFuLT5mb250X3NpemUsCiAgICAgICAgICAgIF0pOwogICAgICAgIH0KCiAgICAgICAgcmV0dXJuIHJlZGlyZWN0KCktPmJhY2soKS0+d2l0aCgnc3VjY2VzcycsICdQZW5nYXR1cmFuIGJlcmhhc2lsIGRpc2ltcGFuIScpOwogICAgfQp9RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class PengaturanController extends Controller
+{
+    public function index()
+    {
+        $pengaturan = \App\Models\Pengaturan::first();
+        if (!$pengaturan) {
+            $pengaturan = new \App\Models\Pengaturan();
+        }
+        return view('pengaturan.index', compact('pengaturan'));
+    }
+
+    public function proses(Request $request)
+    {
+        $request->validate([
+            'instansi' => 'required|string|max:255',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'font_type' => 'nullable|string|max:100',
+            'font_size' => 'nullable|string|max:50',
+        ]);
+
+        $pengaturan = \App\Models\Pengaturan::first();
+        if (!$pengaturan) {
+            $pengaturan = new \App\Models\Pengaturan();
+            $pengaturan->id_pengaturan = 1;
+        }
+
+        $pengaturan->instansi = $request->instansi;
+
+        if ($request->hasFile('logo')) {
+            $file = $request->file('logo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/logo'), $filename);
+            
+            // Delete old logo if exists
+            if ($pengaturan->logo && file_exists(public_path('uploads/logo/' . $pengaturan->logo))) {
+                unlink(public_path('uploads/logo/' . $pengaturan->logo));
+            }
+            
+            $pengaturan->logo = $filename;
+        }
+
+        $pengaturan->font_type = $request->font_type;
+        $pengaturan->font_size = $request->font_size;
+
+        $pengaturan->save();
+
+        if (session()->has('login')) {
+            session([
+                'instansi' => $pengaturan->instansi,
+                'logo' => $pengaturan->logo,
+                'font_type' => $pengaturan->font_type,
+                'font_size' => $pengaturan->font_size,
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Pengaturan berhasil disimpan!');
+    }
+}

@@ -1,2 +1,119 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcTWFzdGVyXFNvYWw7Cgp1c2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcQ29udHJvbGxlcjsKdXNlIElsbHVtaW5hdGVcSHR0cFxSZXF1ZXN0Owp1c2UgQXBwXEltcG9ydHNcU29hbEltcG9ydDsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXEthdGVnb3JpU29hbDsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXE1vZHVsOwp1c2UgQXBwXE1vZGVsc1xNYXN0ZXJcU29hbDsKdXNlIEV4Y2VwdGlvbjsKdXNlIElsbHVtaW5hdGVcU3VwcG9ydFxGYWNhZGVzXExvZzsKdXNlIElsbHVtaW5hdGVcU3VwcG9ydFxGYWNhZGVzXFN0b3JhZ2U7CnVzZSBNYWF0d2Vic2l0ZVxFeGNlbFxGYWNhZGVzXEV4Y2VsOwoKY2xhc3MgU29hbENvbnRyb2xsZXIgZXh0ZW5kcyBDb250cm9sbGVyCnsKICAgIHB1YmxpYyBmdW5jdGlvbiBpbmRleCgpewogICAgICAgICRkYXRhWydzb2FsJ10gPSBTb2FsOjphbGwoKTsKICAgICAgICBzZXNzaW9uKCktPnB1dCgnc29hbCcsIHVybCgpLT5mdWxsKCkpOwogICAgICAgIHJldHVybiB2aWV3KCdtYXN0ZXIuc29hbC5pbmRleCcsICRkYXRhKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gbGlzdCgpewogICAgICAgICRkYXRhWydrYXRlZ29yaSddID0gS2F0ZWdvcmlTb2FsOjp3aGVyZSgnYWt0aWYnLCAxKS0+b3JkZXJCeSgnY3JlYXRlZF9hdCcsICdERVNDJyktPmdldCgpOwogICAgICAgIHNlc3Npb24oKS0+cHV0KCdsaXN0X3NvYWwnLCB1cmwoKS0+ZnVsbCgpKTsKICAgICAgICByZXR1cm4gdmlldygnbWFzdGVyLnNvYWwubGlzdCcsICRkYXRhKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gZGV0YWlsX2xpc3QoJGlkKXsKICAgICAgICAkZGF0YVsnaWQnXSA9IGRlY3J5cHQoJGlkKTsKICAgICAgICAkZGF0YVsna2F0ZWdvcmknXSA9IEthdGVnb3JpU29hbDo6ZmluZChkZWNyeXB0KCRpZCkpOwogICAgICAgICRkYXRhWydkZXRhaWxfc29hbCddID0gU29hbDo6am9pbigncmVmX2thdGVnb3JpJywgJ3JlZl9rYXRlZ29yaS5pZF9rYXRlZ29yaScsICc9JywgJ3JlZl9zb2FsLmlkX2thdGVnb3JpJyktPmpvaW4oJ3JlZl9tb2R1bCcsICdyZWZfbW9kdWwuaWRfbW9kdWwnLCAnPScsICdyZWZfc29hbC5pZF9tb2R1bCcpLT53aGVyZSgncmVmX3NvYWwuaWRfa2F0ZWdvcmknLCBkZWNyeXB0KCRpZCkpLT5vcmRlckJ5KCdyZWZfc29hbC5jcmVhdGVkX2F0JywgJ0RFU0MnKS0+Z2V0KCk7CiAgICAgICAgc2Vzc2lvbigpLT5wdXQoJ2RldGFpbF9zb2FsJywgdXJsKCktPmZ1bGwoKSk7CiAgICAgICAgcmV0dXJuIHZpZXcoJ21hc3Rlci5zb2FsLmRldGFpbF9saXN0JywgJGRhdGEpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBhZGQoJGlkKXsKICAgICAgICAkZGF0YVsnaWRfa2F0ZWdvcmknXSA9ICRpZDsKICAgICAgICAkZGF0YVsnbW9kdWwnXSA9IE1vZHVsOjp3aGVyZSgnYWt0aWYnLCAxKS0+Z2V0KCk7CiAgICAgICAgcmV0dXJuIHZpZXcoJ21hc3Rlci5zb2FsLmFkZCcsJGRhdGEpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBhZGRfZGV0YWlsKCRpZCl7CgogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBoYXB1cygkaWQpewogICAgICAgIHRyeSB7CiAgICAgICAgICAgICRiZXJrYXMgPSBTb2FsOjpmaW5kKGRlY3J5cHQoJGlkKSk7CiAgICAgICAgICAgIFN0b3JhZ2U6OmRlbGV0ZSgkYmVya2FzLT5zb2FsKTsKICAgICAgICAgICAgU3RvcmFnZTo6ZGVsZXRlKCRiZXJrYXMtPnBlbWJhaGFzYW4pOwogICAgICAgICAgICAkYmVya2FzLT5kZWxldGUoKTsKICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KHNlc3Npb24oJ2RldGFpbF9zb2FsJykpLT53aXRoKCdzdWNjZXNzJywgJ0RhdGEgVGVyaGFwdXMnKTsKICAgICAgICAgICAgLy8gZGQoJGRhdGEpOwogICAgICAgIH0gY2F0Y2ggKEV4Y2VwdGlvbiAkZSkgewogICAgICAgICAgICBMb2c6OmluZm8oJ0Vycm9yICcgLiAkZS0+Z2V0TWVzc2FnZSgpKTsKICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KHNlc3Npb24oJ2RldGFpbF9zb2FsJykpOwogICAgICAgIH0KICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gcHJvc2VzKFJlcXVlc3QgJHJlcXVlc3QpewogICAgICAgIHRyeSB7CiAgICAgICAgICAgIC8vIGRkKCRyZXF1ZXN0LT5hbGwoKSk7CiAgICAgICAgICAgICRzb2FsX3VwbCA9IG51bGw7CiAgICAgICAgICAgICRwZW1iYWhhc2FuX3VwbCA9IG51bGw7CiAgICAgICAgICAgIGlmKCFlbXB0eSgkcmVxdWVzdC0+c29hbCkpewogICAgICAgICAgICAgICAgJHNvYWxfdXBsID0gU3RvcmFnZTo6cHV0RmlsZSgnL3B1YmxpYy9iZXJrYXMnLCAkcmVxdWVzdC0+c29hbCk7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgaWYoIWVtcHR5KCRyZXF1ZXN0LT5wZW1iYWhhc2FuKSl7CiAgICAgICAgICAgICAgICAkcGVtYmFoYXNhbl91cGwgPSBTdG9yYWdlOjpwdXRGaWxlKCcvcHVibGljL2JlcmthcycsICRyZXF1ZXN0LT5wZW1iYWhhc2FuKTsKICAgICAgICAgICAgfQogICAgICAgICAgICBpZigkcmVxdWVzdC0+ZnVuZ3NpID09ICdUYW1iYWgnKXsKICAgICAgICAgICAgICAgICRzb2FsID0gbmV3IFNvYWwoKTsKICAgICAgICAgICAgICAgICRzb2FsLT5pZF9rYXRlZ29yaSA9IGRlY3J5cHQoJHJlcXVlc3QtPmlkX2thdGVnb3JpKTsKICAgICAgICAgICAgICAgICRzb2FsLT5pZF9tb2R1bCA9ICRyZXF1ZXN0LT5pZF9tb2R1bDsKICAgICAgICAgICAgICAgICRzb2FsLT5zb2FsID0gJHNvYWxfdXBsOwogICAgICAgICAgICAgICAgJHNvYWwtPnBlbWJhaGFzYW4gPSAkcGVtYmFoYXNhbl91cGw7CiAgICAgICAgICAgICAgICAkc29hbC0+bm9tb3IgPSAkcmVxdWVzdC0+bm9tb3I7CiAgICAgICAgICAgICAgICAkc29hbC0+cG9pbl9hID0gJHJlcXVlc3QtPnBvaW5fYTsKICAgICAgICAgICAgICAgICRzb2FsLT5wb2luX2IgPSAkcmVxdWVzdC0+cG9pbl9iOwogICAgICAgICAgICAgICAgJHNvYWwtPnBvaW5fYyA9ICRyZXF1ZXN0LT5wb2luX2M7CiAgICAgICAgICAgICAgICAkc29hbC0+cG9pbl9kID0gJHJlcXVlc3QtPnBvaW5fZDsKICAgICAgICAgICAgICAgICRzb2FsLT5wb2luX2UgPSAkcmVxdWVzdC0+cG9pbl9lOwogICAgICAgICAgICAgICAgJHNvYWwtPmNyZWF0ZWRfYXQgPSAkdGhpcy0+d2FrdHU7CiAgICAgICAgICAgICAgICAkc29hbC0+Y3JlYXRlZF9ieSA9IHNlc3Npb24oJ2lkX3VzZXInKTsKICAgICAgICAgICAgICAgICRzb2FsLT5zYXZlKCk7CiAgICAgICAgICAgICAgICByZXR1cm4gcmVkaXJlY3Qoc2Vzc2lvbignZGV0YWlsX3NvYWwnKSktPndpdGgoJ3N1Y2Nlc3MnLCAnQmVyaGFzaWwgVGFtYmFoJyk7CiAgICAgICAgICAgIH0KICAgICAgICB9IGNhdGNoIChFeGNlcHRpb24gJGUpIHsKICAgICAgICAgICAgTG9nOjppbmZvKCdFcnJvciAnIC4gJGUtPmdldE1lc3NhZ2UoKSk7CiAgICAgICAgfQogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBpbXBvcnQoUmVxdWVzdCAkcmVxdWVzdCkKICAgIHsKICAgICAgICB0cnl7CiAgICAgICAgICAgIC8vIGRkKCRyZXF1ZXN0LT5hbGwoKSk7CiAgICAgICAgICAgIC8vIHRyeSB7CgogICAgICAgICAgICAvLyBsaW51eAogICAgICAgICAgICAvLyAkcGF0aDEgPSAkcmVxdWVzdC0+ZmlsZSgnZGF0YV9maWxlJyktPnN0b3JlKCd0ZW1wJyk7CiAgICAgICAgICAgIC8vICRwYXRoID0gc3RvcmFnZV9wYXRoKCdhcHAnKSAuICcvJyAuICRwYXRoMTsKICAgICAgICAgICAgLy8gXEV4Y2VsOjppbXBvcnQobmV3IERlc2FJbXBvcnQsICRwYXRoKTsKICAgICAgICAgICAgJGthdGVnb3JpID0gJHJlcXVlc3QtPmthdGVnb3JpOwogICAgICAgICAgICAkZmlsZSA9ICRyZXF1ZXN0LT5maWxlKCdkYXRhX2ZpbGUnKS0+Z2V0UmVhbFBhdGgoKTsKICAgICAgICAgICAgRXhjZWw6OmltcG9ydChuZXcgU29hbEltcG9ydCgka2F0ZWdvcmkpLCAkZmlsZSk7CgogICAgICAgICAgICByZXR1cm4gcmVkaXJlY3Qoc2Vzc2lvbignc29hbCcpKS0+d2l0aCgnc3VjY2VzcycsICdCZXJoYXNpbCBJbXBvcnQnKTsKCiAgICAgICAgICAgICAgICAvL3JldHVybiByZWRpcmVjdChzZXNzaW9uKCdkZXNhJykpXC0+d2l0aCgnc3VjY2VzcycsICdCZXJoYXNpbCBJbXBvcnQnKTsKICAgICAgICAgICAgLy8gfSBjYXRjaCAoRXhjZXB0aW9uICRlKSB7CiAgICAgICAgICAgIC8vICAgICByZXR1cm4gcmVkaXJlY3Qoc2Vzc2lvbignZGVzYScpKS0+d2l0aCgnZXJyb3InLCAkZS0+Z2V0TWVzc2FnZSgpKTsKICAgICAgICAgICAgLy8gfQogICAgICAgIH1jYXRjaChFeGNlcHRpb24gJGUpewogICAgICAgICAgICBMb2c6OmluZm8oJ0Vycm9yICcgLiAkZS0+Z2V0TWVzc2FnZSgpKTsKICAgICAgICB9CiAgICB9Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers\Master\Soal;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Imports\SoalImport;
+use App\Models\Master\KategoriSoal;
+use App\Models\Master\Modul;
+use App\Models\Master\Soal;
+use Exception;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+
+class SoalController extends Controller
+{
+    public function index(){
+        $data['soal'] = Soal::all();
+        session()->put('soal', url()->full());
+        return view('master.soal.index', $data);
+    }
+
+    public function list(){
+        $data['kategori'] = KategoriSoal::where('aktif', 1)->orderBy('created_at', 'DESC')->get();
+        session()->put('list_soal', url()->full());
+        return view('master.soal.list', $data);
+    }
+
+    public function detail_list($id){
+        $data['id'] = decrypt($id);
+        $data['kategori'] = KategoriSoal::find(decrypt($id));
+        $data['detail_soal'] = Soal::join('ref_kategori', 'ref_kategori.id_kategori', '=', 'ref_soal.id_kategori')->join('ref_modul', 'ref_modul.id_modul', '=', 'ref_soal.id_modul')->where('ref_soal.id_kategori', decrypt($id))->orderBy('ref_soal.created_at', 'DESC')->get();
+        session()->put('detail_soal', url()->full());
+        return view('master.soal.detail_list', $data);
+    }
+
+    public function add($id){
+        $data['id_kategori'] = $id;
+        $data['modul'] = Modul::where('aktif', 1)->get();
+        return view('master.soal.add',$data);
+    }
+
+    public function add_detail($id){
+
+    }
+
+    public function hapus($id){
+        try {
+            $berkas = Soal::find(decrypt($id));
+            Storage::delete($berkas->soal);
+            Storage::delete($berkas->pembahasan);
+            $berkas->delete();
+            return redirect(session('detail_soal'))->with('success', 'Data Terhapus');
+            // dd($data);
+        } catch (Exception $e) {
+            Log::info('Error ' . $e->getMessage());
+            return redirect(session('detail_soal'));
+        }
+    }
+
+    public function proses(Request $request){
+        try {
+            // dd($request->all());
+            $soal_upl = null;
+            $pembahasan_upl = null;
+            if(!empty($request->soal)){
+                $soal_upl = Storage::putFile('/public/berkas', $request->soal);
+            }
+            if(!empty($request->pembahasan)){
+                $pembahasan_upl = Storage::putFile('/public/berkas', $request->pembahasan);
+            }
+            if($request->fungsi == 'Tambah'){
+                $soal = new Soal();
+                $soal->id_kategori = decrypt($request->id_kategori);
+                $soal->id_modul = $request->id_modul;
+                $soal->soal = $soal_upl;
+                $soal->pembahasan = $pembahasan_upl;
+                $soal->nomor = $request->nomor;
+                $soal->poin_a = $request->poin_a;
+                $soal->poin_b = $request->poin_b;
+                $soal->poin_c = $request->poin_c;
+                $soal->poin_d = $request->poin_d;
+                $soal->poin_e = $request->poin_e;
+                $soal->created_at = $this->waktu;
+                $soal->created_by = session('id_user');
+                $soal->save();
+                return redirect(session('detail_soal'))->with('success', 'Berhasil Tambah');
+            }
+        } catch (Exception $e) {
+            Log::info('Error ' . $e->getMessage());
+        }
+    }
+
+    public function import(Request $request)
+    {
+        try{
+            // dd($request->all());
+            // try {
+
+            // linux
+            // $path1 = $request->file('data_file')->store('temp');
+            // $path = storage_path('app') . '/' . $path1;
+            // \Excel::import(new DesaImport, $path);
+            $kategori = $request->kategori;
+            $file = $request->file('data_file')->getRealPath();
+            Excel::import(new SoalImport($kategori), $file);
+
+            return redirect(session('soal'))->with('success', 'Berhasil Import');
+
+                //return redirect(session('desa'))\->with('success', 'Berhasil Import');
+            // } catch (Exception $e) {
+            //     return redirect(session('desa'))->with('error', $e->getMessage());
+            // }
+        }catch(Exception $e){
+            Log::info('Error ' . $e->getMessage());
+        }
+    }
+}

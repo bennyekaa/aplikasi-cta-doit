@@ -1,2 +1,75 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcVWppYW47Cgp1c2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcQ29udHJvbGxlcjsKdXNlIEFwcFxNb2RlbHNcRGF0YVxVamlhbjsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXEthdGVnb3JpU29hbDsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXE1vZHVsOwp1c2UgQXBwXE1vZGVsc1xNYXN0ZXJcU29hbDsKdXNlIElsbHVtaW5hdGVcSHR0cFxSZXF1ZXN0Owp1c2UgREI7CgpjbGFzcyBSaXdheWF0Q29udHJvbGxlciBleHRlbmRzIENvbnRyb2xsZXIKewogICAgcHVibGljIGZ1bmN0aW9uIGluZGV4KCkKICAgIHsKICAgICAgICBzZXNzaW9uKCktPnB1dCgncml3YXlhdCcsIHVybCgpLT5mdWxsKCkpOwogICAgICAgICRkYXRhWydyaXdheWF0J10gPSBVamlhbjo6c2VsZWN0KCdkYXRhX3VqaWFuLmlkX3VqaWFuIEFTIGlkX3VqaWFuJywgJ3JlZl9rYXRlZ29yaS5pZF9rYXRlZ29yaScsICdyZWZfa2F0ZWdvcmkubmFtYV9rYXRlZ29yaScsICdkYXRhX3VqaWFuLmNyZWF0ZWRfYXQgQVMgdWppYW5fbXVsYWknLCAnZGF0YV91amlhbi51cGRhdGVkX2F0IEFTIHVqaWFuX3NlbGVzYWknKS0+am9pbignZGF0YV9yaXdheWF0JywgJ2RhdGFfcml3YXlhdC5pZF91amlhbicsICc9JywgJ2RhdGFfdWppYW4uaWRfdWppYW4nKS0+am9pbigncmVmX3NvYWwnLCAncmVmX3NvYWwuaWRfc29hbCcsICc9JywgJ2RhdGFfcml3YXlhdC5pZF9zb2FsJyktPmpvaW4oJ3JlZl9rYXRlZ29yaScsICdyZWZfa2F0ZWdvcmkuaWRfa2F0ZWdvcmknLCAnPScsICdyZWZfc29hbC5pZF9rYXRlZ29yaScpLT53aGVyZSgnZGF0YV91amlhbi5zdGF0dXMnLCAyKS0+d2hlcmUoJ2RhdGFfdWppYW4uY3JlYXRlZF9ieScsIHNlc3Npb24oJ2lkX3VzZXInKSktPmdyb3VwQnkoJ2RhdGFfdWppYW4uaWRfdWppYW4nKS0+Z3JvdXBCeSgncmVmX2thdGVnb3JpLmlkX2thdGVnb3JpJyktPmdyb3VwQnkoJ3JlZl9rYXRlZ29yaS5uYW1hX2thdGVnb3JpJyktPmdyb3VwQnkoJ2RhdGFfdWppYW4uY3JlYXRlZF9hdCcpLT5ncm91cEJ5KCdkYXRhX3VqaWFuLnVwZGF0ZWRfYXQnKS0+Z2V0KCk7CiAgICAgICAgLy8gZGQoJGRhdGEpOwogICAgICAgIHJldHVybiB2aWV3KCd1amlhbi5yaXdheWF0JywgJGRhdGEpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBkZXRhaWwoJGlkX3VqaWFuLCAkaWRfa2F0ZWdvcmkpCiAgICB7CiAgICAgICAgc2Vzc2lvbigpLT5wdXQoJ2RldGFpbF9yaXdheWF0JywgdXJsKCktPmZ1bGwoKSk7CiAgICAgICAgJGRhdGFbJ2lkX3VqaWFuJ10gPSAkaWRfdWppYW47CiAgICAgICAgJGRhdGFbJ2lkX2thdGVnb3JpJ10gPSAkaWRfa2F0ZWdvcmk7CiAgICAgICAgJGRhdGFbJ3RvdGFsJ10gPSBEQjo6c2VsZWN0KCJzZWxlY3QgU1VNKHBvaW4pIGFzIGp1bWxhaCBGUk9NIGRhdGFfcml3YXlhdCBXSEVSRSBpZF91amlhbiA9ICciIC4gZGVjcnlwdCgkaWRfdWppYW4pIC4gIicgQU5EIGlkX3VzZXIgPSAnIiAuIHNlc3Npb24oJ2lkX3VzZXInKSAuICInIik7CiAgICAgICAgJGRhdGFbJ2thdGVnb3JpJ10gPSAgS2F0ZWdvcmlTb2FsOjp3aGVyZSgnaWRfa2F0ZWdvcmknLCBkZWNyeXB0KCRpZF9rYXRlZ29yaSkpLT5maXJzdCgpOwogICAgICAgICRkYXRhWydrZWxvbXBva19uaWxhaSddID0gREI6OnNlbGVjdCgiU0VMRUNUCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlZl9tb2R1bC5uYW1hX21vZHVsLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZWZfbW9kdWwucGFzc2luZ19ncmFkZSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgU1VNKCBwb2luICkgQVMganVtbGFoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRlJPTQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhX3Jpd2F5YXQKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgSU5ORVIgSk9JTiByZWZfc29hbCBPTiByZWZfc29hbC5pZF9zb2FsID0gZGF0YV9yaXdheWF0LmlkX3NvYWwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgSU5ORVIgSk9JTiByZWZfbW9kdWwgT04gcmVmX21vZHVsLmlkX21vZHVsID0gcmVmX3NvYWwuaWRfbW9kdWwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBXSEVSRQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZF91c2VyID0gJyIgLiBzZXNzaW9uKCdpZF91c2VyJykgLiAiJwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBBTkQgaWRfdWppYW4gPSAnIiAuIGRlY3J5cHQoJGlkX3VqaWFuKSAuICInCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgR1JPVVAgQlkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVmX3NvYWwuaWRfbW9kdWwsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlZl9tb2R1bC5uYW1hX21vZHVsLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZWZfbW9kdWwucGFzc2luZ19ncmFkZSIpOwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLy8gZGQoJGRhdGEpOwogICAgICAgIHJldHVybiB2aWV3KCd1amlhbi5kZXRhaWxfcml3YXlhdCcsICRkYXRhKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gcGVtYmFoYXNhbigkaWRfdWppYW4sICRub21vciwgJGlkKQogICAgewogICAgICAgIHNlc3Npb24oKS0+cHV0KCd1amlhbicsIHVybCgpLT5mdWxsKCkpOwogICAgICAgIHNlc3Npb24oKS0+cHV0KCdub21vcicsICRub21vcik7CiAgICAgICAgJGRhdGFbJ25vbW9yJ10gPSAkbm9tb3I7CiAgICAgICAgJGRhdGFbJ2lkX2thdGVnb3JpJ10gPSAkaWQ7CiAgICAgICAgJGRhdGFbJ3RvdGFsX25vbW9yJ10gPSBTb2FsOjpzZWxlY3QoJ2lkX3NvYWwnKS0+d2hlcmUoJ2lkX2thdGVnb3JpJywgZGVjcnlwdCgkaWQpKS0+Y291bnQoKTsKICAgICAgICAkZGF0YVsnY2FyaSddID0gU29hbDo6c2VsZWN0KCdzb2FsJywgJ3BlbWJhaGFzYW4nKS0+d2hlcmUoJ2lkX2thdGVnb3JpJywgZGVjcnlwdCgkaWQpKS0+d2hlcmUoJ25vbW9yJywgJG5vbW9yKS0+Zmlyc3QoKTsKICAgICAgICAkc29hbCA9IFNvYWw6OmpvaW4oJ2RhdGFfcml3YXlhdCcsICdkYXRhX3Jpd2F5YXQuaWRfc29hbCcsICc9JywgJ3JlZl9zb2FsLmlkX3NvYWwnKS0+d2hlcmUoJ2lkX2thdGVnb3JpJywgZGVjcnlwdCgkaWQpKS0+d2hlcmUoJ2lkX3VqaWFuJywgJGlkX3VqaWFuKS0+b3JkZXJCeSgnbm9tb3InKS0+Z2V0KCk7CiAgICAgICAgJGRhdGFbJ2lkX3VqaWFuJ10gPSAkaWRfdWppYW47CiAgICAgICAgJGRhdGFbJ2RhZnRhcnNvYWwnXSA9ICRzb2FsLT5tYXAoZnVuY3Rpb24gKCRpdGVtKSB7CiAgICAgICAgICAgIHJldHVybiBbCiAgICAgICAgICAgICAgICAnaWRfc29hbCcgPT4gJGl0ZW0tPmlkX3NvYWwsCiAgICAgICAgICAgICAgICAnbm9tb3Jfc29hbCcgPT4gJGl0ZW0tPm5vbW9yLAogICAgICAgICAgICAgICAgJ3BvaW5fYScgPT4gJGl0ZW0tPnBvaW5fYSwKICAgICAgICAgICAgICAgICdwb2luX2InID0+ICRpdGVtLT5wb2luX2IsCiAgICAgICAgICAgICAgICAncG9pbl9jJyA9PiAkaXRlbS0+cG9pbl9jLAogICAgICAgICAgICAgICAgJ3BvaW5fZCcgPT4gJGl0ZW0tPnBvaW5fZCwKICAgICAgICAgICAgICAgICdwb2luX2UnID0+ICRpdGVtLT5wb2luX2UsCiAgICAgICAgICAgICAgICAnamF3YWJhbicgPT4gJGl0ZW0tPmphd2FiYW4sCiAgICAgICAgICAgICAgICAncG9pbicgPT4gJGl0ZW0tPnBvaW4sCiAgICAgICAgICAgIF07CiAgICAgICAgfSktPnRvQXJyYXkoKTsKICAgICAgICAvLyBkZCgkZGF0YSk7CiAgICAgICAgcmV0dXJuIHZpZXcoJ3VqaWFuLnBlbWJhaGFzYW4nLCAkZGF0YSk7CiAgICB9Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers\Ujian;
+
+use App\Http\Controllers\Controller;
+use App\Models\Data\Ujian;
+use App\Models\Master\KategoriSoal;
+use App\Models\Master\Modul;
+use App\Models\Master\Soal;
+use Illuminate\Http\Request;
+use DB;
+
+class RiwayatController extends Controller
+{
+    public function index()
+    {
+        session()->put('riwayat', url()->full());
+        $data['riwayat'] = Ujian::select('data_ujian.id_ujian AS id_ujian', 'ref_kategori.id_kategori', 'ref_kategori.nama_kategori', 'data_ujian.created_at AS ujian_mulai', 'data_ujian.updated_at AS ujian_selesai')->join('data_riwayat', 'data_riwayat.id_ujian', '=', 'data_ujian.id_ujian')->join('ref_soal', 'ref_soal.id_soal', '=', 'data_riwayat.id_soal')->join('ref_kategori', 'ref_kategori.id_kategori', '=', 'ref_soal.id_kategori')->where('data_ujian.status', 2)->where('data_ujian.created_by', session('id_user'))->groupBy('data_ujian.id_ujian')->groupBy('ref_kategori.id_kategori')->groupBy('ref_kategori.nama_kategori')->groupBy('data_ujian.created_at')->groupBy('data_ujian.updated_at')->get();
+        // dd($data);
+        return view('ujian.riwayat', $data);
+    }
+
+    public function detail($id_ujian, $id_kategori)
+    {
+        session()->put('detail_riwayat', url()->full());
+        $data['id_ujian'] = $id_ujian;
+        $data['id_kategori'] = $id_kategori;
+        $data['total'] = DB::select("select SUM(poin) as jumlah FROM data_riwayat WHERE id_ujian = '" . decrypt($id_ujian) . "' AND id_user = '" . session('id_user') . "'");
+        $data['kategori'] =  KategoriSoal::where('id_kategori', decrypt($id_kategori))->first();
+        $data['kelompok_nilai'] = DB::select("SELECT
+                                                ref_modul.nama_modul,
+                                                ref_modul.passing_grade,
+                                                SUM( poin ) AS jumlah
+                                            FROM
+                                                data_riwayat
+                                                INNER JOIN ref_soal ON ref_soal.id_soal = data_riwayat.id_soal
+                                                INNER JOIN ref_modul ON ref_modul.id_modul = ref_soal.id_modul
+                                            WHERE
+                                                id_user = '" . session('id_user') . "'
+                                                AND id_ujian = '" . decrypt($id_ujian) . "'
+                                            GROUP BY
+                                                ref_soal.id_modul,
+                                                ref_modul.nama_modul,
+                                                ref_modul.passing_grade");
+                                                    // dd($data);
+        return view('ujian.detail_riwayat', $data);
+    }
+
+    public function pembahasan($id_ujian, $nomor, $id)
+    {
+        session()->put('ujian', url()->full());
+        session()->put('nomor', $nomor);
+        $data['nomor'] = $nomor;
+        $data['id_kategori'] = $id;
+        $data['total_nomor'] = Soal::select('id_soal')->where('id_kategori', decrypt($id))->count();
+        $data['cari'] = Soal::select('soal', 'pembahasan')->where('id_kategori', decrypt($id))->where('nomor', $nomor)->first();
+        $soal = Soal::join('data_riwayat', 'data_riwayat.id_soal', '=', 'ref_soal.id_soal')->where('id_kategori', decrypt($id))->where('id_ujian', $id_ujian)->orderBy('nomor')->get();
+        $data['id_ujian'] = $id_ujian;
+        $data['daftarsoal'] = $soal->map(function ($item) {
+            return [
+                'id_soal' => $item->id_soal,
+                'nomor_soal' => $item->nomor,
+                'poin_a' => $item->poin_a,
+                'poin_b' => $item->poin_b,
+                'poin_c' => $item->poin_c,
+                'poin_d' => $item->poin_d,
+                'poin_e' => $item->poin_e,
+                'jawaban' => $item->jawaban,
+                'poin' => $item->poin,
+            ];
+        })->toArray();
+        // dd($data);
+        return view('ujian.pembahasan', $data);
+    }
+}

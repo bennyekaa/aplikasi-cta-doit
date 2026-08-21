@@ -1,2 +1,45 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXE1vZGVsczsKCi8vIHVzZSBJbGx1bWluYXRlXENvbnRyYWN0c1xBdXRoXE11c3RWZXJpZnlFbWFpbDsKdXNlIElsbHVtaW5hdGVcRGF0YWJhc2VcRWxvcXVlbnRcRmFjdG9yaWVzXEhhc0ZhY3Rvcnk7CnVzZSBJbGx1bWluYXRlXEZvdW5kYXRpb25cQXV0aFxVc2VyIGFzIEF1dGhlbnRpY2F0YWJsZTsKdXNlIElsbHVtaW5hdGVcTm90aWZpY2F0aW9uc1xOb3RpZmlhYmxlOwp1c2UgTGFyYXZlbFxTYW5jdHVtXEhhc0FwaVRva2VuczsKCmNsYXNzIFVzZXIgZXh0ZW5kcyBBdXRoZW50aWNhdGFibGUKewogICAgdXNlIEhhc0FwaVRva2VucywgSGFzRmFjdG9yeSwgTm90aWZpYWJsZTsKCiAgICAvKioKICAgICAqIFRoZSBhdHRyaWJ1dGVzIHRoYXQgYXJlIG1hc3MgYXNzaWduYWJsZS4KICAgICAqCiAgICAgKiBAdmFyIGFycmF5PGludCwgc3RyaW5nPgogICAgICovCiAgICBwcm90ZWN0ZWQgJGZpbGxhYmxlID0gWwogICAgICAgICduYW1lJywKICAgICAgICAnZW1haWwnLAogICAgICAgICdwYXNzd29yZCcsCiAgICBdOwoKICAgIC8qKgogICAgICogVGhlIGF0dHJpYnV0ZXMgdGhhdCBzaG91bGQgYmUgaGlkZGVuIGZvciBzZXJpYWxpemF0aW9uLgogICAgICoKICAgICAqIEB2YXIgYXJyYXk8aW50LCBzdHJpbmc+CiAgICAgKi8KICAgIHByb3RlY3RlZCAkaGlkZGVuID0gWwogICAgICAgICdwYXNzd29yZCcsCiAgICAgICAgJ3JlbWVtYmVyX3Rva2VuJywKICAgIF07CgogICAgLyoqCiAgICAgKiBUaGUgYXR0cmlidXRlcyB0aGF0IHNob3VsZCBiZSBjYXN0LgogICAgICoKICAgICAqIEB2YXIgYXJyYXk8c3RyaW5nLCBzdHJpbmc+CiAgICAgKi8KICAgIHByb3RlY3RlZCAkY2FzdHMgPSBbCiAgICAgICAgJ2VtYWlsX3ZlcmlmaWVkX2F0JyA9PiAnZGF0ZXRpbWUnLAogICAgICAgICdwYXNzd29yZCcgPT4gJ2hhc2hlZCcsCiAgICBdOwp9RE9JVFNVS1NFUw==')));
+
+namespace App\Models;
+
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+}

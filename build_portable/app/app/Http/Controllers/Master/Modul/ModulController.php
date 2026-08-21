@@ -1,2 +1,92 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcTWFzdGVyXE1vZHVsOwoKdXNlIEFwcFxIdHRwXENvbnRyb2xsZXJzXENvbnRyb2xsZXI7CnVzZSBBcHBcTW9kZWxzXE1hc3RlclxNb2R1bDsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXFNvYWw7CnVzZSBFeGNlcHRpb247CnVzZSBJbGx1bWluYXRlXEh0dHBcUmVxdWVzdDsKdXNlIElsbHVtaW5hdGVcU3VwcG9ydFxGYWNhZGVzXExvZzsKCmNsYXNzIE1vZHVsQ29udHJvbGxlciBleHRlbmRzIENvbnRyb2xsZXIKewogICAgcHVibGljIGZ1bmN0aW9uIGluZGV4KCkKICAgIHsKICAgICAgICAkZGF0YVsnbW9kdWwnXSA9IE1vZHVsOjphbGwoKTsKICAgICAgICBzZXNzaW9uKCktPnB1dCgnbW9kdWwnLCB1cmwoKS0+ZnVsbCgpKTsKICAgICAgICByZXR1cm4gdmlldygnbWFzdGVyLm1vZHVsLmluZGV4JywgJGRhdGEpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiB0YW1iYWgoKQogICAgewogICAgICAgIHJldHVybiB2aWV3KCdtYXN0ZXIubW9kdWwuYWRkJyk7CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIGVkaXQoJGlkKQogICAgewogICAgICAgICRkYXRhWydpZF9tb2R1bCddID0gJGlkOwogICAgICAgICRkYXRhWydtb2R1bCddID0gTW9kdWw6OmZpbmQoZGVjcnlwdCgkaWQpKTsKICAgICAgICByZXR1cm4gdmlldygnbWFzdGVyLm1vZHVsLmVkaXQnLCAkZGF0YSk7CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIGhhcHVzKCRpZCkKICAgIHsKICAgICAgICB0cnkgewogICAgICAgICAgICAkc29hbCA9IFNvYWw6OndoZXJlKCdpZF9tb2R1bCcsIGRlY3J5cHQoJGlkKSktPmNvdW50KCk7CiAgICAgICAgICAgIGlmICgkc29hbCA+IDApIHsKICAgICAgICAgICAgICAgIHJldHVybiByZWRpcmVjdChzZXNzaW9uKCdtb2R1bCcpKS0+d2l0aCgnZXJyb3InLCAnTW9kdWwgU2VkYW5nIERpZ3VuYWthbicpOwogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgJG1vZHVsID0gTW9kdWw6OmZpbmQoZGVjcnlwdCgkaWQpKTsKICAgICAgICAgICAgICAgICRtb2R1bC0+ZGVsZXRlKCk7CiAgICAgICAgICAgICAgICByZXR1cm4gcmVkaXJlY3Qoc2Vzc2lvbignbW9kdWwnKSktPndpdGgoJ3N1Y2Nlc3MnLCAnQmVyaGFzaWwgSGFwdXMnKTsKICAgICAgICAgICAgfQogICAgICAgIH0gY2F0Y2ggKEV4Y2VwdGlvbiAkZSkgewogICAgICAgICAgICBMb2c6OmluZm8oJ0Vycm9yICcgLiAkZS0+Z2V0TWVzc2FnZSgpKTsKICAgICAgICB9CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIHN0YXR1cygkaWQsICRzZXQpCiAgICB7CiAgICAgICAgdHJ5IHsKICAgICAgICAgICAgJG1vZHVsID0gTW9kdWw6OmZpbmQoZGVjcnlwdCgkaWQpKTsKICAgICAgICAgICAgJG1vZHVsLT5ha3RpZiA9ICRzZXQ7CiAgICAgICAgICAgICRtb2R1bC0+dXBkYXRlZF9ieSA9IHNlc3Npb24oJ2lkX3VzZXInKTsKICAgICAgICAgICAgJG1vZHVsLT5zYXZlKCk7CiAgICAgICAgICAgIHJldHVybiByZWRpcmVjdChzZXNzaW9uKCdtb2R1bCcpKS0+d2l0aCgnc3VjY2VzcycsICdCZXJoYXNpbCBVYmFoIFN0YXR1cycpOwogICAgICAgIH0gY2F0Y2ggKEV4Y2VwdGlvbiAkZSkgewogICAgICAgICAgICBMb2c6OmluZm8oJ0Vycm9yICcgLiAkZS0+Z2V0TWVzc2FnZSgpKTsKICAgICAgICB9CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIHByb3NlcyhSZXF1ZXN0ICRyZXF1ZXN0KQogICAgewogICAgICAgIHRyeSB7CiAgICAgICAgICAgIGlmICgkcmVxdWVzdC0+ZnVuZ3NpID09ICdUYW1iYWgnKSB7CiAgICAgICAgICAgICAgICAkbW9kdWwgPSBuZXcgTW9kdWwoKTsKICAgICAgICAgICAgICAgICRtb2R1bC0+bmFtYV9tb2R1bCA9ICRyZXF1ZXN0LT5uYW1hX21vZHVsOwogICAgICAgICAgICAgICAgJG1vZHVsLT53YWt0dSA9ICRyZXF1ZXN0LT53YWt0dTsKICAgICAgICAgICAgICAgICRtb2R1bC0+d2FrdHVfbXVsYWkgPSAkcmVxdWVzdC0+d2FrdHVfbXVsYWk7CiAgICAgICAgICAgICAgICAkbW9kdWwtPmp1bWxhaF9zb2FsID0gJHJlcXVlc3QtPmp1bWxhaF9zb2FsOwogICAgICAgICAgICAgICAgJG1vZHVsLT5ha3RpZiA9IDE7CiAgICAgICAgICAgICAgICAkbW9kdWwtPmNyZWF0ZWRfYXQgPSAkdGhpcy0+d2FrdHU7CiAgICAgICAgICAgICAgICAkbW9kdWwtPmNyZWF0ZWRfYnkgPSBzZXNzaW9uKCdpZF91c2VyJyk7CiAgICAgICAgICAgICAgICAkbW9kdWwtPnNhdmUoKTsKICAgICAgICAgICAgICAgIHJldHVybiByZWRpcmVjdChzZXNzaW9uKCdtb2R1bCcpKS0+d2l0aCgnc3VjY2VzcycsICdCZXJoYXNpbCBUYW1iYWgnKTsKICAgICAgICAgICAgfSBlbHNlCiAgICAgICAgICAgIGlmICgkcmVxdWVzdC0+ZnVuZ3NpID09ICdFZGl0JykgewogICAgICAgICAgICAgICAgJG1vZHVsID0gTW9kdWw6OmZpbmQoZGVjcnlwdCgkcmVxdWVzdC0+aWRfbW9kdWwpKTsKICAgICAgICAgICAgICAgICRtb2R1bC0+bmFtYV9tb2R1bCA9ICRyZXF1ZXN0LT5uYW1hX21vZHVsOwogICAgICAgICAgICAgICAgJG1vZHVsLT53YWt0dSA9ICRyZXF1ZXN0LT53YWt0dTsKICAgICAgICAgICAgICAgICRtb2R1bC0+d2FrdHVfbXVsYWkgPSAkcmVxdWVzdC0+d2FrdHVfbXVsYWk7CiAgICAgICAgICAgICAgICAkbW9kdWwtPmp1bWxhaF9zb2FsID0gJHJlcXVlc3QtPmp1bWxhaF9zb2FsOwogICAgICAgICAgICAgICAgJG1vZHVsLT5ha3RpZiA9IDE7CiAgICAgICAgICAgICAgICAkbW9kdWwtPnVwZGF0ZWRfYnkgPSBzZXNzaW9uKCdpZF91c2VyJyk7CiAgICAgICAgICAgICAgICAkbW9kdWwtPnNhdmUoKTsKICAgICAgICAgICAgICAgIHJldHVybiByZWRpcmVjdChzZXNzaW9uKCdtb2R1bCcpKS0+d2l0aCgnc3VjY2VzcycsICdCZXJoYXNpbCBFZGl0Jyk7CiAgICAgICAgICAgIH0KICAgICAgICB9IGNhdGNoIChFeGNlcHRpb24gJGUpIHsKICAgICAgICAgICAgTG9nOjppbmZvKCdFcnJvciAnIC4gJGUtPmdldE1lc3NhZ2UoKSk7CiAgICAgICAgfQogICAgfQp9RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers\Master\Modul;
+
+use App\Http\Controllers\Controller;
+use App\Models\Master\Modul;
+use App\Models\Master\Soal;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
+class ModulController extends Controller
+{
+    public function index()
+    {
+        $data['modul'] = Modul::all();
+        session()->put('modul', url()->full());
+        return view('master.modul.index', $data);
+    }
+
+    public function tambah()
+    {
+        return view('master.modul.add');
+    }
+
+    public function edit($id)
+    {
+        $data['id_modul'] = $id;
+        $data['modul'] = Modul::find(decrypt($id));
+        return view('master.modul.edit', $data);
+    }
+
+    public function hapus($id)
+    {
+        try {
+            $soal = Soal::where('id_modul', decrypt($id))->count();
+            if ($soal > 0) {
+                return redirect(session('modul'))->with('error', 'Modul Sedang Digunakan');
+            } else {
+                $modul = Modul::find(decrypt($id));
+                $modul->delete();
+                return redirect(session('modul'))->with('success', 'Berhasil Hapus');
+            }
+        } catch (Exception $e) {
+            Log::info('Error ' . $e->getMessage());
+        }
+    }
+
+    public function status($id, $set)
+    {
+        try {
+            $modul = Modul::find(decrypt($id));
+            $modul->aktif = $set;
+            $modul->updated_by = session('id_user');
+            $modul->save();
+            return redirect(session('modul'))->with('success', 'Berhasil Ubah Status');
+        } catch (Exception $e) {
+            Log::info('Error ' . $e->getMessage());
+        }
+    }
+
+    public function proses(Request $request)
+    {
+        try {
+            if ($request->fungsi == 'Tambah') {
+                $modul = new Modul();
+                $modul->nama_modul = $request->nama_modul;
+                $modul->waktu = $request->waktu;
+                $modul->waktu_mulai = $request->waktu_mulai;
+                $modul->jumlah_soal = $request->jumlah_soal;
+                $modul->aktif = 1;
+                $modul->created_at = $this->waktu;
+                $modul->created_by = session('id_user');
+                $modul->save();
+                return redirect(session('modul'))->with('success', 'Berhasil Tambah');
+            } else
+            if ($request->fungsi == 'Edit') {
+                $modul = Modul::find(decrypt($request->id_modul));
+                $modul->nama_modul = $request->nama_modul;
+                $modul->waktu = $request->waktu;
+                $modul->waktu_mulai = $request->waktu_mulai;
+                $modul->jumlah_soal = $request->jumlah_soal;
+                $modul->aktif = 1;
+                $modul->updated_by = session('id_user');
+                $modul->save();
+                return redirect(session('modul'))->with('success', 'Berhasil Edit');
+            }
+        } catch (Exception $e) {
+            Log::info('Error ' . $e->getMessage());
+        }
+    }
+}

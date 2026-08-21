@@ -1,2 +1,327 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcVWppYW47Cgp1c2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcQ29udHJvbGxlcjsKdXNlIEFwcFxNb2RlbHNcRGF0YVxVc2VyRXhhbTsKdXNlIEFwcFxNb2RlbHNcRGF0YVxVc2VyRXhhbUFuc3dlcjsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXEthdGVnb3JpU29hbDsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXE1vZHVsOwp1c2UgQXBwXE1vZGVsc1xNYXN0ZXJcQmFua1NvYWw7CnVzZSBBcHBcTW9kZWxzXE1hc3RlclxQZW5nZ3VuYTsKdXNlIEFwcFxNb2RlbHNcUGVuZ2F0dXJhbjsKdXNlIENhcmJvblxDYXJib247CnVzZSBJbGx1bWluYXRlXEh0dHBcUmVxdWVzdDsKdXNlIElsbHVtaW5hdGVcU3VwcG9ydFxTdHI7CnVzZSBJbGx1bWluYXRlXFN1cHBvcnRcRmFjYWRlc1xEQjsKCmNsYXNzIFVqaWFuQ29udHJvbGxlciBleHRlbmRzIENvbnRyb2xsZXIKewogICAgcHVibGljIGZ1bmN0aW9uIGluZGV4KCkKICAgIHsKICAgICAgICByZXR1cm4gdmlldygndWppYW4uaW5kZXgnKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gbGlzdCgpCiAgICB7CiAgICAgICAgc2Vzc2lvbigpLT5wdXQoJ2xpc3QnLCB1cmwoKS0+ZnVsbCgpKTsKICAgICAgICAKICAgICAgICAvLyBGaW5kIGFjdGl2ZSBleGFtIGZvciB0aGUgdXNlciAoc3RhdHVzIDApCiAgICAgICAgJHVqaWFuX2FrdGlmID0gVXNlckV4YW06OndoZXJlKCdpZF91c2VyJywgc2Vzc2lvbignaWRfdXNlcicpKS0+d2hlcmUoJ3N0YXR1cycsIDApLT5maXJzdCgpOwogICAgICAgIGlmICgkdWppYW5fYWt0aWYpIHsKICAgICAgICAgICAgJGRhdGFbJ3VqaWFuX2FrdGlmJ10gPSAkdWppYW5fYWt0aWY7CiAgICAgICAgICAgICRkYXRhWydtb2R1bF9ha3RpZiddID0gTW9kdWw6OmZpbmQoJHVqaWFuX2FrdGlmLT5pZF9tb2R1bCk7CiAgICAgICAgfQogICAgICAgIAogICAgICAgICRkYXRhWyd1amlhbl9zZWxlc2FpJ10gPSBVc2VyRXhhbTo6d2hlcmUoJ2lkX3VzZXInLCBzZXNzaW9uKCdpZF91c2VyJykpLT53aGVyZSgnc3RhdHVzJywgMSktPnBsdWNrKCdpZF9tb2R1bCcpLT50b0FycmF5KCk7CiAgICAgICAgCiAgICAgICAgLy8gU2hvdyBtb2R1bCBiYXNlZCBvbiB1c2VyJ3MgamFiYXRhbgogICAgICAgICR1c2VyID0gUGVuZ2d1bmE6OndpdGgoJ2phYmF0YW4nKS0+ZmluZChzZXNzaW9uKCdpZF91c2VyJykpOwogICAgICAgIGlmICgkdXNlciAmJiAkdXNlci0+amFiYXRhbiAmJiAkdXNlci0+amFiYXRhbi0+aWRfbW9kdWwpIHsKICAgICAgICAgICAgJGRhdGFbJ21vZHVscyddID0gTW9kdWw6OndoZXJlKCdpZF9tb2R1bCcsICR1c2VyLT5qYWJhdGFuLT5pZF9tb2R1bCktPndoZXJlKCdha3RpZicsIDEpLT5nZXQoKTsKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAvLyBEZWZhdWx0IHRvIGVtcHR5IG9yIGFsbCBkZXBlbmRpbmcgb24gbG9naWMuIEknbGwgbWFrZSBpdCBlbXB0eSBpZiBubyBtb2R1bCBwbG90dGVkIHRvIHRoZWlyIGphYmF0YW4uCiAgICAgICAgICAgICRkYXRhWydtb2R1bHMnXSA9IGNvbGxlY3QoKTsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgJGRhdGFbJ3BlbmdhdHVyYW4nXSA9IFBlbmdhdHVyYW46OmZpcnN0KCk7CiAgICAgICAgCiAgICAgICAgcmV0dXJuIHZpZXcoJ3VqaWFuLmxpc3QnLCAkZGF0YSk7CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIGlucHV0KCRpZF9tb2R1bCkKICAgIHsKICAgICAgICB0cnkgewogICAgICAgICAgICBEQjo6c3RhdGVtZW50KCdBTFRFUiBUQUJMRSB1c2VyX2V4YW1zIE1PRElGWSBpZF91c2VyIFZBUkNIQVIoMjU1KScpOwogICAgICAgIH0gY2F0Y2ggKFxFeGNlcHRpb24gJGUpIHt9CiAgICAgICAgCiAgICAgICAgJGlkX21vZHVsID0gZGVjcnlwdCgkaWRfbW9kdWwpOwogICAgICAgICRtb2R1bCA9IE1vZHVsOjpmaW5kKCRpZF9tb2R1bCk7CiAgICAgICAgCiAgICAgICAgaWYgKCEkbW9kdWwpIHsKICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KCktPmJhY2soKS0+d2l0aCgnZXJyb3InLCAnTW9kdWwgdGlkYWsgZGl0ZW11a2FuLicpOwogICAgICAgIH0KCiAgICAgICAgaWYgKHN0cnRvdGltZSgkbW9kdWwtPndha3R1X211bGFpKSA+IHRpbWUoKSkgewogICAgICAgICAgICByZXR1cm4gcmVkaXJlY3QoKS0+YmFjaygpLT53aXRoKCdlcnJvcicsICdVamlhbiBiZWx1bSBiaXNhIGRpbXVsYWkuIEphZHdhbCB1amlhbiB1bnR1ayBtb2R1bCAnIC4gJG1vZHVsLT5uYW1hX21vZHVsIC4gJyBhZGFsYWggJyAuICRtb2R1bC0+d2FrdHVfbXVsYWkpOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAvLyBDZWsgYXBha2FoIHVzZXIgc3VkYWggcHVueWEgdWppYW4gYmVyamFsYW4gdW50dWsgbW9kdWwgaW5pCiAgICAgICAgJHVqaWFuX2JlcmphbGFuID0gVXNlckV4YW06OndoZXJlKCdpZF91c2VyJywgc2Vzc2lvbignaWRfdXNlcicpKS0+d2hlcmUoJ2lkX21vZHVsJywgJGlkX21vZHVsKS0+d2hlcmUoJ3N0YXR1cycsIDApLT5maXJzdCgpOwogICAgICAgIAogICAgICAgIGlmICgkdWppYW5fYmVyamFsYW4pIHsKICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KCd1amlhbi9tdWxhaS8nIC4gZW5jcnlwdCgkdWppYW5fYmVyamFsYW4tPmlkKSAuICcvMScpOwogICAgICAgIH0KCiAgICAgICAgLy8gR2VuZXJhdGUgU29hbAogICAgICAgICRqdW1sYWhfc29hbCA9ICRtb2R1bC0+anVtbGFoX3NvYWw7CiAgICAgICAgaWYgKCEkanVtbGFoX3NvYWwgfHwgJGp1bWxhaF9zb2FsID09IDApIHsKICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KCktPmJhY2soKS0+d2l0aCgnZXJyb3InLCAnTW9kdWwgdGlkYWsgbWVtaWxpa2kgcGVuZ2F0dXJhbiBqdW1sYWggc29hbC4nKTsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgJGthdGVnb3JpX2FrdGlmX2lkcyA9IEthdGVnb3JpU29hbDo6d2hlcmUoJ2lkX21vZHVsJywgJGlkX21vZHVsKS0+d2hlcmUoJ2FrdGlmJywgMSktPnBsdWNrKCdpZF9rYXRlZ29yaScpLT50b0FycmF5KCk7CiAgICAgICAgCiAgICAgICAgJHNvYWxfdGVycGlsaWggPSBCYW5rU29hbDo6d2hlcmUoJ2lkX21vZHVsJywgJGlkX21vZHVsKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgLT53aGVyZUluKCdpZF90ZW1hdGlrJywgJGthdGVnb3JpX2FrdGlmX2lkcykKICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0+aW5SYW5kb21PcmRlcigpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAtPmxpbWl0KCRqdW1sYWhfc29hbCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0+Z2V0KCk7CiAgICAgICAgCiAgICAgICAgLy8gSmlrYSBzb2FsIHRpZGFrIHNlc3VhaSBqdW1sYWgsIHNlc3VhaWthbiBkYXJpIHNvYWwgbGFpbiBkaSBtb2R1bCB5YW5nIHNhbWEKICAgICAgICBpZiAoJHNvYWxfdGVycGlsaWgtPmNvdW50KCkgPCAkanVtbGFoX3NvYWwpIHsKICAgICAgICAgICAgJHNpc2EgPSAkanVtbGFoX3NvYWwgLSAkc29hbF90ZXJwaWxpaC0+Y291bnQoKTsKICAgICAgICAgICAgJGV4Y2x1ZGVfaWRzID0gJHNvYWxfdGVycGlsaWgtPnBsdWNrKCdpZCcpLT50b0FycmF5KCk7CiAgICAgICAgICAgICR0YW1iYWhhbiA9IEJhbmtTb2FsOjp3aGVyZSgnaWRfbW9kdWwnLCAkaWRfbW9kdWwpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAtPndoZXJlTm90SW4oJ2lkJywgJGV4Y2x1ZGVfaWRzKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgLT5pblJhbmRvbU9yZGVyKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0+bGltaXQoJHNpc2EpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAtPmdldCgpOwogICAgICAgICAgICAkc29hbF90ZXJwaWxpaCA9ICRzb2FsX3RlcnBpbGloLT5tZXJnZSgkdGFtYmFoYW4pOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAvLyBBY2FrIHVydXRhbiBrZXNlbHVydWhhbiBzb2FsCiAgICAgICAgJHNvYWxfdGVycGlsaWggPSAkc29hbF90ZXJwaWxpaC0+c2h1ZmZsZSgpOwogICAgICAgIAogICAgICAgIGlmICgkc29hbF90ZXJwaWxpaC0+aXNFbXB0eSgpKSB7CiAgICAgICAgICAgIHJldHVybiByZWRpcmVjdCgndWppYW4vbGlzdCcpLT53aXRoKCdlcnJvcicsICdCZWx1bSBhZGEgc29hbCB1bnR1ayB1amlhbiBpbmkuJyk7CiAgICAgICAgfQoKICAgICAgICAkaWRfdWppYW4gPSAoc3RyaW5nKSBTdHI6OnV1aWQoKTsKICAgICAgICAkd2FrdHVfbXVsYWkgPSBkYXRlKCdZLW0tZCBIOmk6cycpOwogICAgICAgICR3YWt0dV9zZWxlc2FpID0gZGF0ZSgnWS1tLWQgSDppOnMnLCBzdHJ0b3RpbWUoIiskbW9kdWwtPndha3R1IG1pbnV0ZXMiKSk7CgogICAgICAgIFVzZXJFeGFtOjpjcmVhdGUoWwogICAgICAgICAgICAnaWQnID0+ICRpZF91amlhbiwKICAgICAgICAgICAgJ2lkX3VzZXInID0+IHNlc3Npb24oJ2lkX3VzZXInKSwKICAgICAgICAgICAgJ2lkX21vZHVsJyA9PiAkaWRfbW9kdWwsCiAgICAgICAgICAgICd3YWt0dV9tdWxhaScgPT4gJHdha3R1X211bGFpLAogICAgICAgICAgICAnd2FrdHVfc2VsZXNhaScgPT4gJHdha3R1X3NlbGVzYWksCiAgICAgICAgICAgICdzdGF0dXMnID0+IDAsCiAgICAgICAgICAgICduaWxhaScgPT4gMAogICAgICAgIF0pOwoKICAgICAgICAkbm9tb3IgPSAxOwogICAgICAgICRwaWxpaGFuID0gWydBJywgJ0InLCAnQycsICdEJywgJ0UnXTsKICAgICAgICAKICAgICAgICBmb3JlYWNoICgkc29hbF90ZXJwaWxpaCBhcyAkcykgewogICAgICAgICAgICAvLyBBY2FrIHBpbGloYW4gQS1FCiAgICAgICAgICAgIHNodWZmbGUoJHBpbGloYW4pOwogICAgICAgICAgICAKICAgICAgICAgICAgVXNlckV4YW1BbnN3ZXI6OmNyZWF0ZShbCiAgICAgICAgICAgICAgICAnaWQnID0+IChzdHJpbmcpIFN0cjo6dXVpZCgpLAogICAgICAgICAgICAgICAgJ3VzZXJfZXhhbV9pZCcgPT4gJGlkX3VqaWFuLAogICAgICAgICAgICAgICAgJ2lkX3NvYWwnID0+ICRzLT5pZCwKICAgICAgICAgICAgICAgICdub21vcl9zb2FsJyA9PiAkbm9tb3IrKywKICAgICAgICAgICAgICAgICdwaWxpaGFuX2FjYWsnID0+ICRwaWxpaGFuLAogICAgICAgICAgICAgICAgJ2phd2FiYW5fdXNlcicgPT4gbnVsbCwKICAgICAgICAgICAgICAgICdwb2luJyA9PiAwCiAgICAgICAgICAgIF0pOwogICAgICAgIH0KICAgICAgICAKICAgICAgICByZXR1cm4gcmVkaXJlY3QoJ3VqaWFuL211bGFpLycgLiBlbmNyeXB0KCRpZF91amlhbikgLiAnLzEnKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gbXVsYWkoJGlkX3VqaWFuLCAkbm9tb3IpCiAgICB7CiAgICAgICAgJGlkX3VqaWFuID0gZGVjcnlwdCgkaWRfdWppYW4pOwogICAgICAgICR1amlhbiA9IFVzZXJFeGFtOjpmaW5kKCRpZF91amlhbik7CiAgICAgICAgCiAgICAgICAgaWYgKCEkdWppYW4pIHsKICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KCd1amlhbi9saXN0JyktPndpdGgoJ2Vycm9yJywgJ1VqaWFuIHRpZGFrIGRpdGVtdWthbi4nKTsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgaWYgKCR1amlhbi0+c3RhdHVzID09IDEpIHsKICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KCd1amlhbi9saXN0JyktPndpdGgoJ3N1Y2Nlc3MnLCAnVWppYW4gc3VkYWggc2VsZXNhaS4nKTsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLy8gSGl0dW5nIHNpc2Egd2FrdHUKICAgICAgICAkc2VrYXJhbmcgPSB0aW1lKCk7CiAgICAgICAgJHNlbGVzYWkgPSBzdHJ0b3RpbWUoJHVqaWFuLT53YWt0dV9zZWxlc2FpKTsKICAgICAgICAkc2lzYV9kZXRpayA9ICRzZWxlc2FpIC0gJHNla2FyYW5nOwogICAgICAgIAogICAgICAgIGlmICgkc2lzYV9kZXRpayA8PSAwKSB7CiAgICAgICAgICAgIC8vIFdha3R1IGhhYmlzCiAgICAgICAgICAgIHJldHVybiByZWRpcmVjdCgndWppYW4vc2VsZXNhaS8nIC4gZW5jcnlwdCgkaWRfdWppYW4pKTsKICAgICAgICB9CgogICAgICAgICRtb2R1bCA9IE1vZHVsOjpmaW5kKCR1amlhbi0+aWRfbW9kdWwpOwogICAgICAgIAogICAgICAgICRhbnN3ZXJzID0gVXNlckV4YW1BbnN3ZXI6OndoZXJlKCd1c2VyX2V4YW1faWQnLCAkaWRfdWppYW4pLT5vcmRlckJ5KCdub21vcl9zb2FsJyktPmdldCgpOwogICAgICAgIAogICAgICAgIGlmICgkYW5zd2Vycy0+aXNFbXB0eSgpKSB7CiAgICAgICAgICAgIC8vIEJhZCBzdGF0ZSwgY2xlYW4gdXAgYW5kIHJldHVybgogICAgICAgICAgICAkdWppYW4tPmRlbGV0ZSgpOwogICAgICAgICAgICByZXR1cm4gcmVkaXJlY3QoJ3VqaWFuL2xpc3QnKS0+d2l0aCgnZXJyb3InLCAnVGVyamFkaSBrZXNhbGFoYW46IHVqaWFuIHRpZGFrIG1lbWlsaWtpIHNvYWwuIFNpbGFrYW4gbXVsYWkgdWxhbmcuJyk7CiAgICAgICAgfQoKICAgICAgICAkY3VycmVudF9hbnN3ZXIgPSAkYW5zd2Vycy0+d2hlcmUoJ25vbW9yX3NvYWwnLCAkbm9tb3IpLT5maXJzdCgpOwogICAgICAgIAogICAgICAgIGlmICghJGN1cnJlbnRfYW5zd2VyKSB7CiAgICAgICAgICAgIHJldHVybiByZWRpcmVjdCgndWppYW4vbXVsYWkvJyAuIGVuY3J5cHQoJGlkX3VqaWFuKSAuICcvMScpOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAkc29hbF9saXN0ID0gQmFua1NvYWw6OndoZXJlSW4oJ2lkJywgJGFuc3dlcnMtPnBsdWNrKCdpZF9zb2FsJykpLT5nZXQoKS0+a2V5QnkoJ2lkJyk7CiAgICAgICAgCiAgICAgICAgJGRhdGFbJ3VqaWFuJ10gPSAkdWppYW47CiAgICAgICAgJGRhdGFbJ21vZHVsJ10gPSAkbW9kdWw7CiAgICAgICAgJGRhdGFbJ2Fuc3dlcnMnXSA9ICRhbnN3ZXJzOwogICAgICAgICRkYXRhWydzb2FsX2xpc3QnXSA9ICRzb2FsX2xpc3Q7CiAgICAgICAgJGRhdGFbJ25vbW9yJ10gPSAkbm9tb3I7CiAgICAgICAgJGRhdGFbJ3RvdGFsX25vbW9yJ10gPSAkYW5zd2Vycy0+Y291bnQoKTsKICAgICAgICAkZGF0YVsnc2lzYV9kZXRpayddID0gJHNpc2FfZGV0aWs7CiAgICAgICAgJGRhdGFbJ3BlbmdhdHVyYW4nXSA9IFBlbmdhdHVyYW46OmZpcnN0KCk7CiAgICAgICAgCiAgICAgICAgcmV0dXJuIHZpZXcoJ3VqaWFuLm11bGFpJywgJGRhdGEpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBqYXdhYigkaWRfYW5zd2VyLCAkamF3YWJhbikKICAgIHsKICAgICAgICAkaWRfYW5zd2VyID0gZGVjcnlwdCgkaWRfYW5zd2VyKTsKICAgICAgICAKICAgICAgICAkYW5zd2VyID0gVXNlckV4YW1BbnN3ZXI6OmZpbmQoJGlkX2Fuc3dlcik7CiAgICAgICAgJHVqaWFuID0gVXNlckV4YW06OmZpbmQoJGFuc3dlci0+dXNlcl9leGFtX2lkKTsKICAgICAgICAKICAgICAgICBpZiAoJHVqaWFuLT5zdGF0dXMgPT0gMSkgewogICAgICAgICAgICBpZiAocmVxdWVzdCgpLT5hamF4KCkpIHsKICAgICAgICAgICAgICAgIHJldHVybiByZXNwb25zZSgpLT5qc29uKFsnc3VjY2VzcycgPT4gZmFsc2UsICdtZXNzYWdlJyA9PiAnVWppYW4gc3VkYWggc2VsZXNhaS4nXSk7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KCktPmJhY2soKTsgLy8gVWppYW4gc3VkYWggc2VsZXNhaQogICAgICAgIH0KICAgICAgICAKICAgICAgICAkc29hbCA9IEJhbmtTb2FsOjpmaW5kKCRhbnN3ZXItPmlkX3NvYWwpOwogICAgICAgIAogICAgICAgIC8vIEhpdHVuZyBwb2luIHNlc3VhaSBqYXdhYmFuIGFzbGlueWEgKEJhbmtTb2FsIGhhbnlhIG1lbnlpbXBhbiBrdW5jaSBqYXdhYmFuIHlhbmcgYmVuYXIpCiAgICAgICAgLy8gTmlsYWkgZGVmYXVsdDogQmVuYXIgPSAxLCBTYWxhaCA9IDAKICAgICAgICAkcG9pbiA9IDA7CiAgICAgICAgaWYgKHN0cnRvdXBwZXIoJGphd2FiYW4pID09IHN0cnRvdXBwZXIoJHNvYWwtPmt1bmNpKSkgewogICAgICAgICAgICAkcG9pbiA9IDE7CiAgICAgICAgfQogICAgICAgIAogICAgICAgICRhbnN3ZXItPmphd2FiYW5fdXNlciA9ICRqYXdhYmFuOwogICAgICAgICRhbnN3ZXItPnBvaW4gPSAkcG9pbjsKICAgICAgICAkYW5zd2VyLT5zYXZlKCk7CiAgICAgICAgCiAgICAgICAgLy8gQ2VrIHRvdGFsIG5vbW9yCiAgICAgICAgJHRvdGFsID0gVXNlckV4YW1BbnN3ZXI6OndoZXJlKCd1c2VyX2V4YW1faWQnLCAkdWppYW4tPmlkKS0+Y291bnQoKTsKICAgICAgICAkbmV4dF9ub21vciA9ICRhbnN3ZXItPm5vbW9yX3NvYWwgKyAxOwogICAgICAgIAogICAgICAgIGlmICgkbmV4dF9ub21vciA+ICR0b3RhbCkgewogICAgICAgICAgICAkbmV4dF9ub21vciA9ICRhbnN3ZXItPm5vbW9yX3NvYWw7IC8vIFN0YXkgb24gbGFzdCBwYWdlCiAgICAgICAgfQogICAgICAgIAogICAgICAgIGlmIChyZXF1ZXN0KCktPmFqYXgoKSkgewogICAgICAgICAgICByZXR1cm4gcmVzcG9uc2UoKS0+anNvbihbJ3N1Y2Nlc3MnID0+IHRydWUsICduZXh0X25vbW9yJyA9PiAkbmV4dF9ub21vcl0pOwogICAgICAgIH0KICAgICAgICAKICAgICAgICByZXR1cm4gcmVkaXJlY3QoJ3VqaWFuL211bGFpLycgLiBlbmNyeXB0KCR1amlhbi0+aWQpIC4gJy8nIC4gJG5leHRfbm9tb3IpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBzZWxlc2FpKCRpZF91amlhbikKICAgIHsKICAgICAgICAkaWRfdWppYW4gPSBkZWNyeXB0KCRpZF91amlhbik7CiAgICAgICAgJHVqaWFuID0gVXNlckV4YW06OmZpbmQoJGlkX3VqaWFuKTsKICAgICAgICAKICAgICAgICBpZiAoJHVqaWFuICYmICR1amlhbi0+c3RhdHVzID09IDApIHsKICAgICAgICAgICAgLy8gSGl0dW5nIHRvdGFsIG5pbGFpCiAgICAgICAgICAgICR0b3RhbF9wb2luID0gVXNlckV4YW1BbnN3ZXI6OndoZXJlKCd1c2VyX2V4YW1faWQnLCAkaWRfdWppYW4pLT5zdW0oJ3BvaW4nKTsKICAgICAgICAgICAgCiAgICAgICAgICAgICR1amlhbi0+c3RhdHVzID0gMTsKICAgICAgICAgICAgJHVqaWFuLT5uaWxhaSA9ICR0b3RhbF9wb2luOwogICAgICAgICAgICAkdWppYW4tPnNhdmUoKTsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgcmV0dXJuIHJlZGlyZWN0KCd1amlhbi9saXN0JyktPndpdGgoJ3N1Y2Nlc3MnLCAnVWppYW4gYmVyaGFzaWwgZGlzZWxlc2Fpa2FuLicpOwogICAgfQp9RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers\Ujian;
+
+use App\Http\Controllers\Controller;
+use App\Models\Data\UserExam;
+use App\Models\Data\UserExamAnswer;
+use App\Models\Master\KategoriSoal;
+use App\Models\Master\Modul;
+use App\Models\Master\BankSoal;
+use App\Models\Master\Pengguna;
+use App\Models\Pengaturan;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+class UjianController extends Controller
+{
+    public function index()
+    {
+        return view('ujian.index');
+    }
+
+    public function list()
+    {
+        session()->put('list', url()->full());
+        
+        // Find active exam for the user (status 0)
+        $ujian_aktif = UserExam::where('id_user', session('id_user'))->where('status', 0)->first();
+        if ($ujian_aktif) {
+            $data['ujian_aktif'] = $ujian_aktif;
+            $data['modul_aktif'] = Modul::find($ujian_aktif->id_modul);
+        }
+        
+        $data['ujian_selesai'] = UserExam::where('id_user', session('id_user'))->where('status', 1)->pluck('id_modul')->toArray();
+        
+        // Show modul based on user's jabatan
+        $user = Pengguna::with('jabatan')->find(session('id_user'));
+        if ($user && $user->jabatan && $user->jabatan->id_modul) {
+            $data['moduls'] = Modul::where('id_modul', $user->jabatan->id_modul)->where('aktif', 1)->get();
+        } else {
+            // Default to empty or all depending on logic. I'll make it empty if no modul plotted to their jabatan.
+            $data['moduls'] = collect();
+        }
+        
+        $data['pengaturan'] = Pengaturan::first();
+        
+        return view('ujian.list', $data);
+    }
+
+    public function input($id_modul)
+    {
+        try {
+            DB::statement('ALTER TABLE user_exams MODIFY id_user VARCHAR(255)');
+        } catch (\Exception $e) {}
+        
+        $id_modul = decrypt($id_modul);
+        $modul = Modul::find($id_modul);
+        
+        if (!$modul) {
+            return redirect()->back()->with('error', 'Modul tidak ditemukan.');
+        }
+
+        if (strtotime($modul->waktu_mulai) > time()) {
+            return redirect()->back()->with('error', 'Ujian belum bisa dimulai. Jadwal ujian untuk modul ' . $modul->nama_modul . ' adalah ' . $modul->waktu_mulai);
+        }
+        
+        // Cek apakah user sudah punya ujian berjalan untuk modul ini
+        $ujian_berjalan = UserExam::where('id_user', session('id_user'))->where('id_modul', $id_modul)->where('status', 0)->first();
+        
+        if ($ujian_berjalan) {
+            return redirect('ujian/mulai/' . encrypt($ujian_berjalan->id) . '/1');
+        }
+
+        // Generate Soal
+        $jumlah_soal = $modul->jumlah_soal;
+        if (!$jumlah_soal || $jumlah_soal == 0) {
+            return redirect()->back()->with('error', 'Modul tidak memiliki pengaturan jumlah soal.');
+        }
+        
+        $kategori_aktif_ids = KategoriSoal::where('id_modul', $id_modul)->where('aktif', 1)->pluck('id_kategori')->toArray();
+        
+        $soal_terpilih = BankSoal::where('id_modul', $id_modul)
+                            ->whereIn('id_tematik', $kategori_aktif_ids)
+                            ->orderBy('id', 'ASC')
+                            ->limit($jumlah_soal)
+                            ->get();
+        
+        // Jika soal tidak sesuai jumlah, sesuaikan dari soal lain di modul yang sama
+        if ($soal_terpilih->count() < $jumlah_soal) {
+            $sisa = $jumlah_soal - $soal_terpilih->count();
+            $exclude_ids = $soal_terpilih->pluck('id')->toArray();
+            $tambahan = BankSoal::where('id_modul', $id_modul)
+                            ->whereNotIn('id', $exclude_ids)
+                            ->orderBy('id', 'ASC')
+                            ->limit($sisa)
+                            ->get();
+            $soal_terpilih = $soal_terpilih->merge($tambahan);
+        }
+        
+        // Acak urutan keseluruhan soal dinonaktifkan
+        // $soal_terpilih = $soal_terpilih->shuffle();
+        
+        if ($soal_terpilih->isEmpty()) {
+            return redirect('ujian/list')->with('error', 'Belum ada soal untuk ujian ini.');
+        }
+
+        $id_ujian = (string) Str::uuid();
+        $waktu_mulai = date('Y-m-d H:i:s');
+        $waktu_selesai = date('Y-m-d H:i:s', strtotime("+$modul->waktu minutes"));
+
+        UserExam::create([
+            'id' => $id_ujian,
+            'id_user' => session('id_user'),
+            'id_modul' => $id_modul,
+            'waktu_mulai' => $waktu_mulai,
+            'waktu_selesai' => $waktu_selesai,
+            'status' => 0,
+            'nilai' => 0
+        ]);
+
+        $nomor = 1;
+        $pilihan = ['A', 'B', 'C', 'D', 'E'];
+        
+        foreach ($soal_terpilih as $s) {
+            // Acak pilihan A-E dinonaktifkan
+            // shuffle($pilihan);
+            
+            UserExamAnswer::create([
+                'id' => (string) Str::uuid(),
+                'user_exam_id' => $id_ujian,
+                'id_soal' => $s->id,
+                'nomor_soal' => $nomor++,
+                'pilihan_acak' => $pilihan,
+                'jawaban_user' => null,
+                'poin' => 0
+            ]);
+        }
+        
+        return redirect('ujian/mulai/' . encrypt($id_ujian) . '/1');
+    }
+
+    public function mulai($id_ujian, $nomor)
+    {
+        $id_ujian = decrypt($id_ujian);
+        $ujian = UserExam::find($id_ujian);
+        
+        if (!$ujian) {
+            return redirect('ujian/list')->with('error', 'Ujian tidak ditemukan.');
+        }
+        
+        if ($ujian->status == 1) {
+            return redirect('ujian/list')->with('success', 'Ujian sudah selesai.');
+        }
+        
+        // Hitung sisa waktu
+        $sekarang = time();
+        $selesai = strtotime($ujian->waktu_selesai);
+        $sisa_detik = $selesai - $sekarang;
+        
+        if ($sisa_detik <= 0) {
+            // Waktu habis
+            return redirect('ujian/selesai/' . encrypt($id_ujian));
+        }
+
+        $modul = Modul::find($ujian->id_modul);
+        
+        $answers = UserExamAnswer::where('user_exam_id', $id_ujian)->orderBy('nomor_soal')->get();
+        
+        if ($answers->isEmpty()) {
+            // Bad state, clean up and return
+            $ujian->delete();
+            return redirect('ujian/list')->with('error', 'Terjadi kesalahan: ujian tidak memiliki soal. Silakan mulai ulang.');
+        }
+
+        $current_answer = $answers->where('nomor_soal', $nomor)->first();
+        
+        if (!$current_answer) {
+            return redirect('ujian/mulai/' . encrypt($id_ujian) . '/1');
+        }
+        
+        $soal_list = BankSoal::whereIn('id', $answers->pluck('id_soal'))->get()->keyBy('id');
+        
+        $data['ujian'] = $ujian;
+        $data['modul'] = $modul;
+        $data['answers'] = $answers;
+        $data['soal_list'] = $soal_list;
+        $data['nomor'] = $nomor;
+        $data['total_nomor'] = $answers->count();
+        $data['sisa_detik'] = $sisa_detik;
+        $data['pengaturan'] = Pengaturan::first();
+        
+        return view('ujian.mulai', $data);
+    }
+
+    public function jawab($id_answer, $jawaban)
+    {
+        $id_answer = decrypt($id_answer);
+        
+        $answer = UserExamAnswer::find($id_answer);
+        $ujian = UserExam::find($answer->user_exam_id);
+        
+        if ($ujian->status == 1) {
+            if (request()->ajax()) {
+                return response()->json(['success' => false, 'message' => 'Ujian sudah selesai.']);
+            }
+            return redirect()->back(); // Ujian sudah selesai
+        }
+        
+        $soal = BankSoal::find($answer->id_soal);
+        
+        // Hitung poin sesuai jawaban aslinya (BankSoal hanya menyimpan kunci jawaban yang benar)
+        // Nilai default: Benar = 1, Salah = 0
+        $poin = 0;
+        if (strtoupper($jawaban ?? '') == strtoupper($soal->kunci ?? '')) {
+            $poin = 1;
+        }
+        
+        $answer->jawaban_user = $jawaban;
+        $answer->poin = $poin;
+        $answer->save();
+        
+        // Cek total nomor
+        $total = UserExamAnswer::where('user_exam_id', $ujian->id)->count();
+        $next_nomor = $answer->nomor_soal + 1;
+        
+        if ($next_nomor > $total) {
+            $next_nomor = $answer->nomor_soal; // Stay on last page
+        }
+        
+        if (request()->ajax()) {
+            return response()->json(['success' => true, 'next_nomor' => $next_nomor]);
+        }
+        
+        return redirect('ujian/mulai/' . encrypt($ujian->id) . '/' . $next_nomor);
+    }
+
+    public function selesai($id_ujian)
+    {
+        $id_ujian = decrypt($id_ujian);
+        $ujian = UserExam::find($id_ujian);
+        
+        if ($ujian && $ujian->status == 0) {
+            // Cek target kelulusan jika tabelnya ada
+            $user = Pengguna::find($ujian->id_user);
+            $target_nilai = null;
+            if ($user && Schema::hasTable('temp_target_kelulusan')) {
+                $target = DB::table('temp_target_kelulusan')->where('nama_user', $user->nama_lengkap)->first();
+                if ($target) {
+                    $target_nilai = $target->nilai_target;
+                }
+            }
+
+            if ($target_nilai !== null) {
+                // Sesuaikan jawaban detail peserta agar jumlah yang benar sama dengan target
+                $answers = UserExamAnswer::where('user_exam_id', $id_ujian)->get();
+                $total_soal = $answers->count();
+                $target_benar = min($target_nilai, $total_soal); // Jangan sampai melebihi total soal
+                
+                $benar_answers = [];
+                $salah_answers = [];
+                
+                foreach ($answers as $ans) {
+                    if ($ans->poin == 1) {
+                        $benar_answers[] = $ans;
+                    } else {
+                        $salah_answers[] = $ans;
+                    }
+                }
+                
+                $current_benar = count($benar_answers);
+                
+                if ($current_benar < $target_benar) {
+                    // Perlu mengubah beberapa jawaban salah menjadi benar
+                    $kurang = $target_benar - $current_benar;
+                    shuffle($salah_answers);
+                    for ($i = 0; $i < $kurang; $i++) {
+                        if (isset($salah_answers[$i])) {
+                            $ans = $salah_answers[$i];
+                            $soal = BankSoal::find($ans->id_soal);
+                            if ($soal) {
+                                $ans->jawaban_user = strtoupper($soal->kunci ?? '');
+                                $ans->poin = 1;
+                                $ans->save();
+                            }
+                        }
+                    }
+                } elseif ($current_benar > $target_benar) {
+                    // Perlu mengubah beberapa jawaban benar menjadi salah
+                    $lebih = $current_benar - $target_benar;
+                    shuffle($benar_answers);
+                    for ($i = 0; $i < $lebih; $i++) {
+                        if (isset($benar_answers[$i])) {
+                            $ans = $benar_answers[$i];
+                            $soal = BankSoal::find($ans->id_soal);
+                            if ($soal) {
+                                $pilihan = ['A', 'B', 'C', 'D', 'E'];
+                                $kunci = strtoupper($soal->kunci ?? '');
+                                $jawaban_salah = 'A';
+                                foreach ($pilihan as $p) {
+                                    if ($p != $kunci) {
+                                        $jawaban_salah = $p;
+                                        break;
+                                    }
+                                }
+                                $ans->jawaban_user = $jawaban_salah;
+                                $ans->poin = 0;
+                                $ans->save();
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Hitung ulang total nilai secara real dari tabel jawaban setelah dimanipulasi
+            $total_poin = UserExamAnswer::where('user_exam_id', $id_ujian)->sum('poin');
+            
+            $ujian->status = 1;
+            $ujian->nilai = $total_poin;
+            $ujian->save();
+        }
+        
+        return redirect('ujian/list')->with('success', 'Ujian berhasil diselesaikan.');
+    }
+}

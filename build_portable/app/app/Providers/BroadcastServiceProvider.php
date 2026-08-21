@@ -1,2 +1,19 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXFByb3ZpZGVyczsKCnVzZSBJbGx1bWluYXRlXFN1cHBvcnRcRmFjYWRlc1xCcm9hZGNhc3Q7CnVzZSBJbGx1bWluYXRlXFN1cHBvcnRcU2VydmljZVByb3ZpZGVyOwoKY2xhc3MgQnJvYWRjYXN0U2VydmljZVByb3ZpZGVyIGV4dGVuZHMgU2VydmljZVByb3ZpZGVyCnsKICAgIC8qKgogICAgICogQm9vdHN0cmFwIGFueSBhcHBsaWNhdGlvbiBzZXJ2aWNlcy4KICAgICAqLwogICAgcHVibGljIGZ1bmN0aW9uIGJvb3QoKTogdm9pZAogICAgewogICAgICAgIEJyb2FkY2FzdDo6cm91dGVzKCk7CgogICAgICAgIHJlcXVpcmUgYmFzZV9wYXRoKCdyb3V0ZXMvY2hhbm5lbHMucGhwJyk7CiAgICB9Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Broadcast;
+use Illuminate\Support\ServiceProvider;
+
+class BroadcastServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     */
+    public function boot(): void
+    {
+        Broadcast::routes();
+
+        require base_path('routes/channels.php');
+    }
+}

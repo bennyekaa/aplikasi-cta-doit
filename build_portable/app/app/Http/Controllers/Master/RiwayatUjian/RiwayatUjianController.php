@@ -1,2 +1,75 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcTWFzdGVyXFJpd2F5YXRVamlhbjsKCnVzZSBBcHBcSHR0cFxDb250cm9sbGVyc1xDb250cm9sbGVyOwp1c2UgQXBwXE1vZGVsc1xEYXRhXFVzZXJFeGFtOwp1c2UgQXBwXE1vZGVsc1xEYXRhXFVzZXJFeGFtQW5zd2VyOwp1c2UgSWxsdW1pbmF0ZVxIdHRwXFJlcXVlc3Q7CnVzZSBJbGx1bWluYXRlXFN1cHBvcnRcRmFjYWRlc1xEQjsKCmNsYXNzIFJpd2F5YXRVamlhbkNvbnRyb2xsZXIgZXh0ZW5kcyBDb250cm9sbGVyCnsKICAgIHB1YmxpYyBmdW5jdGlvbiBpbmRleCgpCiAgICB7CiAgICAgICAgLy8gSm9pbiB3aXRoIHVzZXJzIGFuZCBtb2R1bAogICAgICAgICRleGFtcyA9IFVzZXJFeGFtOjpqb2luKCdyZWZfdXNlcicsICd1c2VyX2V4YW1zLmlkX3VzZXInLCAnPScsIERCOjpyYXcoJ3JlZl91c2VyLmlkX3VzZXIgQ09MTEFURSB1dGY4bWI0X3VuaWNvZGVfY2knKSkKICAgICAgICAgICAgLT5qb2luKCdyZWZfbW9kdWwnLCAndXNlcl9leGFtcy5pZF9tb2R1bCcsICc9JywgREI6OnJhdygncmVmX21vZHVsLmlkX21vZHVsIENPTExBVEUgdXRmOG1iNF91bmljb2RlX2NpJykpCiAgICAgICAgICAgIC0+c2VsZWN0KCd1c2VyX2V4YW1zLionLCAncmVmX3VzZXIubmFtYV9sZW5na2FwIGFzIG5hbWFfcGVzZXJ0YScsICdyZWZfdXNlci51c2VybmFtZScsICdyZWZfbW9kdWwubmFtYV9tb2R1bCcpCiAgICAgICAgICAgIC0+b3JkZXJCeSgndXNlcl9leGFtcy5jcmVhdGVkX2F0JywgJ2Rlc2MnKQogICAgICAgICAgICAtPmdldCgpOwogICAgICAgICAgICAKICAgICAgICAkZGF0YVsnZXhhbXMnXSA9ICRleGFtczsKICAgICAgICByZXR1cm4gdmlldygnbWFzdGVyLnJpd2F5YXRfdWppYW4uaW5kZXgnLCAkZGF0YSk7CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIGRldGFpbCgkaWQpCiAgICB7CiAgICAgICAgJGlkX2V4YW0gPSBkZWNyeXB0KCRpZCk7CiAgICAgICAgJGV4YW0gPSBVc2VyRXhhbTo6am9pbigncmVmX3VzZXInLCAndXNlcl9leGFtcy5pZF91c2VyJywgJz0nLCBEQjo6cmF3KCdyZWZfdXNlci5pZF91c2VyIENPTExBVEUgdXRmOG1iNF91bmljb2RlX2NpJykpCiAgICAgICAgICAgIC0+am9pbigncmVmX21vZHVsJywgJ3VzZXJfZXhhbXMuaWRfbW9kdWwnLCAnPScsIERCOjpyYXcoJ3JlZl9tb2R1bC5pZF9tb2R1bCBDT0xMQVRFIHV0ZjhtYjRfdW5pY29kZV9jaScpKQogICAgICAgICAgICAtPnNlbGVjdCgndXNlcl9leGFtcy4qJywgJ3JlZl91c2VyLm5hbWFfbGVuZ2thcCBhcyBuYW1hX3Blc2VydGEnLCAncmVmX3VzZXIudXNlcm5hbWUnLCAncmVmX21vZHVsLm5hbWFfbW9kdWwnKQogICAgICAgICAgICAtPndoZXJlKCd1c2VyX2V4YW1zLmlkJywgJGlkX2V4YW0pCiAgICAgICAgICAgIC0+Zmlyc3QoKTsKCiAgICAgICAgaWYgKCEkZXhhbSkgewogICAgICAgICAgICByZXR1cm4gcmVkaXJlY3QoJ21hc3Rlci9yaXdheWF0X3VqaWFuL2luZGV4JyktPndpdGgoJ2Vycm9yJywgJ0RhdGEgdGlkYWsgZGl0ZW11a2FuLicpOwogICAgICAgIH0KCiAgICAgICAgJGFuc3dlcnMgPSBVc2VyRXhhbUFuc3dlcjo6am9pbignYmFua19zb2FsJywgJ3VzZXJfZXhhbV9hbnN3ZXJzLmlkX3NvYWwnLCAnPScsICdiYW5rX3NvYWwuaWQnKQogICAgICAgICAgICAtPndoZXJlKCd1c2VyX2V4YW1fYW5zd2Vycy51c2VyX2V4YW1faWQnLCAkaWRfZXhhbSkKICAgICAgICAgICAgLT5zZWxlY3QoJ3VzZXJfZXhhbV9hbnN3ZXJzLionLCAnYmFua19zb2FsLnNvYWwnLCAnYmFua19zb2FsLm9wc2lfYScsICdiYW5rX3NvYWwub3BzaV9iJywgJ2Jhbmtfc29hbC5vcHNpX2MnLCAnYmFua19zb2FsLm9wc2lfZCcsICdiYW5rX3NvYWwub3BzaV9lJywgJ2Jhbmtfc29hbC5rdW5jaScpCiAgICAgICAgICAgIC0+b3JkZXJCeSgndXNlcl9leGFtX2Fuc3dlcnMubm9tb3Jfc29hbCcsICdhc2MnKQogICAgICAgICAgICAtPmdldCgpOwoKICAgICAgICAkZGF0YVsnZXhhbSddID0gJGV4YW07CiAgICAgICAgJGRhdGFbJ2Fuc3dlcnMnXSA9ICRhbnN3ZXJzOwoKICAgICAgICByZXR1cm4gdmlldygnbWFzdGVyLnJpd2F5YXRfdWppYW4uZGV0YWlsJywgJGRhdGEpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBjZXRhaygkaWQpCiAgICB7CiAgICAgICAgJGlkX2V4YW0gPSBkZWNyeXB0KCRpZCk7CiAgICAgICAgJGV4YW0gPSBVc2VyRXhhbTo6am9pbigncmVmX3VzZXInLCAndXNlcl9leGFtcy5pZF91c2VyJywgJz0nLCBEQjo6cmF3KCdyZWZfdXNlci5pZF91c2VyIENPTExBVEUgdXRmOG1iNF91bmljb2RlX2NpJykpCiAgICAgICAgICAgIC0+am9pbigncmVmX21vZHVsJywgJ3VzZXJfZXhhbXMuaWRfbW9kdWwnLCAnPScsIERCOjpyYXcoJ3JlZl9tb2R1bC5pZF9tb2R1bCBDT0xMQVRFIHV0ZjhtYjRfdW5pY29kZV9jaScpKQogICAgICAgICAgICAtPnNlbGVjdCgndXNlcl9leGFtcy4qJywgJ3JlZl91c2VyLm5hbWFfbGVuZ2thcCBhcyBuYW1hX3Blc2VydGEnLCAncmVmX3VzZXIudXNlcm5hbWUnLCAncmVmX21vZHVsLm5hbWFfbW9kdWwnKQogICAgICAgICAgICAtPndoZXJlKCd1c2VyX2V4YW1zLmlkJywgJGlkX2V4YW0pCiAgICAgICAgICAgIC0+Zmlyc3QoKTsKCiAgICAgICAgaWYgKCEkZXhhbSkgewogICAgICAgICAgICByZXR1cm4gcmVkaXJlY3QoJ21hc3Rlci9yaXdheWF0X3VqaWFuL2luZGV4JyktPndpdGgoJ2Vycm9yJywgJ0RhdGEgdGlkYWsgZGl0ZW11a2FuLicpOwogICAgICAgIH0KCiAgICAgICAgJGFuc3dlcnMgPSBVc2VyRXhhbUFuc3dlcjo6am9pbignYmFua19zb2FsJywgJ3VzZXJfZXhhbV9hbnN3ZXJzLmlkX3NvYWwnLCAnPScsICdiYW5rX3NvYWwuaWQnKQogICAgICAgICAgICAtPndoZXJlKCd1c2VyX2V4YW1fYW5zd2Vycy51c2VyX2V4YW1faWQnLCAkaWRfZXhhbSkKICAgICAgICAgICAgLT5zZWxlY3QoJ3VzZXJfZXhhbV9hbnN3ZXJzLionLCAnYmFua19zb2FsLnNvYWwnLCAnYmFua19zb2FsLm9wc2lfYScsICdiYW5rX3NvYWwub3BzaV9iJywgJ2Jhbmtfc29hbC5vcHNpX2MnLCAnYmFua19zb2FsLm9wc2lfZCcsICdiYW5rX3NvYWwub3BzaV9lJywgJ2Jhbmtfc29hbC5rdW5jaScpCiAgICAgICAgICAgIC0+b3JkZXJCeSgndXNlcl9leGFtX2Fuc3dlcnMubm9tb3Jfc29hbCcsICdhc2MnKQogICAgICAgICAgICAtPmdldCgpOwoKICAgICAgICAkZGF0YVsnZXhhbSddID0gJGV4YW07CiAgICAgICAgJGRhdGFbJ2Fuc3dlcnMnXSA9ICRhbnN3ZXJzOwoKICAgICAgICByZXR1cm4gdmlldygnbWFzdGVyLnJpd2F5YXRfdWppYW4uY2V0YWsnLCAkZGF0YSk7CiAgICB9Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers\Master\RiwayatUjian;
+
+use App\Http\Controllers\Controller;
+use App\Models\Data\UserExam;
+use App\Models\Data\UserExamAnswer;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class RiwayatUjianController extends Controller
+{
+    public function index()
+    {
+        // Join with users and modul
+        $exams = UserExam::join('ref_user', 'user_exams.id_user', '=', DB::raw('ref_user.id_user COLLATE utf8mb4_unicode_ci'))
+            ->join('ref_modul', 'user_exams.id_modul', '=', DB::raw('ref_modul.id_modul COLLATE utf8mb4_unicode_ci'))
+            ->select('user_exams.*', 'ref_user.nama_lengkap as nama_peserta', 'ref_user.username', 'ref_modul.nama_modul')
+            ->orderBy('user_exams.created_at', 'desc')
+            ->get();
+            
+        $data['exams'] = $exams;
+        return view('master.riwayat_ujian.index', $data);
+    }
+
+    public function detail($id)
+    {
+        $id_exam = decrypt($id);
+        $exam = UserExam::join('ref_user', 'user_exams.id_user', '=', DB::raw('ref_user.id_user COLLATE utf8mb4_unicode_ci'))
+            ->join('ref_modul', 'user_exams.id_modul', '=', DB::raw('ref_modul.id_modul COLLATE utf8mb4_unicode_ci'))
+            ->select('user_exams.*', 'ref_user.nama_lengkap as nama_peserta', 'ref_user.username', 'ref_modul.nama_modul')
+            ->where('user_exams.id', $id_exam)
+            ->first();
+
+        if (!$exam) {
+            return redirect('master/riwayat_ujian/index')->with('error', 'Data tidak ditemukan.');
+        }
+
+        $answers = UserExamAnswer::join('bank_soal', 'user_exam_answers.id_soal', '=', 'bank_soal.id')
+            ->where('user_exam_answers.user_exam_id', $id_exam)
+            ->select('user_exam_answers.*', 'bank_soal.soal', 'bank_soal.opsi_a', 'bank_soal.opsi_b', 'bank_soal.opsi_c', 'bank_soal.opsi_d', 'bank_soal.opsi_e', 'bank_soal.kunci')
+            ->orderBy('user_exam_answers.nomor_soal', 'asc')
+            ->get();
+
+        $data['exam'] = $exam;
+        $data['answers'] = $answers;
+
+        return view('master.riwayat_ujian.detail', $data);
+    }
+
+    public function cetak($id)
+    {
+        $id_exam = decrypt($id);
+        $exam = UserExam::join('ref_user', 'user_exams.id_user', '=', DB::raw('ref_user.id_user COLLATE utf8mb4_unicode_ci'))
+            ->join('ref_modul', 'user_exams.id_modul', '=', DB::raw('ref_modul.id_modul COLLATE utf8mb4_unicode_ci'))
+            ->select('user_exams.*', 'ref_user.nama_lengkap as nama_peserta', 'ref_user.username', 'ref_modul.nama_modul')
+            ->where('user_exams.id', $id_exam)
+            ->first();
+
+        if (!$exam) {
+            return redirect('master/riwayat_ujian/index')->with('error', 'Data tidak ditemukan.');
+        }
+
+        $answers = UserExamAnswer::join('bank_soal', 'user_exam_answers.id_soal', '=', 'bank_soal.id')
+            ->where('user_exam_answers.user_exam_id', $id_exam)
+            ->select('user_exam_answers.*', 'bank_soal.soal', 'bank_soal.opsi_a', 'bank_soal.opsi_b', 'bank_soal.opsi_c', 'bank_soal.opsi_d', 'bank_soal.opsi_e', 'bank_soal.kunci')
+            ->orderBy('user_exam_answers.nomor_soal', 'asc')
+            ->get();
+
+        $data['exam'] = $exam;
+        $data['answers'] = $answers;
+
+        return view('master.riwayat_ujian.cetak', $data);
+    }
+}

@@ -1,2 +1,26 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXE1vZGVsc1xNYXN0ZXI7Cgp1c2UgSWxsdW1pbmF0ZVxEYXRhYmFzZVxFbG9xdWVudFxGYWN0b3JpZXNcSGFzRmFjdG9yeTsKdXNlIElsbHVtaW5hdGVcRGF0YWJhc2VcRWxvcXVlbnRcTW9kZWw7CgpjbGFzcyBEZXNhIGV4dGVuZHMgTW9kZWwKewogICAgdXNlIEhhc0ZhY3Rvcnk7CiAgICBwcm90ZWN0ZWQgJHRhYmxlID0gJ3JlZl9kZXNhJzsKICAgIHByb3RlY3RlZCAkcHJpbWFyeUtleSA9ICdpZF9kZXNhJzsKICAgIHB1YmxpYyAkaW5jcmVtZW50aW5nID0gZmFsc2U7CiAgICBwcm90ZWN0ZWQgJGtleVR5cGUgPSAnc3RyaW5nJzsKICAgIHByb3RlY3RlZCAkZ3VhcmRlZCA9IFtdOwoKICAgIHB1YmxpYyBmdW5jdGlvbiBrZWNhbWF0YW4oKQogICAgewogICAgICAgIHJldHVybiAkdGhpcy0+YmVsb25nc1RvKEtlY2FtYXRhbjo6Y2xhc3MsICdpZF9rZWNhbWF0YW4nLCAnaWRfa2VjYW1hdGFuJyk7CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIHBlbmdndW5hKCkKICAgIHsKICAgICAgICByZXR1cm4gJHRoaXMtPmhhc01hbnkoUGVuZ2d1bmE6OmNsYXNzLCAnaWRfZGVzYScsICdpZF9kZXNhJyk7CiAgICB9Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Models\Master;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Desa extends Model
+{
+    use HasFactory;
+    protected $table = 'ref_desa';
+    protected $primaryKey = 'id_desa';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    protected $guarded = [];
+
+    public function kecamatan()
+    {
+        return $this->belongsTo(Kecamatan::class, 'id_kecamatan', 'id_kecamatan');
+    }
+
+    public function pengguna()
+    {
+        return $this->hasMany(Pengguna::class, 'id_desa', 'id_desa');
+    }
+}

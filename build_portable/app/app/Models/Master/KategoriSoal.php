@@ -1,2 +1,23 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXE1vZGVsc1xNYXN0ZXI7Cgp1c2UgSWxsdW1pbmF0ZVxEYXRhYmFzZVxFbG9xdWVudFxGYWN0b3JpZXNcSGFzRmFjdG9yeTsKdXNlIElsbHVtaW5hdGVcRGF0YWJhc2VcRWxvcXVlbnRcTW9kZWw7CgpjbGFzcyBLYXRlZ29yaVNvYWwgZXh0ZW5kcyBNb2RlbAp7CiAgICB1c2UgSGFzRmFjdG9yeTsKICAgIHByb3RlY3RlZCAkY29ubmVjdGlvbiA9ICdteXNxbCc7CiAgICBwcm90ZWN0ZWQgJHRhYmxlID0gJ3JlZl9rYXRlZ29yaSc7CiAgICAvLy0tLVNldCBQcmltYXJ5IEtleS0tLQogICAgcHJvdGVjdGVkICRwcmltYXJ5S2V5ID0gJ2lkX2thdGVnb3JpJzsKCiAgICBwdWJsaWMgJGluY3JlbWVudGluZyA9IGZhbHNlOwogICAgcHJvdGVjdGVkICRndWFyZGVkID0gW107CgogICAgcHVibGljIGZ1bmN0aW9uIG1vZHVsKCkKICAgIHsKICAgICAgICByZXR1cm4gJHRoaXMtPmJlbG9uZ3NUbyhNb2R1bDo6Y2xhc3MsICdpZF9tb2R1bCcsICdpZF9tb2R1bCcpOwogICAgfQp9RE9JVFNVS1NFUw==')));
+
+namespace App\Models\Master;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class KategoriSoal extends Model
+{
+    use HasFactory;
+    protected $connection = 'mysql';
+    protected $table = 'ref_kategori';
+    //---Set Primary Key---
+    protected $primaryKey = 'id_kategori';
+
+    public $incrementing = false;
+    protected $guarded = [];
+
+    public function modul()
+    {
+        return $this->belongsTo(Modul::class, 'id_modul', 'id_modul');
+    }
+}

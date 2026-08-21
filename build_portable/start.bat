@@ -33,6 +33,9 @@ if not exist "%~dp0mysql\data\tryout" (
     )
 )
 
+cd /d "%~dp0app"
+"%~dp0php\php.exe" artisan sync:target-kelulusan >nul 2>nul
+
 echo.
 echo ===================================================
 echo INFORMASI UNTUK SISWA (TULIS DI PAPAN TULIS):

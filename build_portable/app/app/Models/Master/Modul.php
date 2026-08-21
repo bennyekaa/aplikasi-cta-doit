@@ -1,2 +1,19 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXE1vZGVsc1xNYXN0ZXI7Cgp1c2UgSWxsdW1pbmF0ZVxEYXRhYmFzZVxFbG9xdWVudFxGYWN0b3JpZXNcSGFzRmFjdG9yeTsKdXNlIElsbHVtaW5hdGVcRGF0YWJhc2VcRWxvcXVlbnRcTW9kZWw7CgpjbGFzcyBNb2R1bCBleHRlbmRzIE1vZGVsCnsKICAgIHVzZSBIYXNGYWN0b3J5OwogICAgcHJvdGVjdGVkICRjb25uZWN0aW9uID0gJ215c3FsJzsKICAgIHByb3RlY3RlZCAkdGFibGUgPSAncmVmX21vZHVsJzsKICAgIC8vLS0tU2V0IFByaW1hcnkgS2V5LS0tCiAgICBwcm90ZWN0ZWQgJHByaW1hcnlLZXkgPSAnaWRfbW9kdWwnOwoKICAgIHB1YmxpYyAkaW5jcmVtZW50aW5nID0gZmFsc2U7CgogICAgcHJvdGVjdGVkICRndWFyZGVkID0gW107Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Models\Master;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Modul extends Model
+{
+    use HasFactory;
+    protected $connection = 'mysql';
+    protected $table = 'ref_modul';
+    //---Set Primary Key---
+    protected $primaryKey = 'id_modul';
+
+    public $incrementing = false;
+
+    protected $guarded = [];
+}

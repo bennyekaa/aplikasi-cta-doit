@@ -1,2 +1,17 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcTWlkZGxld2FyZTsKCnVzZSBJbGx1bWluYXRlXEZvdW5kYXRpb25cSHR0cFxNaWRkbGV3YXJlXFByZXZlbnRSZXF1ZXN0c0R1cmluZ01haW50ZW5hbmNlIGFzIE1pZGRsZXdhcmU7CgpjbGFzcyBQcmV2ZW50UmVxdWVzdHNEdXJpbmdNYWludGVuYW5jZSBleHRlbmRzIE1pZGRsZXdhcmUKewogICAgLyoqCiAgICAgKiBUaGUgVVJJcyB0aGF0IHNob3VsZCBiZSByZWFjaGFibGUgd2hpbGUgbWFpbnRlbmFuY2UgbW9kZSBpcyBlbmFibGVkLgogICAgICoKICAgICAqIEB2YXIgYXJyYXk8aW50LCBzdHJpbmc+CiAgICAgKi8KICAgIHByb3RlY3RlZCAkZXhjZXB0ID0gWwogICAgICAgIC8vCiAgICBdOwp9RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Middleware;
+
+use Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance as Middleware;
+
+class PreventRequestsDuringMaintenance extends Middleware
+{
+    /**
+     * The URIs that should be reachable while maintenance mode is enabled.
+     *
+     * @var array<int, string>
+     */
+    protected $except = [
+        //
+    ];
+}

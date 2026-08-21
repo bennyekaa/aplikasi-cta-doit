@@ -1,2 +1,24 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXE1vZGVsczsKCnVzZSBJbGx1bWluYXRlXERhdGFiYXNlXEVsb3F1ZW50XEZhY3Rvcmllc1xIYXNGYWN0b3J5Owp1c2UgSWxsdW1pbmF0ZVxEYXRhYmFzZVxFbG9xdWVudFxNb2RlbDsKCmNsYXNzIFBlbmdhdHVyYW4gZXh0ZW5kcyBNb2RlbAp7CiAgICB1c2UgSGFzRmFjdG9yeTsKICAgIHByb3RlY3RlZCAkY29ubmVjdGlvbiA9ICdteXNxbCc7CiAgICBwcm90ZWN0ZWQgJHRhYmxlID0gJ3BlbmdhdHVyYW4nOwogICAgLy8tLS1TZXQgUHJpbWFyeSBLZXktLS0KICAgIHByb3RlY3RlZCAkcHJpbWFyeUtleSA9ICdpZF9wZW5nYXR1cmFuJzsKCiAgICBwdWJsaWMgJGluY3JlbWVudGluZyA9IGZhbHNlOwoKICAgIHByb3RlY3RlZCAkZmlsbGFibGUgPSBbCiAgICAgICAgJ2luc3RhbnNpJywKICAgICAgICAnbG9nbycsCiAgICAgICAgJ2ZvbnRfdHlwZScsCiAgICAgICAgJ2ZvbnRfc2l6ZScsCiAgICBdOwp9RE9JVFNVS1NFUw==')));
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Pengaturan extends Model
+{
+    use HasFactory;
+    protected $connection = 'mysql';
+    protected $table = 'pengaturan';
+    //---Set Primary Key---
+    protected $primaryKey = 'id_pengaturan';
+
+    public $incrementing = false;
+
+    protected $fillable = [
+        'instansi',
+        'logo',
+        'font_type',
+        'font_size',
+    ];
+}

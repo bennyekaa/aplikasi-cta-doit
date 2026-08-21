@@ -1,2 +1,104 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcTWFzdGVyXEJhbmtTb2FsOwoKdXNlIEFwcFxIdHRwXENvbnRyb2xsZXJzXENvbnRyb2xsZXI7CnVzZSBJbGx1bWluYXRlXEh0dHBcUmVxdWVzdDsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXEJhbmtTb2FsOwp1c2UgQXBwXEltcG9ydHNcQmFua1NvYWxJbXBvcnQ7CnVzZSBBcHBcRXhwb3J0c1xCYW5rU29hbFRlbXBsYXRlRXhwb3J0Owp1c2UgTWFhdHdlYnNpdGVcRXhjZWxcRmFjYWRlc1xFeGNlbDsKdXNlIEV4Y2VwdGlvbjsKdXNlIElsbHVtaW5hdGVcU3VwcG9ydFxGYWNhZGVzXExvZzsKCmNsYXNzIEJhbmtTb2FsQ29udHJvbGxlciBleHRlbmRzIENvbnRyb2xsZXIKewogICAgcHVibGljIGZ1bmN0aW9uIGluZGV4KFJlcXVlc3QgJHJlcXVlc3QpCiAgICB7CiAgICAgICAgJHF1ZXJ5ID0gQmFua1NvYWw6OndpdGgoJ21vZHVsJywgJ3RlbWF0aWsnKTsKICAgICAgICAKICAgICAgICBpZiAoJHJlcXVlc3QtPmhhcygnZmlsdGVyX21vZHVsJykgJiYgJHJlcXVlc3QtPmZpbHRlcl9tb2R1bCAhPSAnJykgewogICAgICAgICAgICAkcXVlcnktPndoZXJlKCdpZF9tb2R1bCcsICRyZXF1ZXN0LT5maWx0ZXJfbW9kdWwpOwogICAgICAgIH0KICAgICAgICAKICAgICAgICBpZiAoJHJlcXVlc3QtPmhhcygnZmlsdGVyX3RlbWF0aWsnKSAmJiAkcmVxdWVzdC0+ZmlsdGVyX3RlbWF0aWsgIT0gJycpIHsKICAgICAgICAgICAgJHF1ZXJ5LT53aGVyZSgnaWRfdGVtYXRpaycsICRyZXF1ZXN0LT5maWx0ZXJfdGVtYXRpayk7CiAgICAgICAgfQogICAgICAgIAogICAgICAgICRkYXRhWydzb2FsJ10gPSAkcXVlcnktPm9yZGVyQnkoJ2lkJywgJ0FTQycpLT5nZXQoKTsKICAgICAgICAkZGF0YVsnbW9kdWwnXSA9IFxBcHBcTW9kZWxzXE1hc3RlclxNb2R1bDo6d2hlcmUoJ2FrdGlmJywgMSktPmdldCgpOwogICAgICAgIAogICAgICAgIGlmICgkcmVxdWVzdC0+aGFzKCdmaWx0ZXJfbW9kdWwnKSAmJiAkcmVxdWVzdC0+ZmlsdGVyX21vZHVsICE9ICcnKSB7CiAgICAgICAgICAgICRkYXRhWyd0ZW1hdGlrJ10gPSBcQXBwXE1vZGVsc1xNYXN0ZXJcS2F0ZWdvcmlTb2FsOjp3aGVyZSgnYWt0aWYnLCAxKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0+d2hlcmUoJ2lkX21vZHVsJywgJHJlcXVlc3QtPmZpbHRlcl9tb2R1bCktPmdldCgpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICRkYXRhWyd0ZW1hdGlrJ10gPSBjb2xsZWN0KCk7CiAgICAgICAgfQogICAgICAgIAogICAgICAgICRkYXRhWydmaWx0ZXJfbW9kdWwnXSA9ICRyZXF1ZXN0LT5maWx0ZXJfbW9kdWw7CiAgICAgICAgJGRhdGFbJ2ZpbHRlcl90ZW1hdGlrJ10gPSAkcmVxdWVzdC0+ZmlsdGVyX3RlbWF0aWs7CiAgICAgICAgCiAgICAgICAgc2Vzc2lvbigpLT5wdXQoJ2Jhbmtfc29hbCcsIHVybCgpLT5mdWxsKCkpOwogICAgICAgIHJldHVybiB2aWV3KCdtYXN0ZXIuYmFua19zb2FsLmluZGV4JywgJGRhdGEpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiB0ZW1wbGF0ZSgpCiAgICB7CiAgICAgICAgcmV0dXJuIEV4Y2VsOjpkb3dubG9hZChuZXcgQmFua1NvYWxUZW1wbGF0ZUV4cG9ydCwgJ1RlbXBsYXRlX0JhbmtfU29hbC54bHN4Jyk7CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIGdldFRlbWF0aWtCeU1vZHVsKCRpZF9tb2R1bCkKICAgIHsKICAgICAgICAkdGVtYXRpayA9IFxBcHBcTW9kZWxzXE1hc3RlclxLYXRlZ29yaVNvYWw6OndoZXJlKCdpZF9tb2R1bCcsICRpZF9tb2R1bCktPndoZXJlKCdha3RpZicsIDEpLT5nZXQoKTsKICAgICAgICByZXR1cm4gcmVzcG9uc2UoKS0+anNvbigkdGVtYXRpayk7CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIGltcG9ydChSZXF1ZXN0ICRyZXF1ZXN0KQogICAgewogICAgICAgIHRyeSB7CiAgICAgICAgICAgICRyZXF1ZXN0LT52YWxpZGF0ZShbCiAgICAgICAgICAgICAgICAnaWRfbW9kdWwnID0+ICdyZXF1aXJlZCcsCiAgICAgICAgICAgICAgICAnaWRfdGVtYXRpaycgPT4gJ3JlcXVpcmVkJywKICAgICAgICAgICAgICAgICdkYXRhX2ZpbGUnID0+ICdyZXF1aXJlZHxmaWxlJwogICAgICAgICAgICBdKTsKCiAgICAgICAgICAgICRmaWxlID0gJHJlcXVlc3QtPmZpbGUoJ2RhdGFfZmlsZScpLT5nZXRSZWFsUGF0aCgpOwogICAgICAgICAgICBFeGNlbDo6aW1wb3J0KG5ldyBCYW5rU29hbEltcG9ydCgkcmVxdWVzdC0+aWRfbW9kdWwsICRyZXF1ZXN0LT5pZF90ZW1hdGlrKSwgJGZpbGUpOwoKICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KHNlc3Npb24oJ2Jhbmtfc29hbCcpKS0+d2l0aCgnc3VjY2VzcycsICdCZXJoYXNpbCBJbXBvcnQgQmFuayBTb2FsJyk7CiAgICAgICAgfSBjYXRjaCAoRXhjZXB0aW9uICRlKSB7CiAgICAgICAgICAgIExvZzo6aW5mbygnRXJyb3IgJyAuICRlLT5nZXRNZXNzYWdlKCkpOwogICAgICAgICAgICByZXR1cm4gcmVkaXJlY3Qoc2Vzc2lvbignYmFua19zb2FsJykpLT53aXRoKCdlcnJvcicsICdHYWdhbCBJbXBvcnQ6ICcgLiAkZS0+Z2V0TWVzc2FnZSgpKTsKICAgICAgICB9CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIGhhcHVzKCRpZCkKICAgIHsKICAgICAgICB0cnkgewogICAgICAgICAgICAkc29hbCA9IEJhbmtTb2FsOjpmaW5kKGRlY3J5cHQoJGlkKSk7CiAgICAgICAgICAgIGlmICgkc29hbCkgewogICAgICAgICAgICAgICAgJHNvYWwtPmRlbGV0ZSgpOwogICAgICAgICAgICB9CiAgICAgICAgICAgIHJldHVybiByZWRpcmVjdChzZXNzaW9uKCdiYW5rX3NvYWwnKSktPndpdGgoJ3N1Y2Nlc3MnLCAnRGF0YSBUZXJoYXB1cycpOwogICAgICAgIH0gY2F0Y2ggKEV4Y2VwdGlvbiAkZSkgewogICAgICAgICAgICBMb2c6OmluZm8oJ0Vycm9yICcgLiAkZS0+Z2V0TWVzc2FnZSgpKTsKICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KHNlc3Npb24oJ2Jhbmtfc29hbCcpKS0+d2l0aCgnZXJyb3InLCAnR2FnYWwgSGFwdXMnKTsKICAgICAgICB9CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIGJ1bGtIYXB1cyhSZXF1ZXN0ICRyZXF1ZXN0KQogICAgewogICAgICAgIHRyeSB7CiAgICAgICAgICAgICRpZHMgPSAkcmVxdWVzdC0+aWRzOwogICAgICAgICAgICBpZiAoJGlkcyAmJiBpc19hcnJheSgkaWRzKSkgewogICAgICAgICAgICAgICAgQmFua1NvYWw6OndoZXJlSW4oJ2lkJywgJGlkcyktPmRlbGV0ZSgpOwogICAgICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KHNlc3Npb24oJ2Jhbmtfc29hbCcpKS0+d2l0aCgnc3VjY2VzcycsIGNvdW50KCRpZHMpIC4gJyBEYXRhIFRlcmhhcHVzJyk7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KHNlc3Npb24oJ2Jhbmtfc29hbCcpKS0+d2l0aCgnZXJyb3InLCAnUGlsaWggZGF0YSB5YW5nIGFrYW4gZGloYXB1cycpOwogICAgICAgIH0gY2F0Y2ggKEV4Y2VwdGlvbiAkZSkgewogICAgICAgICAgICBMb2c6OmluZm8oJ0Vycm9yIGJ1bGsgaGFwdXMgJyAuICRlLT5nZXRNZXNzYWdlKCkpOwogICAgICAgICAgICByZXR1cm4gcmVkaXJlY3Qoc2Vzc2lvbignYmFua19zb2FsJykpLT53aXRoKCdlcnJvcicsICdHYWdhbCBIYXB1cyBEYXRhOiAnIC4gJGUtPmdldE1lc3NhZ2UoKSk7CiAgICAgICAgfQogICAgfQoKfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers\Master\BankSoal;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Master\BankSoal;
+use App\Imports\BankSoalImport;
+use App\Exports\BankSoalTemplateExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Exception;
+use Illuminate\Support\Facades\Log;
+
+class BankSoalController extends Controller
+{
+    public function index(Request $request)
+    {
+        $query = BankSoal::with('modul', 'tematik');
+        
+        if ($request->has('filter_modul') && $request->filter_modul != '') {
+            $query->where('id_modul', $request->filter_modul);
+        }
+        
+        if ($request->has('filter_tematik') && $request->filter_tematik != '') {
+            $query->where('id_tematik', $request->filter_tematik);
+        }
+        
+        $data['soal'] = $query->orderBy('id', 'ASC')->get();
+        $data['modul'] = \App\Models\Master\Modul::where('aktif', 1)->get();
+        
+        if ($request->has('filter_modul') && $request->filter_modul != '') {
+            $data['tematik'] = \App\Models\Master\KategoriSoal::where('aktif', 1)
+                                ->where('id_modul', $request->filter_modul)->get();
+        } else {
+            $data['tematik'] = collect();
+        }
+        
+        $data['filter_modul'] = $request->filter_modul;
+        $data['filter_tematik'] = $request->filter_tematik;
+        
+        session()->put('bank_soal', url()->full());
+        return view('master.bank_soal.index', $data);
+    }
+
+    public function template()
+    {
+        return Excel::download(new BankSoalTemplateExport, 'Template_Bank_Soal.xlsx');
+    }
+
+    public function getTematikByModul($id_modul)
+    {
+        $tematik = \App\Models\Master\KategoriSoal::where('id_modul', $id_modul)->where('aktif', 1)->get();
+        return response()->json($tematik);
+    }
+
+    public function import(Request $request)
+    {
+        try {
+            $request->validate([
+                'id_modul' => 'required',
+                'id_tematik' => 'required',
+                'data_file' => 'required|file'
+            ]);
+
+            $file = $request->file('data_file')->getRealPath();
+            Excel::import(new BankSoalImport($request->id_modul, $request->id_tematik), $file);
+
+            return redirect(session('bank_soal'))->with('success', 'Berhasil Import Bank Soal');
+        } catch (Exception $e) {
+            Log::info('Error ' . $e->getMessage());
+            return redirect(session('bank_soal'))->with('error', 'Gagal Import: ' . $e->getMessage());
+        }
+    }
+
+    public function hapus($id)
+    {
+        try {
+            $soal = BankSoal::find(decrypt($id));
+            if ($soal) {
+                $soal->delete();
+            }
+            return redirect(session('bank_soal'))->with('success', 'Data Terhapus');
+        } catch (Exception $e) {
+            Log::info('Error ' . $e->getMessage());
+            return redirect(session('bank_soal'))->with('error', 'Gagal Hapus');
+        }
+    }
+
+    public function bulkHapus(Request $request)
+    {
+        try {
+            $ids = $request->ids;
+            if ($ids && is_array($ids)) {
+                BankSoal::whereIn('id', $ids)->delete();
+                return redirect(session('bank_soal'))->with('success', count($ids) . ' Data Terhapus');
+            }
+            return redirect(session('bank_soal'))->with('error', 'Pilih data yang akan dihapus');
+        } catch (Exception $e) {
+            Log::info('Error bulk hapus ' . $e->getMessage());
+            return redirect(session('bank_soal'))->with('error', 'Gagal Hapus Data: ' . $e->getMessage());
+        }
+    }
+
+}

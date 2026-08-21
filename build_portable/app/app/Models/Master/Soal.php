@@ -1,2 +1,51 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXE1vZGVsc1xNYXN0ZXI7Cgp1c2UgSWxsdW1pbmF0ZVxEYXRhYmFzZVxFbG9xdWVudFxGYWN0b3JpZXNcSGFzRmFjdG9yeTsKdXNlIElsbHVtaW5hdGVcRGF0YWJhc2VcRWxvcXVlbnRcTW9kZWw7CgpjbGFzcyBTb2FsIGV4dGVuZHMgTW9kZWwKewogICAgdXNlIEhhc0ZhY3Rvcnk7CiAgICBwcm90ZWN0ZWQgJGNvbm5lY3Rpb24gPSAnbXlzcWwnOwogICAgcHJvdGVjdGVkICR0YWJsZSA9ICdyZWZfc29hbCc7CiAgICAvLy0tLVNldCBQcmltYXJ5IEtleS0tLQogICAgcHJvdGVjdGVkICRwcmltYXJ5S2V5ID0gJ2lkX3NvYWwnOwoKICAgIHB1YmxpYyAkaW5jcmVtZW50aW5nID0gZmFsc2U7CgoKICAgIHB1YmxpYyAkdGltZXN0YW1wcyA9IGZhbHNlOwoKCiAgICBwdWJsaWMgZnVuY3Rpb24ga2F0ZWdvcmkoKQogICAgewogICAgICAgIHJldHVybiAkdGhpcy0+YmVsb25nc1RvKEthdGVnb3JpU29hbDo6Y2xhc3MsICJpZF9rYXRlZ29yaV9zb2FsIiwgImlkX2thdGVnb3JpX3NvYWwiKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gbW9kdWwoKQogICAgewogICAgICAgIHJldHVybiAkdGhpcy0+YmVsb25nc1RvKE1vZHVsOjpjbGFzcywgImlkX21vZHVsIiwgImlkX21vZHVsIik7CiAgICB9CgogICAgcHJvdGVjdGVkICRmaWxsYWJsZSA9IFsKICAgICAgICAnaWRfc29hbCcsCiAgICAgICAgJ2lkX2thdGVnb3JpX3NvYWwnLAogICAgICAgICdzb2FsJywKICAgICAgICAncGVtYmFoYXNhbicsCiAgICAgICAgLy8gJ2ZpbGUnLAogICAgICAgICdqYXdhYmFuX2EnLAogICAgICAgICdwb2luX2EnLAogICAgICAgICdqYXdhYmFuX2InLAogICAgICAgICdwb2luX2InLAogICAgICAgICdqYXdhYmFuX2MnLAogICAgICAgICdwb2luX2MnLAogICAgICAgICdqYXdhYmFuX2QnLAogICAgICAgICdwb2luX2QnLAogICAgICAgICdqYXdhYmFuX2UnLAogICAgICAgICdwb2luX2UnLAogICAgICAgICdjcmVhdGVkX2F0JywKICAgICAgICAnY3JlYXRlZF9ieScKICAgIF07Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Models\Master;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Soal extends Model
+{
+    use HasFactory;
+    protected $connection = 'mysql';
+    protected $table = 'ref_soal';
+    //---Set Primary Key---
+    protected $primaryKey = 'id_soal';
+
+    public $incrementing = false;
+
+
+    public $timestamps = false;
+
+
+    public function kategori()
+    {
+        return $this->belongsTo(KategoriSoal::class, "id_kategori_soal", "id_kategori_soal");
+    }
+
+    public function modul()
+    {
+        return $this->belongsTo(Modul::class, "id_modul", "id_modul");
+    }
+
+    protected $fillable = [
+        'id_soal',
+        'id_kategori_soal',
+        'soal',
+        'pembahasan',
+        // 'file',
+        'jawaban_a',
+        'poin_a',
+        'jawaban_b',
+        'poin_b',
+        'jawaban_c',
+        'poin_c',
+        'jawaban_d',
+        'poin_d',
+        'jawaban_e',
+        'poin_e',
+        'created_at',
+        'created_by'
+    ];
+}

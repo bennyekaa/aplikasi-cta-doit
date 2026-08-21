@@ -1,2 +1,38 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXFByb3ZpZGVyczsKCnVzZSBJbGx1bWluYXRlXEF1dGhcRXZlbnRzXFJlZ2lzdGVyZWQ7CnVzZSBJbGx1bWluYXRlXEF1dGhcTGlzdGVuZXJzXFNlbmRFbWFpbFZlcmlmaWNhdGlvbk5vdGlmaWNhdGlvbjsKdXNlIElsbHVtaW5hdGVcRm91bmRhdGlvblxTdXBwb3J0XFByb3ZpZGVyc1xFdmVudFNlcnZpY2VQcm92aWRlciBhcyBTZXJ2aWNlUHJvdmlkZXI7CnVzZSBJbGx1bWluYXRlXFN1cHBvcnRcRmFjYWRlc1xFdmVudDsKCmNsYXNzIEV2ZW50U2VydmljZVByb3ZpZGVyIGV4dGVuZHMgU2VydmljZVByb3ZpZGVyCnsKICAgIC8qKgogICAgICogVGhlIGV2ZW50IHRvIGxpc3RlbmVyIG1hcHBpbmdzIGZvciB0aGUgYXBwbGljYXRpb24uCiAgICAgKgogICAgICogQHZhciBhcnJheTxjbGFzcy1zdHJpbmcsIGFycmF5PGludCwgY2xhc3Mtc3RyaW5nPj4KICAgICAqLwogICAgcHJvdGVjdGVkICRsaXN0ZW4gPSBbCiAgICAgICAgUmVnaXN0ZXJlZDo6Y2xhc3MgPT4gWwogICAgICAgICAgICBTZW5kRW1haWxWZXJpZmljYXRpb25Ob3RpZmljYXRpb246OmNsYXNzLAogICAgICAgIF0sCiAgICBdOwoKICAgIC8qKgogICAgICogUmVnaXN0ZXIgYW55IGV2ZW50cyBmb3IgeW91ciBhcHBsaWNhdGlvbi4KICAgICAqLwogICAgcHVibGljIGZ1bmN0aW9uIGJvb3QoKTogdm9pZAogICAgewogICAgICAgIC8vCiAgICB9CgogICAgLyoqCiAgICAgKiBEZXRlcm1pbmUgaWYgZXZlbnRzIGFuZCBsaXN0ZW5lcnMgc2hvdWxkIGJlIGF1dG9tYXRpY2FsbHkgZGlzY292ZXJlZC4KICAgICAqLwogICAgcHVibGljIGZ1bmN0aW9uIHNob3VsZERpc2NvdmVyRXZlbnRzKCk6IGJvb2wKICAgIHsKICAgICAgICByZXR1cm4gZmFsc2U7CiAgICB9Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Providers;
+
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Event;
+
+class EventServiceProvider extends ServiceProvider
+{
+    /**
+     * The event to listener mappings for the application.
+     *
+     * @var array<class-string, array<int, class-string>>
+     */
+    protected $listen = [
+        Registered::class => [
+            SendEmailVerificationNotification::class,
+        ],
+    ];
+
+    /**
+     * Register any events for your application.
+     */
+    public function boot(): void
+    {
+        //
+    }
+
+    /**
+     * Determine if events and listeners should be automatically discovered.
+     */
+    public function shouldDiscoverEvents(): bool
+    {
+        return false;
+    }
+}

@@ -1,2 +1,27 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXENvbnNvbGU7Cgp1c2UgSWxsdW1pbmF0ZVxDb25zb2xlXFNjaGVkdWxpbmdcU2NoZWR1bGU7CnVzZSBJbGx1bWluYXRlXEZvdW5kYXRpb25cQ29uc29sZVxLZXJuZWwgYXMgQ29uc29sZUtlcm5lbDsKCmNsYXNzIEtlcm5lbCBleHRlbmRzIENvbnNvbGVLZXJuZWwKewogICAgLyoqCiAgICAgKiBEZWZpbmUgdGhlIGFwcGxpY2F0aW9uJ3MgY29tbWFuZCBzY2hlZHVsZS4KICAgICAqLwogICAgcHJvdGVjdGVkIGZ1bmN0aW9uIHNjaGVkdWxlKFNjaGVkdWxlICRzY2hlZHVsZSk6IHZvaWQKICAgIHsKICAgICAgICAvLyAkc2NoZWR1bGUtPmNvbW1hbmQoJ2luc3BpcmUnKS0+aG91cmx5KCk7CiAgICB9CgogICAgLyoqCiAgICAgKiBSZWdpc3RlciB0aGUgY29tbWFuZHMgZm9yIHRoZSBhcHBsaWNhdGlvbi4KICAgICAqLwogICAgcHJvdGVjdGVkIGZ1bmN0aW9uIGNvbW1hbmRzKCk6IHZvaWQKICAgIHsKICAgICAgICAkdGhpcy0+bG9hZChfX0RJUl9fLicvQ29tbWFuZHMnKTsKCiAgICAgICAgcmVxdWlyZSBiYXNlX3BhdGgoJ3JvdXRlcy9jb25zb2xlLnBocCcpOwogICAgfQp9RE9JVFNVS1NFUw==')));
+
+namespace App\Console;
+
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+
+class Kernel extends ConsoleKernel
+{
+    /**
+     * Define the application's command schedule.
+     */
+    protected function schedule(Schedule $schedule): void
+    {
+        // $schedule->command('inspire')->hourly();
+    }
+
+    /**
+     * Register the commands for the application.
+     */
+    protected function commands(): void
+    {
+        $this->load(__DIR__.'/Commands');
+
+        require base_path('routes/console.php');
+    }
+}

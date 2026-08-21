@@ -1,2 +1,40 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcUmVnaXN0ZXI7Cgp1c2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcQ29udHJvbGxlcjsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXFBlbmdndW5hOwp1c2UgSWxsdW1pbmF0ZVxIdHRwXFJlcXVlc3Q7CnVzZSBJbGx1bWluYXRlXFN1cHBvcnRcU3RyOwp1c2UgSWxsdW1pbmF0ZVxTdXBwb3J0XEZhY2FkZXNcSGFzaDsKCmNsYXNzIFJlZ2lzdGVyQ29udHJvbGxlciBleHRlbmRzIENvbnRyb2xsZXIKewogICAgcHVibGljIGZ1bmN0aW9uIGluZGV4KCkKICAgIHsKICAgICAgICAkZGF0YVsnaW5zdGFuc2knXSA9ICR0aGlzLT5wZW5nYXR1cmFuLT5pbnN0YW5zaTsKICAgICAgICAkZGF0YVsnbG9nbyddID0gJHRoaXMtPnBlbmdhdHVyYW4tPmxvZ287CiAgICAgICAgJGRhdGFbJ3BlbmdhdHVyYW4nXSA9ICR0aGlzLT5wZW5nYXR1cmFuOwogICAgICAgIHNlc3Npb24oKS0+cHV0KCdyZWdpc3RlcicsIHVybCgpLT5mdWxsKCkpOwogICAgICAgIHJldHVybiB2aWV3KCdyZWdpc3Rlci5pbmRleCcsICRkYXRhKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gYWN0aW9ucmVnaXN0ZXIoUmVxdWVzdCAkcmVxdWVzdCkKICAgIHsKICAgICAgICAkdXNlcm5hbWUgPSBQZW5nZ3VuYTo6d2hlcmUoJ3VzZXJuYW1lJywgJHJlcXVlc3QtPnVzZXJuYW1lKS0+Y291bnQoKTsKICAgICAgICBpZiAoJHVzZXJuYW1lID4gMCkgewogICAgICAgICAgICByZXR1cm4gcmVkaXJlY3QoJ3JlZ2lzdGVyJyktPndpdGgoJ2Vycm9yJywgJ1VzZXJuYW1lIFN1ZGFoIFRlcmRhZnRhcicpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICRwZW5nZ3VuYSA9IG5ldyBQZW5nZ3VuYSgpOwogICAgICAgICAgICAkcGVuZ2d1bmEtPmlkX3VzZXIgPSBTdHI6OnV1aWQoKTsKICAgICAgICAgICAgJHBlbmdndW5hLT51c2VybmFtZSA9ICRyZXF1ZXN0LT51c2VybmFtZTsKICAgICAgICAgICAgJHBlbmdndW5hLT5uYW1hX2xlbmdrYXAgPSAkcmVxdWVzdC0+bmFtYV9sZW5na2FwOwogICAgICAgICAgICAkcGVuZ2d1bmEtPnJvbGUgPSAxOwogICAgICAgICAgICAkcGVuZ2d1bmEtPnBhc3N3b3JkID0gSGFzaDo6bWFrZSgkcmVxdWVzdC0+cGFzc3dvcmQpOwogICAgICAgICAgICAkcGVuZ2d1bmEtPmNyZWF0ZWRfYXQgPSAkdGhpcy0+d2FrdHU7CiAgICAgICAgICAgICRwZW5nZ3VuYS0+Y3JlYXRlZF9ieSA9ICRwZW5nZ3VuYS0+aWRfdXNlcjsKICAgICAgICAgICAgJHBlbmdndW5hLT5zYXZlKCk7CiAgICAgICAgICAgIHJldHVybiByZWRpcmVjdCgnbG9naW4nKS0+d2l0aCgnc3VjY2VzcycsICdTaWxhaGthbiBIdWJ1bmdpIFdBICcuJHRoaXMtPnBlbmdhdHVyYW4tPm5vbW9yLicgdW50dWsgdmVyaWZpa2FzaSBkYXRhJyk7CiAgICAgICAgfQogICAgfQp9RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers\Register;
+
+use App\Http\Controllers\Controller;
+use App\Models\Master\Pengguna;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+
+class RegisterController extends Controller
+{
+    public function index()
+    {
+        $data['instansi'] = $this->pengaturan->instansi;
+        $data['logo'] = $this->pengaturan->logo;
+        $data['pengaturan'] = $this->pengaturan;
+        session()->put('register', url()->full());
+        return view('register.index', $data);
+    }
+
+    public function actionregister(Request $request)
+    {
+        $username = Pengguna::where('username', $request->username)->count();
+        if ($username > 0) {
+            return redirect('register')->with('error', 'Username Sudah Terdaftar');
+        } else {
+            $pengguna = new Pengguna();
+            $pengguna->id_user = Str::uuid();
+            $pengguna->username = $request->username;
+            $pengguna->nama_lengkap = $request->nama_lengkap;
+            $pengguna->role = 1;
+            $pengguna->password = Hash::make($request->password);
+            $pengguna->created_at = $this->waktu;
+            $pengguna->created_by = $pengguna->id_user;
+            $pengguna->save();
+            return redirect('login')->with('success', 'Silahkan Hubungi WA '.$this->pengaturan->nomor.' untuk verifikasi data');
+        }
+    }
+}

@@ -1,2 +1,22 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXE1vZGVsc1xNYXN0ZXI7Cgp1c2UgSWxsdW1pbmF0ZVxEYXRhYmFzZVxFbG9xdWVudFxGYWN0b3JpZXNcSGFzRmFjdG9yeTsKdXNlIElsbHVtaW5hdGVcRGF0YWJhc2VcRWxvcXVlbnRcTW9kZWw7CgpjbGFzcyBKYXdhYmFuIGV4dGVuZHMgTW9kZWwKewogICAgdXNlIEhhc0ZhY3Rvcnk7CiAgICBwcm90ZWN0ZWQgJGNvbm5lY3Rpb24gPSAnbXlzcWwnOwogICAgcHJvdGVjdGVkICR0YWJsZSA9ICdkYXRhX3Jpd2F5YXQnOwogICAgLy8tLS1TZXQgUHJpbWFyeSBLZXktLS0KICAgIHByb3RlY3RlZCAkcHJpbWFyeUtleSA9ICdpZF9qYXdhYmFuJzsKCiAgICBwdWJsaWMgJGluY3JlbWVudGluZyA9IGZhbHNlOwoKICAgIHB1YmxpYyBmdW5jdGlvbiBzb2FsKCkKICAgIHsKICAgICAgICByZXR1cm4gJHRoaXMtPmJlbG9uZ3NUbyhTb2FsOjpjbGFzcywgImlkX3NvYWwiLCAiaWRfc29hbCIpOwogICAgfQp9RE9JVFNVS1NFUw==')));
+
+namespace App\Models\Master;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Jawaban extends Model
+{
+    use HasFactory;
+    protected $connection = 'mysql';
+    protected $table = 'data_riwayat';
+    //---Set Primary Key---
+    protected $primaryKey = 'id_jawaban';
+
+    public $incrementing = false;
+
+    public function soal()
+    {
+        return $this->belongsTo(Soal::class, "id_soal", "id_soal");
+    }
+}

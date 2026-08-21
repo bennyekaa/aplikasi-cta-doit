@@ -1,2 +1,130 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnNcTWFzdGVyXFBlbmdndW5hOwoKdXNlIEFwcFxIdHRwXENvbnRyb2xsZXJzXENvbnRyb2xsZXI7CnVzZSBBcHBcTW9kZWxzXE1hc3RlclxQZW5nZ3VuYTsKdXNlIEFwcFxNb2RlbHNcTWFzdGVyXEphYmF0YW47CnVzZSBBcHBcTW9kZWxzXE1hc3RlclxEZXNhOwp1c2UgRXhjZXB0aW9uOwp1c2UgSWxsdW1pbmF0ZVxIdHRwXFJlcXVlc3Q7CnVzZSBJbGx1bWluYXRlXFN1cHBvcnRcRmFjYWRlc1xIYXNoOwp1c2UgSWxsdW1pbmF0ZVxTdXBwb3J0XEZhY2FkZXNcTG9nOwp1c2UgSWxsdW1pbmF0ZVxTdXBwb3J0XFN0cjsKdXNlIE1hYXR3ZWJzaXRlXEV4Y2VsXEZhY2FkZXNcRXhjZWw7CnVzZSBBcHBcRXhwb3J0c1xQZW5nZ3VuYVRlbXBsYXRlRXhwb3J0Owp1c2UgQXBwXEltcG9ydHNcUGVuZ2d1bmFJbXBvcnQ7CmNsYXNzIFBlbmdndW5hQ29udHJvbGxlciBleHRlbmRzIENvbnRyb2xsZXIKewogICAgcHVibGljIGZ1bmN0aW9uIGluZGV4KCl7CiAgICAgICAgLy8gRWFnZXIgbG9hZCBqYWJhdGFuIGFuZCBkZXNhCiAgICAgICAgJGRhdGFbJ3BlbmdndW5hJ10gPSBQZW5nZ3VuYTo6d2l0aChbJ2phYmF0YW4nLCAnZGVzYS5rZWNhbWF0YW4nXSktPndoZXJlKCdyb2xlJywgJzw+JywgOTkpLT5nZXQoKTsKICAgICAgICBzZXNzaW9uKCktPnB1dCgncGVuZ2d1bmEnLCB1cmwoKS0+ZnVsbCgpKTsKICAgICAgICByZXR1cm4gdmlldygnbWFzdGVyLnBlbmdndW5hLmluZGV4JywgJGRhdGEpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiB0YW1iYWgoKXsKICAgICAgICAkZGF0YVsnamFiYXRhbiddID0gSmFiYXRhbjo6YWxsKCk7CiAgICAgICAgJGRhdGFbJ2Rlc2EnXSA9IERlc2E6OndpdGgoJ2tlY2FtYXRhbicpLT5nZXQoKTsKICAgICAgICByZXR1cm4gdmlldygnbWFzdGVyLnBlbmdndW5hLnRhbWJhaCcsICRkYXRhKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gZWRpdCgkaWQpewogICAgICAgICRkYXRhWydpZF91c2VyJ10gPSAkaWQ7CiAgICAgICAgJGRhdGFbJ3BlbmdndW5hJ10gPSBQZW5nZ3VuYTo6ZmluZChkZWNyeXB0KCRpZCkpOwogICAgICAgICRkYXRhWydqYWJhdGFuJ10gPSBKYWJhdGFuOjphbGwoKTsKICAgICAgICAkZGF0YVsnZGVzYSddID0gRGVzYTo6d2l0aCgna2VjYW1hdGFuJyktPmdldCgpOwogICAgICAgIHJldHVybiB2aWV3KCdtYXN0ZXIucGVuZ2d1bmEuZWRpdCcsICRkYXRhKTsKICAgIH0KCiAgICBwdWJsaWMgZnVuY3Rpb24gaGFwdXMoJGlkKXsKICAgICAgICB0cnkgewogICAgICAgICAgICAkcGVuZ2d1bmEgPSBQZW5nZ3VuYTo6ZmluZChkZWNyeXB0KCRpZCkpOwogICAgICAgICAgICAkcGVuZ2d1bmEtPmRlbGV0ZSgpOwogICAgICAgICAgICByZXR1cm4gcmVkaXJlY3Qoc2Vzc2lvbigncGVuZ2d1bmEnKSktPndpdGgoJ3N1Y2Nlc3MnLCAnQmVyaGFzaWwgSGFwdXMnKTsKICAgICAgICB9IGNhdGNoIChFeGNlcHRpb24gJGUpIHsKICAgICAgICAgICAgTG9nOjppbmZvKCdFcnJvciAnIC4gJGUtPmdldE1lc3NhZ2UoKSk7CiAgICAgICAgfQogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBzdGF0dXMoJGlkLCAkc2V0KXsKCiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIHBhc3N3b3JkKCRpZCl7CiAgICAgICAgJGRhdGFbJ3BlbmdndW5hJ10gPSBQZW5nZ3VuYTo6ZmluZChkZWNyeXB0KCRpZCkpOwogICAgICAgIHJldHVybiB2aWV3KCdtYXN0ZXIucGVuZ2d1bmEucGFzc3dvcmQnLCAkZGF0YSk7CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIHRlbXBsYXRlKCkKICAgIHsKICAgICAgICByZXR1cm4gRXhjZWw6OmRvd25sb2FkKG5ldyBQZW5nZ3VuYVRlbXBsYXRlRXhwb3J0LCAnVGVtcGxhdGVfUGVuZ2d1bmEueGxzeCcpOwogICAgfQoKICAgIHB1YmxpYyBmdW5jdGlvbiBpbXBvcnQoUmVxdWVzdCAkcmVxdWVzdCkKICAgIHsKICAgICAgICB0cnkgewogICAgICAgICAgICAkcmVxdWVzdC0+dmFsaWRhdGUoWwogICAgICAgICAgICAgICAgJ2ZpbGVfZXhjZWwnID0+ICdyZXF1aXJlZHxmaWxlJwogICAgICAgICAgICBdKTsKCiAgICAgICAgICAgIEV4Y2VsOjppbXBvcnQobmV3IFBlbmdndW5hSW1wb3J0LCAkcmVxdWVzdC0+ZmlsZSgnZmlsZV9leGNlbCcpKTsKCiAgICAgICAgICAgIHJldHVybiByZWRpcmVjdChzZXNzaW9uKCdwZW5nZ3VuYScpKS0+d2l0aCgnc3VjY2VzcycsICdEYXRhIGJlcmhhc2lsIGRpaW1wb3J0Jyk7CiAgICAgICAgfSBjYXRjaCAoRXhjZXB0aW9uICRlKSB7CiAgICAgICAgICAgIExvZzo6aW5mbygnRXJyb3IgSW1wb3J0OiAnIC4gJGUtPmdldE1lc3NhZ2UoKSk7CiAgICAgICAgICAgIHJldHVybiByZWRpcmVjdChzZXNzaW9uKCdwZW5nZ3VuYScpKS0+d2l0aCgnZXJyb3InLCAnR2FnYWwgaW1wb3J0IGRhdGE6ICcgLiAkZS0+Z2V0TWVzc2FnZSgpKTsKICAgICAgICB9CiAgICB9CgogICAgcHVibGljIGZ1bmN0aW9uIHByb3NlcyhSZXF1ZXN0ICRyZXF1ZXN0KXsKICAgICAgICB0cnkgewogICAgICAgICAgICBpZigkcmVxdWVzdC0+ZnVuZ3NpID09ICdUYW1iYWgnKXsKICAgICAgICAgICAgICAgIHRyeSB7CiAgICAgICAgICAgICAgICAgICAgJHBlbmdndW5hID0gbmV3IFBlbmdndW5hKCk7CiAgICAgICAgICAgICAgICAgICAgJHBlbmdndW5hLT5pZF91c2VyID0gU3RyOjp1dWlkKCk7CiAgICAgICAgICAgICAgICAgICAgJHBlbmdndW5hLT51c2VybmFtZSA9ICRyZXF1ZXN0LT51c2VybmFtZTsKICAgICAgICAgICAgICAgICAgICAkcGVuZ2d1bmEtPnBhc3N3b3JkID0gSGFzaDo6bWFrZSgkcmVxdWVzdC0+cGFzc3dvcmQpOwogICAgICAgICAgICAgICAgICAgICRwZW5nZ3VuYS0+bmFtYV9sZW5na2FwID0gJHJlcXVlc3QtPm5hbWFfbGVuZ2thcDsKICAgICAgICAgICAgICAgICAgICAkcGVuZ2d1bmEtPmlkX2phYmF0YW4gPSAkcmVxdWVzdC0+aWRfamFiYXRhbjsKICAgICAgICAgICAgICAgICAgICAkcGVuZ2d1bmEtPmlkX2Rlc2EgPSAkcmVxdWVzdC0+aWRfZGVzYTsKICAgICAgICAgICAgICAgICAgICAkcGVuZ2d1bmEtPnJvbGUgPSAxOyAvLyBEZWZhdWx0IHRvIFBlbmdndW5hCiAgICAgICAgICAgICAgICAgICAgJHBlbmdndW5hLT5ha3RpZiA9IDE7IC8vIERlZmF1bHQgdG8gQWt0aWYKICAgICAgICAgICAgICAgICAgICAkcGVuZ2d1bmEtPmNyZWF0ZWRfYnkgPSBzZXNzaW9uKCdpZF91c2VyJykgPz8gJ3N5c3RlbSc7CiAgICAgICAgICAgICAgICAgICAgJHBlbmdndW5hLT51cGRhdGVkX2J5ID0gc2Vzc2lvbignaWRfdXNlcicpID8/ICdzeXN0ZW0nOwogICAgICAgICAgICAgICAgICAgICRwZW5nZ3VuYS0+c2F2ZSgpOwogICAgICAgICAgICAgICAgICAgIHJldHVybiByZWRpcmVjdChzZXNzaW9uKCdwZW5nZ3VuYScpKS0+d2l0aCgnc3VjY2VzcycsICdUYW1iYWggRGF0YSBCZXJoYXNpbCcpOwogICAgICAgICAgICAgICAgfSBjYXRjaCAoRXhjZXB0aW9uICRlKSB7CiAgICAgICAgICAgICAgICAgICAgTG9nOjppbmZvKCdFcnJvciAnIC4gJGUtPmdldE1lc3NhZ2UoKSk7CiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KHNlc3Npb24oJ3BlbmdndW5hJykpOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9ZWxzZQogICAgICAgICAgICBpZigkcmVxdWVzdC0+ZnVuZ3NpID09ICdQYXNzd29yZCcpewogICAgICAgICAgICAgICAgdHJ5IHsKICAgICAgICAgICAgICAgICAgICBQZW5nZ3VuYTo6d2hlcmUoJ2lkX3VzZXInLCAnPScsICRyZXF1ZXN0LT5pZF91c2VyKS0+dXBkYXRlKFsncGFzc3dvcmQnID0+IEhhc2g6Om1ha2UoJHJlcXVlc3QtPnBhc3N3b3JkKV0pOwoKICAgICAgICAgICAgICAgICAgICByZXR1cm4gcmVkaXJlY3Qoc2Vzc2lvbigncGVuZ2d1bmEnKSktPndpdGgoJ3N1Y2Nlc3MnLCAnQmVyaGFzaWwgUmVzZXQgUGFzc3dvcmQnKTsKICAgICAgICAgICAgICAgIH0gY2F0Y2ggKEV4Y2VwdGlvbiAkZSkgewogICAgICAgICAgICAgICAgICAgIExvZzo6aW5mbygnRXJyb3IgJyAuICRlLT5nZXRNZXNzYWdlKCkpOwogICAgICAgICAgICAgICAgICAgIHJldHVybiByZWRpcmVjdChzZXNzaW9uKCdwZW5nZ3VuYScpKTsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfWVsc2UKICAgICAgICAgICAgaWYoJHJlcXVlc3QtPmZ1bmdzaSA9PSAnRWRpdCcpewogICAgICAgICAgICAgICAgdHJ5IHsKICAgICAgICAgICAgICAgICAgICAkcGVuZ2d1bmEgPSBQZW5nZ3VuYTo6ZmluZChkZWNyeXB0KCRyZXF1ZXN0LT5pZF91c2VyKSk7CiAgICAgICAgICAgICAgICAgICAgJHBlbmdndW5hLT51c2VybmFtZSA9ICRyZXF1ZXN0LT51c2VybmFtZTsKICAgICAgICAgICAgICAgICAgICAkcGVuZ2d1bmEtPm5hbWFfbGVuZ2thcCA9ICRyZXF1ZXN0LT5uYW1hX2xlbmdrYXA7CiAgICAgICAgICAgICAgICAgICAgJHBlbmdndW5hLT5pZF9qYWJhdGFuID0gJHJlcXVlc3QtPmlkX2phYmF0YW47CiAgICAgICAgICAgICAgICAgICAgJHBlbmdndW5hLT5pZF9kZXNhID0gJHJlcXVlc3QtPmlkX2Rlc2E7CiAgICAgICAgICAgICAgICAgICAgJHBlbmdndW5hLT5zYXZlKCk7CiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KHNlc3Npb24oJ3BlbmdndW5hJykpLT53aXRoKCdzdWNjZXNzJywgJ0VkaXQgRGF0YSBCZXJoYXNpbCcpOwogICAgICAgICAgICAgICAgfSBjYXRjaCAoRXhjZXB0aW9uICRlKSB7CiAgICAgICAgICAgICAgICAgICAgTG9nOjppbmZvKCdFcnJvciAnIC4gJGUtPmdldE1lc3NhZ2UoKSk7CiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHJlZGlyZWN0KHNlc3Npb24oJ3BlbmdndW5hJykpOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfSBjYXRjaCAoRXhjZXB0aW9uICRlKSB7CiAgICAgICAgICAgIExvZzo6aW5mbygnRXJyb3IgJyAuICRlLT5nZXRNZXNzYWdlKCkpOwogICAgICAgIH0KICAgIH0KfQ==RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers\Master\Pengguna;
+
+use App\Http\Controllers\Controller;
+use App\Models\Master\Pengguna;
+use App\Models\Master\Jabatan;
+use App\Models\Master\Desa;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PenggunaTemplateExport;
+use App\Imports\PenggunaImport;
+class PenggunaController extends Controller
+{
+    public function index(){
+        // Eager load jabatan and desa
+        $data['pengguna'] = Pengguna::with(['jabatan', 'desa.kecamatan'])->where('role', '<>', 99)->get();
+        session()->put('pengguna', url()->full());
+        return view('master.pengguna.index', $data);
+    }
+
+    public function tambah(){
+        $data['jabatan'] = Jabatan::all();
+        $data['desa'] = Desa::with('kecamatan')->get();
+        return view('master.pengguna.tambah', $data);
+    }
+
+    public function edit($id){
+        $data['id_user'] = $id;
+        $data['pengguna'] = Pengguna::find(decrypt($id));
+        $data['jabatan'] = Jabatan::all();
+        $data['desa'] = Desa::with('kecamatan')->get();
+        return view('master.pengguna.edit', $data);
+    }
+
+    public function hapus($id){
+        try {
+            $pengguna = Pengguna::find(decrypt($id));
+            $pengguna->delete();
+            return redirect(session('pengguna'))->with('success', 'Berhasil Hapus');
+        } catch (Exception $e) {
+            Log::info('Error ' . $e->getMessage());
+        }
+    }
+
+    public function status($id, $set){
+
+    }
+
+    public function password($id){
+        $data['pengguna'] = Pengguna::find(decrypt($id));
+        return view('master.pengguna.password', $data);
+    }
+
+    public function template()
+    {
+        return Excel::download(new PenggunaTemplateExport, 'Template_Pengguna.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        try {
+            $request->validate([
+                'file_excel' => 'required|file'
+            ]);
+
+            Excel::import(new PenggunaImport, $request->file('file_excel'));
+
+            return redirect(session('pengguna'))->with('success', 'Data berhasil diimport');
+        } catch (Exception $e) {
+            Log::info('Error Import: ' . $e->getMessage());
+            return redirect(session('pengguna'))->with('error', 'Gagal import data: ' . $e->getMessage());
+        }
+    }
+
+    public function proses(Request $request){
+        try {
+            if($request->fungsi == 'Tambah'){
+                try {
+                    $pengguna = new Pengguna();
+                    $pengguna->id_user = Str::uuid();
+                    $pengguna->username = $request->username;
+                    $pengguna->password = Hash::make($request->password);
+                    $pengguna->nama_lengkap = $request->nama_lengkap;
+                    $pengguna->id_jabatan = $request->id_jabatan;
+                    $pengguna->id_desa = $request->id_desa;
+                    $pengguna->role = 1; // Default to Pengguna
+                    $pengguna->aktif = 1; // Default to Aktif
+                    $pengguna->created_by = session('id_user') ?? 'system';
+                    $pengguna->updated_by = session('id_user') ?? 'system';
+                    $pengguna->save();
+                    return redirect(session('pengguna'))->with('success', 'Tambah Data Berhasil');
+                } catch (Exception $e) {
+                    Log::info('Error ' . $e->getMessage());
+                    return redirect(session('pengguna'));
+                }
+            }else
+            if($request->fungsi == 'Password'){
+                try {
+                    Pengguna::where('id_user', '=', $request->id_user)->update(['password' => Hash::make($request->password)]);
+
+                    return redirect(session('pengguna'))->with('success', 'Berhasil Reset Password');
+                } catch (Exception $e) {
+                    Log::info('Error ' . $e->getMessage());
+                    return redirect(session('pengguna'));
+                }
+            }else
+            if($request->fungsi == 'Edit'){
+                try {
+                    $pengguna = Pengguna::find(decrypt($request->id_user));
+                    $pengguna->username = $request->username;
+                    $pengguna->nama_lengkap = $request->nama_lengkap;
+                    $pengguna->id_jabatan = $request->id_jabatan;
+                    $pengguna->id_desa = $request->id_desa;
+                    $pengguna->save();
+                    return redirect(session('pengguna'))->with('success', 'Edit Data Berhasil');
+                } catch (Exception $e) {
+                    Log::info('Error ' . $e->getMessage());
+                    return redirect(session('pengguna'));
+                }
+            }
+        } catch (Exception $e) {
+            Log::info('Error ' . $e->getMessage());
+        }
+    }
+}

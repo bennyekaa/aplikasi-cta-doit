@@ -1,2 +1,37 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEh0dHBcQ29udHJvbGxlcnM7Cgp1c2UgQXBwXE1vZGVsc1xQZW5nYXR1cmFuOwp1c2UgSWxsdW1pbmF0ZVxGb3VuZGF0aW9uXEF1dGhcQWNjZXNzXEF1dGhvcml6ZXNSZXF1ZXN0czsKdXNlIElsbHVtaW5hdGVcRm91bmRhdGlvblxWYWxpZGF0aW9uXFZhbGlkYXRlc1JlcXVlc3RzOwp1c2UgSWxsdW1pbmF0ZVxSb3V0aW5nXENvbnRyb2xsZXIgYXMgQmFzZUNvbnRyb2xsZXI7CnVzZSBSZWFsUmFzaGlkXFN3ZWV0QWxlcnRcRmFjYWRlc1xBbGVydDsKCmNsYXNzIENvbnRyb2xsZXIgZXh0ZW5kcyBCYXNlQ29udHJvbGxlcgp7CiAgICB1c2UgQXV0aG9yaXplc1JlcXVlc3RzLCBWYWxpZGF0ZXNSZXF1ZXN0czsKCiAgICBwdWJsaWMgJHdha3R1OwoKICAgIHB1YmxpYyAkcGVuZ2F0dXJhbjsKCiAgICBwdWJsaWMgZnVuY3Rpb24gX19jb25zdHJ1Y3QoKQogICAgewogICAgICAgICR0aGlzLT5taWRkbGV3YXJlKGZ1bmN0aW9uICgkcmVxdWVzdCwgJG5leHQpIHsKICAgICAgICAgICAgaWYgKHNlc3Npb24oJ3N1Y2Nlc3MnKSkgewogICAgICAgICAgICAgICAgQWxlcnQ6OnN1Y2Nlc3Moc2Vzc2lvbignc3VjY2VzcycpKTsKICAgICAgICAgICAgfQoKICAgICAgICAgICAgaWYgKHNlc3Npb24oJ2Vycm9yJykpIHsKICAgICAgICAgICAgICAgIEFsZXJ0OjplcnJvcihzZXNzaW9uKCdlcnJvcicpKTsKICAgICAgICAgICAgfQoKICAgICAgICAgICAgcmV0dXJuICRuZXh0KCRyZXF1ZXN0KTsKICAgICAgICB9KTsKCiAgICAgICAgJHRoaXMtPndha3R1ID0gXENhcmJvblxDYXJib246Om5vdygpLT5mb3JtYXQoIlktbS1kIEg6aTpzLnUiKTsKCiAgICAgICAgJHRoaXMtPnBlbmdhdHVyYW4gPSBQZW5nYXR1cmFuOjpmaXJzdCgpOwogICAgfQp9RE9JVFNVS1NFUw==')));
+
+namespace App\Http\Controllers;
+
+use App\Models\Pengaturan;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
+use RealRashid\SweetAlert\Facades\Alert;
+
+class Controller extends BaseController
+{
+    use AuthorizesRequests, ValidatesRequests;
+
+    public $waktu;
+
+    public $pengaturan;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (session('success')) {
+                Alert::success(session('success'));
+            }
+
+            if (session('error')) {
+                Alert::error(session('error'));
+            }
+
+            return $next($request);
+        });
+
+        $this->waktu = \Carbon\Carbon::now()->format("Y-m-d H:i:s.u");
+
+        $this->pengaturan = Pengaturan::first();
+    }
+}

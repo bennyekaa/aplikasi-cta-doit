@@ -1,2 +1,30 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXEV4Y2VwdGlvbnM7Cgp1c2UgSWxsdW1pbmF0ZVxGb3VuZGF0aW9uXEV4Y2VwdGlvbnNcSGFuZGxlciBhcyBFeGNlcHRpb25IYW5kbGVyOwp1c2UgVGhyb3dhYmxlOwoKY2xhc3MgSGFuZGxlciBleHRlbmRzIEV4Y2VwdGlvbkhhbmRsZXIKewogICAgLyoqCiAgICAgKiBUaGUgbGlzdCBvZiB0aGUgaW5wdXRzIHRoYXQgYXJlIG5ldmVyIGZsYXNoZWQgdG8gdGhlIHNlc3Npb24gb24gdmFsaWRhdGlvbiBleGNlcHRpb25zLgogICAgICoKICAgICAqIEB2YXIgYXJyYXk8aW50LCBzdHJpbmc+CiAgICAgKi8KICAgIHByb3RlY3RlZCAkZG9udEZsYXNoID0gWwogICAgICAgICdjdXJyZW50X3Bhc3N3b3JkJywKICAgICAgICAncGFzc3dvcmQnLAogICAgICAgICdwYXNzd29yZF9jb25maXJtYXRpb24nLAogICAgXTsKCiAgICAvKioKICAgICAqIFJlZ2lzdGVyIHRoZSBleGNlcHRpb24gaGFuZGxpbmcgY2FsbGJhY2tzIGZvciB0aGUgYXBwbGljYXRpb24uCiAgICAgKi8KICAgIHB1YmxpYyBmdW5jdGlvbiByZWdpc3RlcigpOiB2b2lkCiAgICB7CiAgICAgICAgJHRoaXMtPnJlcG9ydGFibGUoZnVuY3Rpb24gKFRocm93YWJsZSAkZSkgewogICAgICAgICAgICAvLwogICAgICAgIH0pOwogICAgfQp9RE9JVFNVS1NFUw==')));
+
+namespace App\Exceptions;
+
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Throwable;
+
+class Handler extends ExceptionHandler
+{
+    /**
+     * The list of the inputs that are never flashed to the session on validation exceptions.
+     *
+     * @var array<int, string>
+     */
+    protected $dontFlash = [
+        'current_password',
+        'password',
+        'password_confirmation',
+    ];
+
+    /**
+     * Register the exception handling callbacks for the application.
+     */
+    public function register(): void
+    {
+        $this->reportable(function (Throwable $e) {
+            //
+        });
+    }
+}

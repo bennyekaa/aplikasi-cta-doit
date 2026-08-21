@@ -1,2 +1,26 @@
 <?php
-return eval(base64_decode(str_replace('RE9JVFNVS1NFUw==', '', 'RE9JVFNVS1NFUw==CgpuYW1lc3BhY2UgQXBwXFByb3ZpZGVyczsKCi8vIHVzZSBJbGx1bWluYXRlXFN1cHBvcnRcRmFjYWRlc1xHYXRlOwp1c2UgSWxsdW1pbmF0ZVxGb3VuZGF0aW9uXFN1cHBvcnRcUHJvdmlkZXJzXEF1dGhTZXJ2aWNlUHJvdmlkZXIgYXMgU2VydmljZVByb3ZpZGVyOwoKY2xhc3MgQXV0aFNlcnZpY2VQcm92aWRlciBleHRlbmRzIFNlcnZpY2VQcm92aWRlcgp7CiAgICAvKioKICAgICAqIFRoZSBtb2RlbCB0byBwb2xpY3kgbWFwcGluZ3MgZm9yIHRoZSBhcHBsaWNhdGlvbi4KICAgICAqCiAgICAgKiBAdmFyIGFycmF5PGNsYXNzLXN0cmluZywgY2xhc3Mtc3RyaW5nPgogICAgICovCiAgICBwcm90ZWN0ZWQgJHBvbGljaWVzID0gWwogICAgICAgIC8vCiAgICBdOwoKICAgIC8qKgogICAgICogUmVnaXN0ZXIgYW55IGF1dGhlbnRpY2F0aW9uIC8gYXV0aG9yaXphdGlvbiBzZXJ2aWNlcy4KICAgICAqLwogICAgcHVibGljIGZ1bmN0aW9uIGJvb3QoKTogdm9pZAogICAgewogICAgICAgIC8vCiAgICB9Cn0=RE9JVFNVS1NFUw==')));
+
+namespace App\Providers;
+
+// use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    /**
+     * The model to policy mappings for the application.
+     *
+     * @var array<class-string, class-string>
+     */
+    protected $policies = [
+        //
+    ];
+
+    /**
+     * Register any authentication / authorization services.
+     */
+    public function boot(): void
+    {
+        //
+    }
+}
